@@ -1,0 +1,20 @@
+.landing-story {
+    margin: 2em auto 2em auto;
+}
+
+.landing-story h3 {
+    margin: .3em;
+}
+
+.landing-story avatar,
+.landing-story img {
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    border-radius: 50% 50%;
+    background: #000;
+}
+
+.landing-story p {
+    margin: .3em;
+}

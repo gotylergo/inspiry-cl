@@ -1,0 +1,91 @@
+.story-main {
+    height: 100%;
+    background: red;
+    color: #fff;
+}
+
+.bg-diluter {
+    height: 100%;
+    position: relative;
+    padding: 0 3em 65px;
+    background: rgba(0, 0, 0, .85);
+}
+
+.story-header {
+    padding: 4em 0 1em;
+}
+
+.story-header h1 {
+    margin-bottom: 1em;
+    font-size: 1.75em;
+    font-family: 'Comfortaa', cursive;
+}
+
+.timer {
+    float: right;
+    padding: 1em 0;
+}
+
+.timer i {
+    font-size: 2em;
+}
+
+.target-word-label {
+    width: 50%;
+    padding: 1px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.target-word {
+    width: 50%;
+    float: right;
+    box-sizing: border-box;
+    text-align: center;
+    border: 1px dashed #fff;
+}
+
+.story-input,
+.story {
+    font-size: 1em;
+}
+
+.story-input {
+    display: inline-block;
+    vertical-align: middle;
+    height: 4em;
+    margin-top: 2em;
+    box-sizing: border-box;
+    padding: 1em;
+    width: 100%;
+    background: transparent;
+    color: white;
+}
+
+.story {
+    line-height: 2em;
+    margin: .5em 0 .5em;
+}
+.story picture,
+.story img {
+    float: right;
+    height: 150px;
+    width: 150px;
+    background: #000;
+}
+
+.story-footer {
+    bottom: 0;
+    position: fixed;
+    height: 65px;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+    background: #000;
+}
+
+.story-footer button {
+    margin: 1em 0;
+    background: #000;
+    color: #fff;
+}
