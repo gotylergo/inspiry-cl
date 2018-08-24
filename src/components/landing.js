@@ -13,7 +13,7 @@ class Landing extends Component {
             <button className="btn-light">read for inspiration</button>
             <div className="app-demo">
               <picture>
-                <source srcset="" />
+                <source srcSet="" />
                 <img src="" alt="Screenshot / video / gif" />
               </picture>
             </div>
