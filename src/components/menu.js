@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Menu extends Component {
@@ -7,7 +8,7 @@ class Menu extends Component {
 
         return (
             <div className="menu-button">
-                <a href="#"><FontAwesomeIcon icon="bars" /></a>
+                <Link to="/"><FontAwesomeIcon role="button" icon="bars" /></Link>
             </div>
         )
     }
