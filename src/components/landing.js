@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Stories from './stories';
+import LandingStories from './landing-stories';
 
 class Landing extends Component {
   render() {
@@ -29,7 +29,7 @@ class Landing extends Component {
               <p>That idea isn't going to write itself, so let’s get started!</p>
               <button className="btn-dark">start writing</button>
             </div>
-            <Stories />
+            <LandingStories />
           </main>
           <footer className="section section-light">
             <p>App by Tyler</p>

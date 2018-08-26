@@ -6,7 +6,7 @@
 .auth-menu {
     margin: 1em 0;
     text-align: center;
-    font-size: 2em;
+    font-size: 1.8em;
     font-family: 'Comfortaa', cursive;
 }
 
@@ -26,4 +26,28 @@
     background: #000;
     color: #fff;
     font-family: 'Comfortaa', cursive;
+}
+
+.auth-modal {
+    background: #fff;
+    color: #000;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 500px;
+    width: 70%;
+    max-height: 80%;
+    margin: 0;
+    border-radius: 7px;
+    padding: 50px;
+    padding-bottom: 50px;
+    z-index: 2;
+    overflow: scroll;
+}
+
+.close-card {
+    position: absolute;
+    top: 15px;
+    right: 15px;
 }

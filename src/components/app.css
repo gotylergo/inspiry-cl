@@ -14,12 +14,13 @@ body {
   font-size: 2em;
 }
 
-.menu-button a,
-.menu-button a:hover,
-.menu-button a:active,
-.menu-button a:visited {
+.menu-button span {
   color: #fff;
   text-decoration: none;
+  text-shadow: 2px 3px 5px #aaa;
+}
+.manu-button span:hover {
+  text-shadow: none;
 }
 
 .section {
@@ -94,6 +95,3 @@ h2 {
 footer button {
   font-weight: bold;
 }
-
-/* @import url('https://use.fontawesome.com/releases/v5.2.0/css/all.css');
-@import url('https://fonts.googleapis.com/css?family=Pacifico'); */

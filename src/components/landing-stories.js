@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './stories.css';
+import './landing-stories.css';
 
-class Stories extends Component {
+class LandingStories extends Component {
     render() {
         return (
             <div className="section section-dark">
@@ -42,4 +42,4 @@ class Stories extends Component {
     }
 }
 
-export default Stories;
+export default LandingStories;

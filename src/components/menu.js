@@ -8,7 +8,7 @@ class Menu extends Component {
 
         return (
             <div className="menu-button">
-                <Link to="/"><FontAwesomeIcon role="button" icon="bars" /></Link>
+                <Link to="/"><span><FontAwesomeIcon icon="bars" /></span></Link>
             </div>
         )
     }
