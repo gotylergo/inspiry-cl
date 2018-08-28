@@ -7,7 +7,7 @@ class Landing extends Component {
       <div>
         <div>
           <header className="masthead section section-dark">
-            <p className="tagline">unblock your brain |</p>
+            <p className="tagline">unblock your brain <span className="blinking">|</span></p>
             <h1 className="app-name">inspiry</h1>
             <button className="btn-light">write a story</button>
             <button className="btn-light">read for inspiration</button>

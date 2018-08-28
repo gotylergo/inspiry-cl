@@ -5,17 +5,16 @@ import './nav-menu.css';
 class NavMenu extends Component {
     render() {
         return (
-                <nav role="nav" id="nav-bar">
+                <nav role="nav" id="nav-menu">
                     <ul>
-                        <li><span class="sign-out-button hide-me">
-                            <a href="#">
-                                <span class="nav-label">Sign Out</span> <FontAwesomeIcon icon="sign-out" aria-label="Sign Out" title="Home" />
-                            </a>
+                        <li><span className="help-button" aria-label="new story" title="new story" >
+                                <span className="nav-label">new story</span> <FontAwesomeIcon icon="plus"  className="nav-button" />
                         </span></li>
-                        <li><span class="help-button" aria-label="Help">
-                            <a href="/">
-                                <span class="nav-label">Help</span> <FontAwesomeIcon icon="question-circle" aria-label="Help" title="Help" />
-                            </a>
+                        <li><span className="help-button" aria-label="new story" title="new story" >
+                                <span className="nav-label">help</span> <FontAwesomeIcon icon="question-circle"  className="nav-button" />
+                        </span></li>
+                        <li><span className="sign-out-button hide-me" aria-label="sign out" title="sign out" >
+                                <span className="nav-label">sign out</span> <FontAwesomeIcon icon="sign-out" className="nav-button" />
                         </span></li>
                     </ul>
                 </nav>

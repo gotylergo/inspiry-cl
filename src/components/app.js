@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faBars, faStopwatch, faBook } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faStopwatch, faBook,  } from '@fortawesome/free-solid-svg-icons';
 import Menu from './menu';
 import Landing from './landing';
 import Writer from './writer';

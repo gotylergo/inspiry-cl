@@ -1,37 +1,43 @@
-a.nav-button {
-    float: right;
+#nav-menu {
+    position: absolute;
+    padding: 0 .5em;
+    font-size: 2em;
+    line-height: 2em;
+    left: 0;
+    width: 65%;
+    padding: 0;
+    margin: 0;
+    background: #000;
+}
+
+#nav-button {
+    position: relative;
+    left: 0;
     color: #fff;
     text-decoration: none;
     padding: 0;
     font-weight: bold;
 }
 
-a.nav-button:hover,
-a.nav-button:focus {
-    color: #ab3fb5;
+.nav-button:hover,
+.nav-button:focus {
+    color: rgb(17, 134, 150);
 }
 
-#nav-bar {
-    position: absolute;
-    top: 2.5em;
-    left: 0;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-}
-
-#nav-bar ul {
+#nav-menu ul {
     list-style: none;
-    text-align: right;
+    text-align: left;
     margin: 0;
-    padding: 1em;
+    padding: 0;
 }
 
-#nav-bar a,
-#nav-bar a:visited,
-#nav-bar a:active {
+#nav-menu ul li {
+    padding-left: 2.5em;
+}
+
+.nav-label {
     display: block;
-    padding: 0 15px;
+    padding: 15px 0;
     color: #fff;
     text-decoration: none;
     font-weight: bold;
@@ -43,11 +49,61 @@ a.nav-button:focus {
     border-bottom: 1px solid #ccc;
 }
 
-#nav-bar a:hover,
-#nav-bar a:focus {
+#nav-menu a:hover,
+#nav-menu a:focus {
     background: #ab3fb5;
 }
 
-#nav-bar li:last-child a {
+#nav-menu li:last-child a {
     border-bottom: none;
+}
+
+@media (min-width: 700px) {
+
+    .nav-button {
+        display: block;
+    }
+
+    #nav-menu {
+        position: static;
+        background: transparent;
+        top: 0;
+        right: 0;
+        font-size: 2.5em;
+        line-height: 2.5em;
+        /* height: 1em; */
+        padding: .5em 0;
+        z-index: 3;
+    }
+
+    #nav-menu ul {
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+    }
+
+    .nav-label {
+        display: none;
+    }
+
+    #nav-menu li {
+        display: block;
+        padding: 0;
+        float: right;
+        font-size: 1.65em;
+    }
+    #nav-menu a,
+    #nav-menu a:visited,
+    #nav-menu a:active {
+        border-bottom: 0;
+    }
+
+    .card {
+        width: 40%;
+        float: left;
+    }
+
+    .dest-title {
+        font-size: 1.5em;
+    }
 }
