@@ -6,9 +6,9 @@ class Login extends Component {
             <div className="sign-in-form">
                 <form>
                     <label for="email-address">email address</label>
-                    <input type="text" name="email-address" />
+                    <input type="email" name="email-address" required />
                     <label for="password">password</label>
-                    <input type="password" minlength="8" />
+                    <input type="password" minlength="8" required />
                     <button>sign in</button>
                 </form>
             </div>

@@ -6,12 +6,13 @@ class Register extends Component {
             <div className="sign-in-form">
                 <form>
                     <label for="display-name">display name</label>
-                    <input type="text" name="display-name" />
+                    <input type="text" name="display-name" required />
                     <label for="display-name">email address</label>
-                    <input type="text" name="display-name" />                    <label for="email-address">email address</label>
-                    <input type="text" name="email-address" />
+                    <input type="email" name="display-name" required />
+                    <label for="email-address">email address</label>
+                    <input type="text" name="email-address" required />
                     <label for="password">password</label>
-                    <input type="password" minlength="8" />
+                    <input type="password" minlength="8" required />
                     <button>register</button>
                 </form>
             </div>
