@@ -2,6 +2,13 @@ language: node_js
 node_js: node
 cache:
   directories:
-    - node_modules
+  - node_modules
 env:
-  - CI=true
+- CI=true
+deploy:
+  provider: heroku
+  api_key:
+    secure: Ih6VlXJYCDlLWwqjISE+P3iTVzviCLHYKreV1ZzjYjXXIp0bIgaoXPM2v2D2gF88Vkzx7Amh2WtsfiZBw8PzE0423w7xjRuw8b2X8VX01zeboWDIZ+RWUQ6VfLE5gq/d5HYR6xxbM9oMwtZmCAdVnsIViYZOXT1eiPk9k1YWiv1hIHvPLK4P7geI/yv2A+yh3s5dR7UNRmSGB38nwK3KIzAfex6F1DeRx+XRhkGQHqhtIMqGXJlpfQjXhfCVR3G+AV6Aw5STdpU4ToH2UboOo44HRezcgwNNnnJQwvmp6fkOgBhmVgYRLbH7+mSQnnXcghGZt6XVc+9THjE8P75Xva0KLhyz9OzgkahqTg2ufoQQgFSzdDNE6FRMtLjGhlKHrblu+q7dEbpLmUdgB9DG7zaMVktPUQ1TJSqweZTCgFfK/RiwBCj/PIXqKhC6zYYAmBVRVa+Y+AewaEF6bcKKuOoD0EWtHhRAhTRxxVbSVwnbjKJwnDTEIJGn1A3rkFymOxkSNAl46umJE1G3jOG+7ojkc/S0ApEEu745+Jnq1qqESJ0w6NNavigcLgq4bChTdzL5401+0quMbukJ8VtsSGE3YIBkA8lEE74Nnhmmn9r8EsW4p8TGmJ8P1zUI802Ux7reXR1Y3HhKFVtLnTG9Gqsv+g1Ei3QByoyqQFzaFY4=
+  app: inspiry-cl
+  on:
+    repo: gotylergo/inspiry-cl
