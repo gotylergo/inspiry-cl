@@ -1,0 +1,91 @@
+.section {
+    min-height: 100vh;
+    padding: 6em 2em 5em 2em;
+    text-align: center;
+}
+
+.section-light {
+    background: #fff;
+    color: #000;
+}
+
+.section-dark {
+    background: rgb(17, 134, 150);
+    color: #fff;
+}
+
+.masthead {
+    padding: 11em 0 5em 0;
+    background: rgb(17, 134, 150);
+    color: #fff;
+}
+
+.tagline {
+    padding: 0;
+    font-size: 1em;
+    font-family: 'Courier New', Courier, monospace;
+    padding-left: 1em;
+}
+
+.blinking {
+    animation: 1s blink step-end infinite;
+}
+
+@keyframes "blink" {
+    from,
+    to {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.app-name {
+    margin: -.75em 0 .75em 0;
+    font-size: 3em;
+    font-family: 'Pacifico', cursive;
+}
+
+button {
+    width: 200px;
+    padding: .5em;
+    font-size: 1em;
+    font-family: Roboto, Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: none transparent;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.btn-light {
+    color: #fff;
+    border-color: #fff;
+}
+
+.btn-dark {
+    color: #000;
+    border-color: #000;
+}
+
+header button {
+    margin: 1em;
+}
+
+.app-demo {
+    width: 200px;
+    height: 400px;
+    margin: 2em auto 0 auto;
+    background: #000;
+}
+
+h2 {
+    font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 2em;
+}
+.landing footer {
+    min-height: auto;
+}
+
+footer button {
+    font-weight: bold;
+}

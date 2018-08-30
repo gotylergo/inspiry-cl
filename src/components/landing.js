@@ -4,7 +4,7 @@ import LandingStories from './landing-stories';
 class Landing extends Component {
   render() {
     return (
-      <div>
+      <div class="landing">
         <div>
           <header className="masthead section section-dark">
             <p className="tagline">unblock your brain <span className="blinking">|</span></p>
