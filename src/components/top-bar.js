@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import NavMenu from './nav-menu';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './top-bar.css';
 
 class TopBar extends Component {
     state = {}
     render() {
         return (
-            <div class="top-bar">
-                <NavMenu />
-                <span class="app-title">my stories</span>
-            </div>
+            <header className="top-bar">
+                <FontAwesomeIcon icon="bars" className="menu-button"  role="button" aria-label="Open main menu" />
+                <span className="app-title">my stories</span>
+            </header>
         );
     }
 }

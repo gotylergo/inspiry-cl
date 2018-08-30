@@ -1,19 +1,27 @@
+/* Remove me */
+
+/* * {
+    border: 1px solid red;
+    color: blue;
+} */
+
+/* Remove me */
+
 .top-bar {
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
     top: 0;
     left: 0;
-    right: 0;
-    z-index: 1;
-    position: fixed;
-    background-color: #000;
-    color: #fff;
+    z-index: 7;
+    position: absolute;
     height: 2.5em;
-    padding: 0 50px;
-    box-sizing: border-box;
-    font-size: 1.5em;
-    line-height: 2.5em;
     width: 100%;
     min-width: 375px;
+    padding-left: 1em;
+    /* box-sizing: border-box; */
+    line-height: 2.5em;
+    font-size: 1.5em;
+    background-color: #000;
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
 }
 
 .app-title {
