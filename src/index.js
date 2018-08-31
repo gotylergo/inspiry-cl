@@ -7,7 +7,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 WebFont.load({
     google: {
-        families: ['Pacifico', 'Comfortaa']
+        families: ['Pacifico', 'Comfortaa', 'Georgia']
     }
 })
 

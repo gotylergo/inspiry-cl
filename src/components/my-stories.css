@@ -1,0 +1,87 @@
+.card {
+    margin: 2.5%;
+    padding: 7% 7%;
+    height: 350px;
+    position: absolute;
+    font-size: 1em;
+    overflow: hidden;
+    background: rgba(245, 245, 225, .8);
+}
+
+@media only screen and (min-width: 700px) {
+    .card {
+        width: 45%;
+        height: 450px;
+    }
+}
+
+.card:hover {
+        background: rgba(245, 245, 225, 1);
+}
+
+.card-open {
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 95%;
+    height: 80%;
+    font-size: 1.25em;
+    padding: 30px;
+    background: rgba(245, 245, 225, 1);
+    overflow: scroll;
+}
+
+.story-title {
+    font-size: 1.3em;
+    margin: 0 0 10px 0;
+}
+
+.card-open .story-title {
+    margin-bottom: .5em;
+    height: 2em;
+}
+
+.delete-activity {
+    float: right;
+    text-decoration: none;
+}
+.card-toolbar {
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: .5em;
+    font-size: 1.3em;
+    top: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+}
+.card-toolbar * {
+    box-sizing: content-box;
+}
+
+.card-button {
+    padding: 0 .3em;
+}
+
+.card-button:hover {
+    color: grey;
+}
+
+.card-button.fa-times {
+    font-size: 1.3em;
+    padding: 0;
+}
+
+
+
+.shadow {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+.shadow:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}

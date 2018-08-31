@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faBars, faStopwatch, faBook, } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faStopwatch, faBook, faTimes, faTrash, faShareSquare } from '@fortawesome/free-solid-svg-icons';
 import Landing from './landing';
 import Writer from './writer';
 import Auth from './auth-modal';
@@ -10,7 +10,7 @@ import Dashboard from './dashboard';
 import './app.css';
 import './landing.css';
 
-library.add(faBars, faStopwatch, faBook);
+library.add(faBars, faStopwatch, faBook, faTimes, faTrash, faShareSquare);
 
 class App extends Component {
   render() {

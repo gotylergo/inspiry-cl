@@ -5,7 +5,7 @@ import './main-menu.css';
 class MainMenu extends Component {
     render() {
         return (
-            <nav id="main-menu" role="navigation" aria-label="Main menu" aria-expanded="false">
+            <nav id="main-menu" aria-label="Main menu" aria-expanded="false">
                 <FontAwesomeIcon icon="bars" className="menu-button" role="button" aria-label="Open main menu" />
                 <ul>
                     <li>
