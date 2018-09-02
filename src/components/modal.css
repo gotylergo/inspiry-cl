@@ -46,7 +46,7 @@
     height: 2em;
     background: #000;
     color: #fff;
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Comfortaa', Verdana, cursive;
     cursor: pointer;
 }
 

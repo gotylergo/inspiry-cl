@@ -1,0 +1,9 @@
+.help-modal h3, 
+.help-modal h4 {
+    font-family: 'Comfortaa', Verdana, sans-serif;
+    text-transform: lowercase;
+}
+
+.help-modal .toc {
+    text-transform: lowercase;
+}
