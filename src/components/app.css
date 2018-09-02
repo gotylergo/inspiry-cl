@@ -22,8 +22,27 @@ button:hover {
     color: #fff;
     border-color: #fff;
 }
+.btn-light:hover {
+    color: rgb(168, 168, 168);
+    border-color: rgb(168, 168, 168);
+}
 
 .btn-dark {
     color: #000;
     border-color: #000;
+}
+
+.btn-dark:hover {
+    color: rgb(168, 168, 168);
+    border-color: rgb(168, 168, 168);
+}
+
+a,
+a:visited,
+a:active {
+    color: darkgreen;
+}
+a:hover {
+    color: rgb(168, 168, 168);
+    text-decoration: none;
 }

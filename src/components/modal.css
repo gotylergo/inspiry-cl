@@ -6,6 +6,7 @@
 }
 
 .modal {
+    position: relative;
     min-width: 300px;
     max-width: 700px;
     height: 90%;
@@ -50,8 +51,12 @@
     cursor: pointer;
 }
 
-.close-card {
+.close-button {
     position: absolute;
-    top: 15px;
-    right: 15px;
+    top: 1em;
+    right: 1em;
+    font-size: 1.5em;
+}
+.close-button:hover {
+    color: rgb(168, 168, 168);
 }

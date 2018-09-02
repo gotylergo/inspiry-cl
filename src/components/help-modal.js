@@ -8,9 +8,7 @@ class HelpModal extends Component {
         return (
             <div class="modal help-modal hide-me">
                 <div class="close-button">
-                    <a href="#" class="button">
-                        <FontAwesomeIcon icon="times-circle" />
-                    </a>
+                        <FontAwesomeIcon role="button" className="button" icon="times" />
                 </div>
                 <h3>Unblock Your Brain</h3>
                 <p>The best way to beat writer's block is to get out of your head and just start writing. Inspiry turns writing into a game by giving you a topic and forces you to get creative by throwing challenge words at you. Race the clock as you create a story, and inspire yourself while having some fun.</p>
