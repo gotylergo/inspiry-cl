@@ -84,7 +84,7 @@
     margin: 1em 0 1em 1em;
 }
 
-.story-footer {
+.writer-footer {
     bottom: 0;
     position: fixed;
     height: 65px;
@@ -94,7 +94,7 @@
     background: #000;
 }
 
-.story-footer button {
+.writer-footer button {
     margin: 1em 0;
     background: #000;
     color: #fff;
