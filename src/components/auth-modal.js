@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Login from './login';
 import Register from './register';
 import './modal.css';
+import './auth-modal.css'
 
 class AuthModel extends Component {
     render() {
