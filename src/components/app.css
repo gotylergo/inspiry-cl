@@ -12,6 +12,7 @@ button {
     background: none transparent;
     border-width: 2px;
     border-style: solid;
+    text-transform: lowercase;
 }
 
 .btn-light {
