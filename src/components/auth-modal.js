@@ -10,7 +10,7 @@ class AuthModel extends Component {
             <div className="flex-centered">
                 <div className="auth-modal modal">
                     <div className="auth-menu">
-                        <span className="sign-in-button button">SIGN IN</span> | <span className="register-button inactive-button button">REGISTER</span>
+                        <span className="sign-in-button button">Sign In</span> | <span className="register-button inactive-button button">Register</span>
                     </div>
                     <Login />
                     <Register />
