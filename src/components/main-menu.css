@@ -1,32 +1,26 @@
-#main-menu {
-    display: inline-block;
-    height: 3em;
-    font-size: 2em;
-    padding: 0 1em;
-    line-height: 3em;
-}
-
-#main-menu:hover,
-#main-menu:focus {
+.menu-button:hover {
     color: rgb(168, 168, 168);
+    cursor: pointer;
 }
 
 #main-menu {
     position: absolute;
     top: 0;
     left: -200%;
-    /* left: 0; */
+    z-index: 999;
     height: 100%;
     width: 65%;
+    min-width: 325px;
+    line-height: 3em;
+    margin: 0;
+    padding: 0 1em;
+    display: inline-block;
     overflow-y: scoll;
     overflow-x: visible;
-    margin: 0;
-    /* padding: 2.5em 0; */
+    transition: left 0.3s ease, box-shadow 0.3s ease;
     background: #000;
     color: #fff;
-    transition: left 0.3s ease, box-shadow 0.3s ease;
-    z-index: 999;
-    font-size: 1.5em;
+    font-size: 1.75em;
 }
 
 /* @media (min-width: 700px) {
@@ -75,7 +69,12 @@
     }
 } */
 
-#nav-button {
+.nav-label:hover {
+    color: rgb(168, 168, 168);
+    cursor: pointer;
+}
+
+.nav-button {
     display: block;
     /* position: relative; */
     padding: .75em 2em;
@@ -107,8 +106,8 @@
 
 #main-menu .menu-close {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 1em;
+    top: 1em;
 }
 
 *,

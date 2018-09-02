@@ -13,4 +13,5 @@
 }
 .auth-menu .inactive-button:hover {
     border-bottom: 1px solid rgb(168, 168, 168);
+    cursor: pointer;
 }

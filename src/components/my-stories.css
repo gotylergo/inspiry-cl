@@ -58,24 +58,22 @@
     width: 100%;
     text-align: center;
 }
-.card-toolbar * {
-    box-sizing: content-box;
-}
 
 .card-button {
     padding: 0 .3em;
+    box-sizing: content-box;
+
 }
 
 .card-button:hover {
-    color: grey;
+    color: rgb(168, 168, 168);
+    cursor: pointer;
 }
 
 .card-button.fa-times {
     font-size: 1.3em;
     padding: 0;
 }
-
-
 
 .shadow {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);

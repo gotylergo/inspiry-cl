@@ -6,7 +6,7 @@ class MainMenu extends Component {
     render() {
         return (
             <nav id="main-menu" aria-label="Main menu" aria-expanded="false">
-                <FontAwesomeIcon icon="bars" className="menu-button" role="button" aria-label="Open main menu" />
+                <FontAwesomeIcon icon="bars" className="menu-button menu-close" role="button" aria-label="Open main menu" />
                 <ul>
                     <li>
                         <span className="new-story-button" aria-label="help" title="help" ><span className="nav-label">new story</span> <FontAwesomeIcon icon="plus" className="nav-button" /></span>

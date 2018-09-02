@@ -14,6 +14,9 @@ button {
     border-style: solid;
     text-transform: lowercase;
 }
+button:hover {
+    cursor: pointer;
+}
 
 .btn-light {
     color: #fff;
