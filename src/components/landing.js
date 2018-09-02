@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import TopBar from './top-bar';
 import LandingStories from './landing-stories';
 
 class Landing extends Component {
   render() {
     return (
       <div class="landing">
+        <TopBar />
         <div>
           <header className="masthead section section-dark">
             <p className="tagline">unblock your brain <span className="blinking">|</span></p>
