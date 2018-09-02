@@ -4,8 +4,8 @@
     height: 350px;
     position: absolute;
     font-size: 1em;
-    overflow: hidden;
-    background: rgba(245, 245, 225, .8);
+    overflow: scroll;
+    background: rgba(254, 251, 247, .8);
 }
 
 @media only screen and (min-width: 700px) {
@@ -16,7 +16,7 @@
 }
 
 .card:hover {
-        background: rgba(245, 245, 225, 1);
+    background: rgba(254, 251, 247, 1);
 }
 
 .card-open {
@@ -46,6 +46,7 @@
     float: right;
     text-decoration: none;
 }
+
 .card-toolbar {
     position: absolute;
     display: flex;
@@ -62,7 +63,6 @@
 .card-button {
     padding: 0 .3em;
     box-sizing: content-box;
-
 }
 
 .card-button:hover {
