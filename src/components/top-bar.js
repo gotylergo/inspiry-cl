@@ -6,15 +6,29 @@ import { toggleMainMenu } from '../actions';
 import './top-bar.css';
 
 class TopBar extends Component {
+    constructor(props) {
+        super(props);
+        this.toggleMainMenu = this.toggleMainMenu.bind(this);
+        this.openHelpModal = this.openHelpModal.bind(this);
+        this.openAuthModal = this.openAuthModal.bind(this);
+    }
+    toggleMainMenu () {
+        this.props.dispatch(toggleMainMenu());
+    }
+    openHelpModal() {
+        this.props.dispatch(toggleMainMenu());
+    }
+    openAuthModal() {
+        this.props.dispatch(toggleMainMenu());
+    }
     render() {
-        console.log(this.props);
         return (
             <div className="menu-bar-container">
                 <header className="top-bar">
-                    <FontAwesomeIcon icon="bars" className="menu-button" role="button" aria-label="Open main menu" onClick={() => this.props.dispatch(toggleMainMenu())} />
+                    <FontAwesomeIcon icon="bars" className="menu-button" role="button" aria-label="Open main menu" tabIndex="1" onClick={this.toggleMainMenu} />
                     <span className="app-title">{this.props.pageTitle}</span>
                 </header>
-                <MainMenu />
+                <MainMenu toggleMainMenu={this.toggleMainMenu} openHelpModal={this.openHelpModal} openAuthModal={this.openAuthModal} />
             </div>
         );
     }

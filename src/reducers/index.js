@@ -2,7 +2,7 @@ import * as actions from '../actions';
 
 const initialState = {
     mainMenuActive: false,
-    pageTitle: "inspiry - testing"
+    pageTitle: "inspiry"
 }
 
 export const inspiryReducer = (state = initialState, action) => {

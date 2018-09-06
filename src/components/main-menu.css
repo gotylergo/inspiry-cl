@@ -1,16 +1,11 @@
-.menu-button:hover {
-    color: rgb(168, 168, 168);
-    cursor: pointer;
-}
-
 .main-menu {
-    position: absolute;
+    position: fixed;
     top: 0;
     z-index: 999;
     height: 100%;
-    width: 65%;
+    width: 90%;
     min-width: 325px;
-    max-width: 500px;
+    max-width: 400px;
     line-height: 3em;
     margin: 0;
     padding: 0 1em;
@@ -25,25 +20,27 @@
 
 .main-menu-open {
     left: 0;
+    visibility: visible;
 }
 
 .main-menu-closed {
     left: -200%;
+    visibility: hidden;
 }
 
-/* @media (min-width: 700px) {
-    #main-menu {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: auto;
-        z-index: 3;
-        padding: 0;
-        line-height: 1em;
-        font-size: 1em;
-        background: transparent;
-    }
-} */
+.menu-button a,
+.menu-button a:visited,
+.menu-button a:active {
+    color: #fff;
+}
+
+#main-menu .menu-button {
+    text-align: right;
+}
+
+#main-menu .menu-button:hover {
+    color: rgb(168, 168, 168);
+}
 
 #main-menu ul {
     list-style: none;
@@ -56,64 +53,29 @@
     background: #000;
 }
 
-/* @media (min-width: 700px) {
-    #main-menu ul {
-        display: inline-block;
-        padding: 0;
-        margin: 0;
-    }
-} */
-
-/* #main-menu ul li {
-    padding-left: 2.5em;
-}
-
-@media (min-width: 700px) {
-    #main-menu ul li {
-        display: block;
-        padding: 0;
-        float: right;
-        font-size: 1.65em;
-    }
-} */
-
-.nav-label:hover {
-    color: rgb(168, 168, 168);
-    cursor: pointer;
-}
-
-#main-menu .active {
-    color: rgb(168, 168, 168);
-}
-
-.nav-button {
-    display: block;
-    /* position: relative; */
-    padding: .75em 2em;
-    line-height: 1.5em;
-    font-size: 1.5em;
-    /* left: 0; */
+#main-menu .menu-button,
+#main-menu .nav-button,
+#main-menu a.active {
     color: #fff;
-    text-transform: capitalize;
-    /* padding: 0; */
-    font-weight: bold;
-    border-bottom: rgb(168, 168, 168);
+    text-decoration: none;
+    /* Override default button styling */
+    width: inherit;
+    padding: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    background: inherit;
+    border-width: inherit;
+    border-style: inherit;
+    text-transform: inherit;
 }
 
-/* #main-menu li:first-child #nav-button {
-    border-bottom: rgb(168, 168, 168);
-} */
+#main-menu .nav-button:hover,
+#main-menu a.active {
+    padding-left: .5em;
+}
 
-/* @media (min-width: 700px) {
-    .nav-button {
-        display: block;
-    }
-} */
-
-.nav-button:hover,
-.nav-button:focus {
-    color: rgb(168, 168, 168);
-    text-decoration: underline;
+#main-menu a.active {
+    border-left: solid .1em #fff;
 }
 
 #main-menu .menu-close {
@@ -122,18 +84,10 @@
     top: 1em;
 }
 
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-}
-
 #main-menu:target,
 #main-menu[aria-expanded="true"] {
     left: 0;
     outline: none;
-    -moz-box-shadow: 3px 0 12px rgba(0, 0, 0, .25);
-    -webkit-box-shadow: 3px 0 12px rgba(0, 0, 0, .25);
     box-shadow: 3px 0 12px rgba(0, 0, 0, .25);
 }
 
@@ -147,74 +101,3 @@
     position: relative;
     z-index: 1000;
 }
-
-/* 
- We could us `#main-menu:target:after`, but
- it wouldn't be clickable.
-*/
-
-#main-menu:target+.backdrop,
-#main-menu[aria-expanded="true"]+.backdrop {
-    position: absolute;
-    display: block;
-    content: "";
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 998;
-    background: #000;
-    background: rgba(0, 0, 0, .85);
-    cursor: default;
-}
-
-@supports (position: fixed) {
-    #main-menu,
-    #main-menu:target+.backdrop,
-    #main-menu[aria-expanded="true"]+.backdrop {
-        position: fixed;
-    }
-}
-
-/* .nav-label {
-    display: block;
-    padding: 15px 0;
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    letter-spacing: 0.1em;
-    line-height: 1.5em;
-    height: 1.5em;
-    border-bottom: 1px solid #ccc;
-}
-
-@media (min-width: 700px) {
-    #main-menu ul {
-        display: inline-block;
-        padding: 0;
-        margin: 0;
-    }
-}
-
-.nav-label {
-    display: none;
-}
-
-#main-menu a:hover,
-#main-menu a:focus {
-    background: #ab3fb5;
-}
-
-@media (min-width: 700px) {
-    #main-menu a,
-    #main-menu a:visited,
-    #main-menu a:active {
-        border-bottom: 0;
-    }
-}
-
-#main-menu li:last-child a {
-    border-bottom: none;
-} */
