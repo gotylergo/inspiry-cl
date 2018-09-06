@@ -24,15 +24,15 @@
     padding: 0 0 1em;
 }
 
-.story-header h1 {
+.story-header h1,
+.timer {
     margin-bottom: 1em;
     font-size: 1.75em;
-    font-family: 'Comfortaa', Verdana, cursive;
+    font-family: 'Comfortaa', Verdana, sans;
 }
 
 .timer {
     float: right;
-    padding: 1em 0;
 }
 
 .timer i {
