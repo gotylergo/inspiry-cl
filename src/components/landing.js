@@ -5,7 +5,7 @@ import LandingStories from './landing-stories';
 class Landing extends Component {
   render() {
     return (
-      <div class="landing">
+      <div className="landing">
         <TopBar />
         <div>
           <header className="masthead section section-dark">

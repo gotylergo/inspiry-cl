@@ -5,7 +5,6 @@ import { faBars, faStopwatch, faBook, faTimes, faTrash, faShareSquare } from '@f
 import Landing from './landing';
 import Writer from './writer';
 import Auth from './auth-modal';
-import HelpModal from './help-modal';
 
 import Dashboard from './dashboard';
 import './app.css';
@@ -21,11 +20,9 @@ class App extends Component {
           <Route exact path="/" component={Landing} />
           <Route exact path="/writer" component={Writer} />
           <Route exact path="/auth" component={Auth} />
-          <Route exact path="/help" component={HelpModal} />
           <Route exact path="/dashboard" component={Dashboard} />
         </div>
       </Router>
-
     );
   }
 }
