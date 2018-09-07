@@ -40,4 +40,4 @@ const mapStateToProps = state => ({
     mainMenuActive: state.mainMenuActive
 })
 
-export default connect(mapStateToProps)(MainMenu);
+export default connect(mapStateToProps)(MainMenu)

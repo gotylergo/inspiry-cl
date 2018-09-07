@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Login from './login';
 import Register from './register';
-import './modal.css';
-import './auth-modal.css'
+import './auth-modal.css';
 
 class AuthModel extends Component {
     // constructor(props) {
@@ -30,18 +29,15 @@ class AuthModel extends Component {
     // }
     render() {
         return (
-
-            <div className="flex-centered">
-                <div className="auth-modal modal">
-                <div class="close-button">
-                        <FontAwesomeIcon role="button" className={this.toggleModal + "button"} icon="times" onClick={this.toggleModal} />
+            <div className="auth-modal shadow">
+                <div className="close-button">
+                    <FontAwesomeIcon role="button" className={this.toggleModal + "button"} icon="times" onClick={this.toggleModal} />
                 </div>
-                    <div className="auth-menu">
-                        <span className="sign-in-button button">Sign In</span> | <span className="register-button inactive-button button">Register</span>
-                    </div>
-                    <Login />
-                    <Register />
+                <div className="auth-menu">
+                    <span className="sign-in-button button">Sign In</span> | <span className="register-button inactive-button button">Register</span>
                 </div>
+                <Login />
+                {/* <Register /> */}
             </div>
         )
     }

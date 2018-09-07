@@ -1,28 +1,28 @@
-.flex-centered {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-}
 
 .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.modal > .help-modal,
+.modal > .auth-modal {
     position: relative;
-    min-width: 300px;
-    max-width: 700px;
-    height: 90%;
-    margin: 0 auto;
+    max-height: 95%;
+    max-width: 95%;
     padding: 2em;
-    border-radius: 7px;
-    z-index: 2;
+    box-sizing: border-box;
     overflow-y: scroll;
     background: #fff;
     color: #000;
-}
-
-@media only screen and (min-width: 500px) {
-    .modal {
-        width: 80%;
-    }
+    border-radius: 7px;
 }
 
 .modal label {
@@ -57,6 +57,7 @@
     right: 1em;
     font-size: 1.5em;
 }
+
 .close-button:hover {
     color: rgb(168, 168, 168);
 }

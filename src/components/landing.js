@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import TopBar from './top-bar';
 import LandingStories from './landing-stories';
 
@@ -43,4 +44,8 @@ class Landing extends Component {
   }
 }
 
-export default Landing;
+const mapStateToProps = state => ({
+  mainMenuActive: state.mainMenuActive
+})
+
+export default connect(mapStateToProps)(Landing);

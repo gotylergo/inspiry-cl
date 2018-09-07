@@ -6,7 +6,7 @@ import './help-modal.css';
 class HelpModal extends Component {
     render() {
         return (
-            <div class="modal help-modal hide-me">
+            <div class="help-modal shadow">
                 <div class="close-button">
                         <FontAwesomeIcon role="button" className="button" icon="times" />
                 </div>
