@@ -8,18 +8,24 @@ class MyStories extends Component {
         return (
             <div className="story-container">
                 <div className="card shadow">
-                    <div className="card-toolbar">
-                        <FontAwesomeIcon icon="trash" role="button" aria-label="Delete" title="Delete" className="card-button fa-fw" />
-                        <FontAwesomeIcon icon="share-square" role="button" aria-label="Share" title="Share" className="fa-share card-button fa-fw" />
-                        <FontAwesomeIcon icon="times" role="button" aria-label="Close" title="Close" className="card-button fa-fw" />
-                    </div>
+                    <ul className="card-toolbar">
+                        <li><button className="card-button" aria-label="delete" title="delete"
+                        ><FontAwesomeIcon icon="trash" /></button></li>
+                        <li><button className="fa-share card-button" aria-label="share" title="share"
+                        ><FontAwesomeIcon icon="share-square" /></button></li>
+                        <li><button className="card-button" aria-label="close" title="close"
+                        ><FontAwesomeIcon icon="times" /></button></li>
+                    </ul>
                     <Story />
                 </div>
                 <div className="card shadow">
                     <div className="card-toolbar">
-                        <FontAwesomeIcon icon="trash" role="button" aria-label="Delete" title="Delete" className="card-button fa-fw" />
-                        <FontAwesomeIcon icon="share-square" role="button" aria-label="Share" title="Share" className="fa-share card-button fa-fw" />
-                        <FontAwesomeIcon icon="times" role="button" aria-label="Close" title="Close" className="card-button fa-fw" />
+                        <button className="card-button" aria-label="delete" title="delete"
+                        ><FontAwesomeIcon icon="trash" /></button>
+                        <button className="fa-share card-button" aria-label="share" title="share"
+                        ><FontAwesomeIcon icon="share-square" /></button>
+                        <button className="card-button" aria-label="close" title="close"
+                        ><FontAwesomeIcon icon="times" /></button>
                     </div>
                     <Story />
                 </div>

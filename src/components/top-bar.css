@@ -14,9 +14,22 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
 }
 
-.app-title {
+.page-title {
     padding: 1em;
     line-height: 2.5em;
     vertical-align: middle;
     font-family: 'Comfortaa', Verdana, cursive;
+}
+
+.top-bar .menu-button {
+    /* Cancel app button styles */
+    width: initial;
+    margin: initial;
+    min-width: initial;
+    border: initial;
+}
+
+.top-bar .menu-button:hover {
+    /* Cancel app button styles */
+    color: rgb(168, 168, 168)
 }

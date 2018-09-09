@@ -14,7 +14,7 @@ class Modal extends Component {
         // const HelpModal = this.props.helpModalActive ? (<HelpModal />) : "";
         // const AuthModal = this.props.helpModalActive ? (<AuthModal />) : "";
         return (
-            <div class="modal">
+            <div className="modal">
             <HelpModal />
             {/* <AuthModal /> */}
             </div>

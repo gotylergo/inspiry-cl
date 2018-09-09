@@ -1,3 +1,9 @@
+/* Debugging only */
+div .modal {
+    display: none;
+    z-index: -100;
+}
+/* Debugging only */
 
 .modal {
     position: fixed;
@@ -30,7 +36,7 @@
 }
 
 .modal input,
-.modal button {
+.modal .button {
     width: 100%;
     margin: .1em 0 .9em;
     box-sizing: border-box;
@@ -42,20 +48,30 @@
     padding: 1em;
 }
 
-.modal button {
-    border: none;
+.modal .button {
+    border: 0;
     height: 2em;
     background: #000;
     color: #fff;
     font-family: 'Comfortaa', Verdana, cursive;
     cursor: pointer;
+    /* Cancel button styling */
+    padding: initial;
+}
+
+.modal .button:hover {
+    background-color: rgb(168, 168, 168);
 }
 
 .close-button {
     position: absolute;
     top: 1em;
     right: 1em;
+    /* Cancel button styling */
+    width: initial;
+    border: 0;
     font-size: 1.5em;
+
 }
 
 .close-button:hover {

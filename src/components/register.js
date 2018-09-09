@@ -3,17 +3,17 @@ import React, { Component } from 'react';
 class Register extends Component {
     render() {
         return (
-            <div className="sign-in-form">
+            <div className="auth-form register-form">
                 <form>
-                    <label for="display-name">display name</label>
+                    <label htmlFor="display-name">display name</label>
                     <input type="text" name="display-name" required />
-                    <label for="display-name">email address</label>
+                    <label htmlFor="display-name">email address</label>
                     <input type="email" name="display-name" required />
-                    <label for="email-address">email address</label>
+                    <label htmlFor="email-address">email address</label>
                     <input type="text" name="email-address" required />
-                    <label for="password">password</label>
-                    <input type="password" minlength="8" required />
-                    <button>register</button>
+                    <label htmlFor="password">password</label>
+                    <input type="password" minLength="8" required />
+                    <button className="button">register</button>
                 </form>
             </div>
         )

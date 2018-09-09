@@ -6,13 +6,11 @@ import './help-modal.css';
 class HelpModal extends Component {
     render() {
         return (
-            <div class="help-modal shadow">
-                <div class="close-button">
-                        <FontAwesomeIcon role="button" className="button" icon="times" />
-                </div>
+            <div className="help-modal shadow">
+                <button className="close-button"><FontAwesomeIcon icon="times" /></button>
                 <h3>Unblock Your Brain</h3>
                 <p>The best way to beat writer's block is to get out of your head and just start writing. Inspiry turns writing into a game by giving you a topic and forces you to get creative by throwing challenge words at you. Race the clock as you create a story, and inspire yourself while having some fun.</p>
-                <ol class="toc">
+                <ol className="toc">
                     <li><a href="#new-story">Start Your Story</a></li>
                     <li><a href="#share-your-work">Share Your Work</a></li>
                     <li><a href="#read-for-inspiration">Read for Inspiration</a></li>
@@ -37,7 +35,7 @@ class HelpModal extends Component {
                     <li>...</li>
                 </ol>
                 <h4>Are you ready?</h4>
-                <button>Let's write!</button>
+                <button className="button">Let's write!</button>
             </div>
         );
     }
