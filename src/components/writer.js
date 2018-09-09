@@ -21,8 +21,8 @@ class Writer extends Component {
                     <p className="story">Curabitur facilisis leo at venenatis fringilla. In ullamcorper sagittis dui, mattis imperdiet metus commodoeget. Nulla nec erat nec placerat vestibulum. Curabitur sed dapibus Pellentesque vestibulummattis semper. Duis ultricies p metus in vestibulum. <img src="" alt="Random" /> Etiam iaculis, lacus in eleifend, antepurus sagittis magna, vitae tincidunt felis orci a eros. Integer sollicitudin ipsum et malesuada fringilla. Sed consequat, mi at euismod lacinia, magna metus pul tortor, quis semper nisi turpis quis lacus. Aeneanorci ipsum, maximus sit amet ornare eget, fermentum eu  Phasellus dui nisi, ornare a fringilla ac, ornarefringilla magna.</p>
                 </main>
                 <div className="writer-footer">
-                    <button>Save</button>
-                    <button>Share</button>
+                    <button className="button">Save</button>
+                    <button className="button">Share</button>
                 </div>
             </div>
         )
