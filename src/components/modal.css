@@ -16,29 +16,29 @@ div .modal {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    color: #000;
 }
 
-.modal > .help-modal,
-.modal > .auth-modal {
+.modal-container {
     position: relative;
     max-height: 95%;
     max-width: 95%;
     padding: 2em;
+    padding-top: 0;
     box-sizing: border-box;
     overflow-y: scroll;
-    background: #fff;
-    color: #000;
     border-radius: 7px;
+    background: #fff;
 }
 
 .modal label {
-    color: rgb(168, 168, 168);
+    opacity: .8;
 }
 
 .modal input,
 .modal .button {
     width: 100%;
-    margin: .1em 0 .9em;
+    margin: .5em 0 1em;
     box-sizing: border-box;
 }
 
@@ -57,23 +57,29 @@ div .modal {
     cursor: pointer;
     /* Cancel button styling */
     padding: initial;
+    opacity: .8
 }
 
 .modal .button:hover {
-    background-color: rgb(168, 168, 168);
+    opacity: 1;
 }
 
-.close-button {
-    position: absolute;
-    top: 1em;
-    right: 1em;
+.close-btn-container {
+    width: 100%;
+    text-align: right;
+}
+
+.modal .close-button {
+    opacity: .8;
     /* Cancel button styling */
-    width: initial;
+    background: initial;
+    padding: 1em 0 0 0;
     border: 0;
     font-size: 1.5em;
-
+    color: #000;
+    width: initial;
 }
 
-.close-button:hover {
-    color: rgb(168, 168, 168);
+.modal .close-button:hover {
+    opacity: 1;
 }

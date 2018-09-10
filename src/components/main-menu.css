@@ -14,7 +14,6 @@
     overflow-x: visible;
     transition: left 0.3s ease, box-shadow 0.3s ease;
     background: #000;
-    color: #fff;
     font-size: 1.75em;
 }
 
@@ -28,18 +27,13 @@
     visibility: hidden;
 }
 
-.menu-button a,
-.menu-button a:visited,
-.menu-button a:active {
-    color: #fff;
-}
-
 #main-menu .menu-button {
     text-align: right;
+    opacity: .8;
 }
 
 #main-menu .menu-button:hover {
-    color: rgb(168, 168, 168);
+    opacity: 1;
 }
 
 #main-menu ul {
@@ -47,7 +41,6 @@
     text-align: left;
     margin: 0;
     padding: 2.5em 0 0;
-    box-shadow: -8px 0 8px #00000080;
     min-height: 100%;
     width: 200px;
     background: #000;
@@ -56,6 +49,7 @@
 #main-menu .menu-button,
 #main-menu .nav-button,
 #main-menu a.active {
+    opacity: .8;
     color: #fff;
     text-decoration: none;
     /* Override default button styling */
@@ -72,10 +66,12 @@
 #main-menu .nav-button:hover,
 #main-menu a.active {
     padding-left: .5em;
+    opacity: 1;
 }
 
 #main-menu a.active {
     border-left: solid .1em #fff;
+    opacity: 1;
 }
 
 #main-menu .menu-close {
@@ -88,7 +84,6 @@
 #main-menu[aria-expanded="true"] {
     left: 0;
     outline: none;
-    box-shadow: 3px 0 12px rgba(0, 0, 0, .25);
 }
 
 #main-menu:target .menu-close,

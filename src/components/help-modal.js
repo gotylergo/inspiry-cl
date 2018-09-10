@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 import './modal.css';
 import './help-modal.css';
 
 class HelpModal extends Component {
     render() {
         return (
-            <div className="help-modal shadow">
-                <button className="close-button"><FontAwesomeIcon icon="times" /></button>
+            <div className="help-modal">
                 <h3>Unblock Your Brain</h3>
                 <p>The best way to beat writer's block is to get out of your head and just start writing. Inspiry turns writing into a game by giving you a topic and forces you to get creative by throwing challenge words at you. Race the clock as you create a story, and inspire yourself while having some fun.</p>
                 <ol className="toc">
@@ -35,7 +34,7 @@ class HelpModal extends Component {
                     <li>...</li>
                 </ol>
                 <h4>Are you ready?</h4>
-                <button className="button">Let's write!</button>
+                <Link to="/writer" className="button btn-dark shadow" role="button">Let's write!</Link>
             </div>
         );
     }

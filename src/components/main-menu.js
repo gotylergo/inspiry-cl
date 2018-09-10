@@ -8,22 +8,22 @@ class MainMenu extends Component {
     render() {
         return (
             <nav id="main-menu" className={this.props.mainMenuActive ? "main-menu main-menu-open" : "main-menu main-menu-closed"} aria-label="Main menu" aria-expanded="false">
-                <button className="button menu-button menu-close"><FontAwesomeIcon icon="bars" aria-label="Open main menu" onClick={this.props.toggleMainMenu} /></button>
+                <button className="button menu-button menu-close"><FontAwesomeIcon icon="bars" aria-label="Close main menu" onClick={this.props.toggleMainMenu} /></button>
                 <ul>
                     <li>
-                        <NavLink exact to="/" className="button home-button nav-button" activeClassName="active" aria-label="home" title="home" onClick={this.props.toggleMainMenu} >home</NavLink>
+                        <NavLink exact to="/" className="button home-button nav-button" activeClassName="active" aria-label="home" onClick={this.props.toggleMainMenu} >home</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/dashboard" className="button dashboard-button nav-button" activeClassName="active" aria-label="dashboard" title="dashboard" onClick={this.props.toggleMainMenu} >dashboard</NavLink>
+                        <NavLink to="/dashboard" className="button dashboard-button nav-button" activeClassName="active" aria-label="dashboard" onClick={this.props.toggleMainMenu} >dashboard</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/writer" className="button new-story-button nav-button" activeClassName="active" aria-label="help" title="help" onClick={this.props.toggleMainMenu} >new story</NavLink>
+                        <NavLink to="/writer" className="button new-story-button nav-button" activeClassName="active" aria-label="help" onClick={this.props.toggleMainMenu} >new story</NavLink>
                     </li>
                     <li>
-                        <button className="button help-button nav-button" aria-label="help" title="help" onClick={this.props.openHelpModal} >help</button>
+                        <button className="button help-button nav-button" aria-label="help" onClick={this.props.openHelpModal} >help</button>
                     </li>
                     <li>
-                        <button className="button sign-out-button nav-button" aria-label="sign out" title="sign out" onClick={this.props.openAuthModal} >sign out</button>
+                        <button className="button sign-out-button nav-button" aria-label="sign out" onClick={this.props.openAuthModal} >sign out</button>
                     </li>
                 </ul>
             </nav>

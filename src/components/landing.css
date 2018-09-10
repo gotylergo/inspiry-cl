@@ -1,6 +1,16 @@
+.landing-container {
+    margin: auto auto;
+    max-width: 800px;
+}
+
 .section {
     min-height: 100vh;
     padding: 6em 2em 5em 2em;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
     text-align: center;
 }
 
@@ -10,13 +20,23 @@
 }
 
 .section-dark {
-    background: rgb(17, 134, 150);
+    background: #118696;
     color: #fff;
+}
+
+.section p {
+    max-width: 800px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row {
+    flex-basis: 100%;
 }
 
 .masthead {
     padding: 11em 0 5em 0;
-    background: rgb(17, 134, 150);
+    background: #118696;
     color: #fff;
 }
 
@@ -52,9 +72,13 @@ header .button {
 }
 
 .app-demo {
+    text-align: center;
+}
+.app-demo .img-placeholder,
+.app-demo img {
+    margin: 2em auto 0 auto;
     width: 200px;
     height: 400px;
-    margin: 2em auto 0 auto;
     background: #000;
 }
 

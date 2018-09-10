@@ -1,5 +1,18 @@
 .landing-story {
-    margin: 2em auto 2em auto;
+    margin-bottom: 2em;
+    padding: 2.5%;
+}
+
+@media only screen and (min-width: 600px) {
+    .landing-story {
+        width: 45%;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .landing-story {
+        width: 28%;
+    }
 }
 
 .landing-story h3 {

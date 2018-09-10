@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Login from './login';
-// import Register from './register';
+import SignInForm from './sign-in-form';
+// import Register from './register-form';
 import './auth-modal.css';
 
 class AuthModel extends Component {
@@ -29,13 +28,12 @@ class AuthModel extends Component {
     // }
     render() {
         return (
-            <div className="auth-modal shadow">
-                <button className="close-button"><FontAwesomeIcon icon="times" /></button>
+            <div className="auth-modal">
                 <div className="auth-menu">
-                    <button className="button sign-in-button active-button">Sign In</button> <button className="button register-button inactive-button">Register</button>
+                    <button className="button sign-in-button active-button text-shadow">Sign In</button> <button className="button register-button inactive-button text-shadow">Register</button>
                 </div>
-                <Login />
-                {/* <Register /> */}
+                <SignInForm />
+                {/* <RegisterForm /> */}
             </div>
         )
     }
