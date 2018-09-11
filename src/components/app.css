@@ -33,7 +33,7 @@ a.button:active {
 a.btn-light {
     opacity: .8;
     border-color: #fff;
-    color: #fff;
+    color: #fff !important;
 }
 
 .btn-light:hover,
@@ -45,7 +45,7 @@ a.btn-light:hover {
 a.btn-dark {
     opacity: .8;
     border-color: #000;
-    color: #000;
+    color: #000 !important;
 }
 
 .btn-dark:hover,
