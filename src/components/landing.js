@@ -46,6 +46,7 @@ class Landing extends Component {
             <LandingStory />
             <LandingStory />
             <LandingStory />
+            <button className="button btn-light shadow">read for inspiration</button>
           </div>
         </main>
         <footer className="section section-light">
