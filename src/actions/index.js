@@ -3,8 +3,8 @@ export const toggleMainMenu = () => ({
     type: TOGGLE_MAIN_MENU
 });
 
-// export const CREATE_PAGE_TITLE = "CREATE_PAGE_TITLE";
-// export const createPageTitle = (pageTitle) => ({
-//     type: CREATE_PAGE_TITLE,
-//     pageTitle
-// })
+export const CREATE_PAGE_TITLE = "CREATE_PAGE_TITLE";
+export const createPageTitle = (pageTitle) => ({
+    type: CREATE_PAGE_TITLE,
+    pageTitle
+})

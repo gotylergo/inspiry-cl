@@ -3,23 +3,25 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import TopBar from './top-bar';
 import LandingStory from './landing-story';
+import { createPageTitle } from '../actions';
 
 class Landing extends Component {
   render() {
+    document.title = this.props.docTitle;
     return (
       <div className="landing">
         <TopBar />
-        <header className="masthead section section-dark">
-          <p className="tagline text-shadow-static row">unblock your brain <span className="blinking">|</span></p>
-          <h1 className="app-name text-shadow-static row">inspiry</h1>
-          <div className="row"><Link to="/writer" className="button btn-light shadow" role="button" >write a story</Link>
-            <Link to="/" className="button btn-light shadow" role="button">read for inspiration</Link>
+        <header className="masthead section section-dark shadow-static">
+          <p className="tagline text-shadow-static-static row">unblock your brain <span className="blinking">|</span></p>
+          <h1 className="app-name text-shadow-static-static row">inspiry</h1>
+          <div className="row"><Link to="/writer" className="button btn-light shadow-static" role="button" >write a story</Link>
+            <Link to="/" className="button btn-light shadow-static" role="button">read for inspiration</Link>
           </div>
           <div className="app-demo row">
             <div className="img-placeholder">
               <picture>
-                <source srcSet="" className="shadow" />
-                <img src="" alt="Screenshot / video / gif" className="shadow" />
+                <source srcSet="" className="shadow-static" />
+                <img src="" alt="Screenshot / video / gif" className="shadow-static" />
               </picture>
             </div>
           </div>
@@ -35,10 +37,10 @@ class Landing extends Component {
               <p>Remember, the idea is not to take things so seriously, so if your story isn’t up to par, scrap it and use the momentum to get back to work on your big idea. Or, i masterpiece, publish it and share it with the world!</p>
               <p>That idea isn't going to write itself, so let’s get started!</p>
             </div>
-            <div class="row"><Link to="/writer" className="button btn-dark shadow" role="button" >start writing</Link>
+            <div className="row"><Link to="/writer" className="button btn-dark shadow-static" role="button" >start writing</Link>
             </div>
           </div>
-          <div className="section section-dark">
+          <div className="section section-dark shadow-static">
             <h2 className="row">Stories</h2>
             <LandingStory />
             <LandingStory />
@@ -46,13 +48,13 @@ class Landing extends Component {
             <LandingStory />
             <LandingStory />
             <LandingStory />
-            <button className="button btn-light shadow">read for inspiration</button>
+            <button className="button btn-light shadow-static">read for inspiration</button>
           </div>
         </main>
         <footer className="section section-light">
           <div className="row">
             <p>Hi, I'm Tyler, and I'm a web developer.</p>
-            <a href="//github.com/gotylergo" className="button btn-dark shadow" role="button" onClick={
+            <a href="//github.com/gotylergo" className="button btn-dark shadow-static" role="button" onClick={
               e => {
                 e.preventDefault();
                 window.open("//github.com/gotylergo", "gotylergoGithub")
@@ -64,12 +66,21 @@ class Landing extends Component {
     )
   }
   componentDidMount() {
-    this.props.createPageTitle("from landing.js");
+    this.props.createPageTitle("home");
   }
 }
 
 const mapStateToProps = state => ({
-  mainMenuActive: state.mainMenuActive
+  mainMenuActive: state.mainMenuActive,
+  pageTitle: state.pageTitle,
+  docTitle: state.docTitle
 })
 
-export default connect(mapStateToProps)(Landing);
+const mapDispatchToProps = dispatch => ({
+  createPageTitle: title => dispatch(createPageTitle(title))
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Landing);

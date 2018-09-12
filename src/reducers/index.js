@@ -2,9 +2,8 @@ import * as actions from '../actions';
 
 const initialState = {
     mainMenuActive: false,
-    appTitle: "inspiry 1",
-    pageTitle: "inspire your brain 1",
-    docTitle: "inspiry 1: unblock your brain"
+    pageTitle: "inspiry",
+    docTitle: "inspiry: unblock your brain"
 }
 
 export const inspiryReducer = (state = initialState, action) => {
@@ -14,20 +13,19 @@ export const inspiryReducer = (state = initialState, action) => {
             mainMenuActive: !state.mainMenuActive
         })
     } else if (action.type === actions.CREATE_PAGE_TITLE) {
-        // return Object.assign({}, state, {
-        //     pageTitle: action.pageTitle,
-        //     docTitle: state.appTitle + ": reducer! " + action.pageTitle
-        // })
+        // Specific titles for the homepage
+        const appTitle = "inspiry";
+        if (action.pageTitle === "home") {
+            return Object.assign({}, state, {
+                pageTitle: appTitle,
+                docTitle: appTitle + ": unblock your brain"
+            })
+        }
         return Object.assign({}, state, {
-            pageTitle: "reducePageTitle",
-            docTitle: state.appTitle + ": reducer! " + state.pageTitle
+            pageTitle: action.pageTitle,
+            docTitle: appTitle + ": " + action.pageTitle
         })
-
-        // }
-        // return Object.assign({}, state, {
-        //     pageTitle: state.appTitle + ": undefined" + action.pagetitle,
-        //     docTitle: "inspiry2: undefined inspire your brain2"
-        // })
     }
+
     return state;
 };

@@ -32,8 +32,7 @@ class MainMenu extends Component {
 }
 
 MainMenu.defaultProps = {
-    mainMenuActive: false,
-    appTitle: "inspiry"
+    mainMenuActive: false
 }
 
 const mapStateToProps = state => ({

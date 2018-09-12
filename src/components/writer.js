@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import TopBar from './top-bar';
+import { createPageTitle } from '../actions';
 import './writer.css';
 
 class Writer extends Component {
     render() {
+        document.title = this.props.docTitle;
         return (
             <div className="writer">
                 <TopBar />
@@ -29,6 +32,23 @@ class Writer extends Component {
             </div >
         )
     }
+    
+    componentDidMount() {
+        this.props.createPageTitle("writer");
+    }
 }
 
-export default Writer;
+const mapStateToProps = state => ({
+    mainMenuActive: state.mainMenuActive,
+    pageTitle: state.pageTitle,
+    docTitle: state.docTitle
+  })
+
+const mapDispatchToProps = dispatch => ({
+    createPageTitle: title => dispatch(createPageTitle(title))
+  })
+
+  export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Writer);
