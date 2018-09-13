@@ -2,6 +2,7 @@ import * as actions from '../actions';
 
 const initialState = {
     mainMenuActive: false,
+    modalActive: "inactive",
     pageTitle: "inspiry",
     docTitle: "inspiry: unblock your brain"
 }
@@ -12,20 +13,33 @@ export const inspiryReducer = (state = initialState, action) => {
         return Object.assign({}, state, {
             mainMenuActive: !state.mainMenuActive
         })
-    } else if (action.type === actions.CREATE_PAGE_TITLE) {
+    }
+
+    else if (action.type === actions.CREATE_PAGE_TITLE) {
         // Specific titles for the homepage
         const appTitle = "inspiry";
         if (action.pageTitle === "home") {
             return Object.assign({}, state, {
                 pageTitle: appTitle,
-                docTitle: appTitle + ": unblock your brain"
+                docTitle: `${appTitle}: unblock your brain`
             })
         }
         return Object.assign({}, state, {
             pageTitle: action.pageTitle,
-            docTitle: appTitle + ": " + action.pageTitle
+            docTitle: `${appTitle}: ${action.pageTitle}`
         })
     }
 
-    return state;
+    else if (action.type === actions.TOGGLE_MODAL) {
+        if (typeof action.modal == "undefined" ) {
+            return Object.assign({}, state, {
+                modalActive: "inactive"
+            })
+        } 
+        return Object.assign({}, state, {
+            modalActive: action.modal
+        })
+    }
+
+return state;
 };

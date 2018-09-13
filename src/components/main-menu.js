@@ -20,10 +20,10 @@ class MainMenu extends Component {
                         <NavLink to="/writer" className="button new-story-button nav-button" activeClassName="active" aria-label="help" onClick={this.props.toggleMainMenu} >new story</NavLink>
                     </li>
                     <li>
-                        <button className="button help-button nav-button" aria-label="help" onClick={this.props.openHelpModal} >help</button>
+                        <button className="button help-button nav-button" aria-label="help" onClick={this.props.toggleModal("help")} >help</button>
                     </li>
                     <li>
-                        <button className="button sign-out-button nav-button" aria-label="sign out" onClick={this.props.openAuthModal} >sign out</button>
+                        <button className="button sign-out-button nav-button" aria-label="sign out" onClick={this.props.toggleModal("auth")} >sign in</button>
                     </li>
                 </ul>
             </nav>
@@ -31,12 +31,9 @@ class MainMenu extends Component {
     }
 }
 
-MainMenu.defaultProps = {
-    mainMenuActive: false
-}
-
 const mapStateToProps = state => ({
-    mainMenuActive: state.mainMenuActive
+    mainMenuActive: state.mainMenuActive,
+    
 })
 
 export default connect(mapStateToProps)(MainMenu)

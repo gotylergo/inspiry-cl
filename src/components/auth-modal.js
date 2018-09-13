@@ -30,7 +30,7 @@ class AuthModel extends Component {
         return (
             <div className="auth-modal">
                 <div className="auth-menu">
-                    <button className="button sign-in-button active-button text-shadow">Sign In</button> <button className="button register-button inactive-button text-shadow">Register</button>
+                    <button className="button sign-in-button active-button">Sign In</button> <button className="button register-button inactive-button">Register</button>
                 </div>
                 <SignInForm />
                 {/* <RegisterForm /> */}

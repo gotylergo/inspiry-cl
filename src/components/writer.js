@@ -17,7 +17,7 @@ class Writer extends Component {
                             <span className="timer">
                                 60 <FontAwesomeIcon icon="stopwatch" />
                             </span>
-                            <h1 className="text-shadow-static">my <span>'{'horror'}'</span> story</h1>
+                            <h1 className="text-shadow-static">my <span>“horror”</span> story</h1>
                             <div className="target-word shadow">salamander</div>
                             <div className="target-word-label text-shadow-static">word of the sentence:</div>
                             <textarea className="story-input shadow" placeholder="Start writing here"></textarea>

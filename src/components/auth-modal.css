@@ -18,21 +18,35 @@
     color: #000;
 }
 
-.auth-modal .auth-menu > .active-button {
+.auth-modal .auth-menu>.active-button,
+.auth-modal .auth-menu>.active-button:visited,
+.auth-modal .auth-menu>.active-button:hover,
+.auth-modal .auth-menu>.active-button:active {
+    background: transparent;
     color: rgba(0, 0, 0, 1);
+    opacity: 1;
+    text-shadow: 0 10px 20px rgba(0, 0, 0, 0.10), 0 6px 6px rgba(0, 0, 0, 0.12);
+    /* Cancel button styles */
+    width: initial;
 }
 
-.auth-modal .auth-menu > .inactive-button {
+.auth-modal .auth-menu>.inactive-button,
+.auth-modal .auth-menu>.inactive-button:visited {
     color: rgba(0, 0, 0, .5);
+    text-shadow: 0 10px 20px rgba(0, 0, 0, 0.10), 0 6px 6px rgba(0, 0, 0, 0.12);
 }
 
-.auth-modal .auth-menu > .inactive-button:hover {
+.auth-modal .auth-menu>.inactive-button:hover,
+.auth-modal .auth-menu>.inactive-button:active {
     border-bottom: 1px solid #000;
     color: rgba(0, 0, 0, 1);
     cursor: pointer;
+    text-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    /* Cancel button styles */
+    width: initial;
 }
 
-.auth-modal .auth-menu > .sign-in-button:after {
+.auth-modal .auth-menu>.sign-in-button:after {
     vertical-align: top;
     font-size: .8em;
     content: " | ";

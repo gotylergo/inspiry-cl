@@ -6,6 +6,9 @@ import LandingStory from './landing-story';
 import { createPageTitle } from '../actions';
 
 class Landing extends Component {
+  componentDidMount() {
+    this.props.createPageTitle("home");
+  }
   render() {
     document.title = this.props.docTitle;
     return (
@@ -34,8 +37,8 @@ class Landing extends Component {
               <p>When you start your story, Inspiry takes care of all the hard decisions so you can get on to the fun stuff. Before you start, you’re given a genre, along with a visual theme to set the mood.</p>
               <p>Then, it’s time to get creative. Before each sentence, Inspiry gives you a word that you have to include, and when you least expect it, we’ll also throw in a rando photo for you to incorporate into your tale.</p>
               <p>It’s your job to use that creative noggin of yours to organize the chaos into a coherent of a story (and if you get a good laugh out of it, that’s an added bonus!).</p>
-              <p>Remember, the idea is not to take things so seriously, so if your story isn’t up to par, scrap it and use the momentum to get back to work on your big idea. Or, i masterpiece, publish it and share it with the world!</p>
-              <p>That idea isn't going to write itself, so let’s get started!</p>
+            <p>Remember, the idea is not to take things so seriously, so if your story isn’t up to par, scrap it and use the momentum to get back to work on your big idea. Or, if it’s a masterpiece, publish it and share it with the world!</p>
+              <p>That idea isn’t going to write itself, so let’s get started!</p>
             </div>
             <div className="row"><Link to="/writer" className="button btn-dark shadow-static" role="button" >start writing</Link>
             </div>
@@ -53,7 +56,7 @@ class Landing extends Component {
         </main>
         <footer className="section section-light">
           <div className="row">
-            <p>Hi, I'm Tyler, and I'm a web developer.</p>
+            <p>Hi, I’m Tyler, and I’m a web developer.</p>
             <a href="//github.com/gotylergo" className="button btn-dark shadow-static" role="button" onClick={
               e => {
                 e.preventDefault();
@@ -65,9 +68,7 @@ class Landing extends Component {
       </div>
     )
   }
-  componentDidMount() {
-    this.props.createPageTitle("home");
-  }
+
 }
 
 const mapStateToProps = state => ({
