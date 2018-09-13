@@ -19,13 +19,22 @@ class Modal extends Component {
             return (
                 <div className="modal-container" >
                     <p>Oops! You weren't supposed to see this!</p>
-                    <p>Stop looking! Close me! 🙈</p>
+                    <p>Stop looking! Close me! <span role="img" aria-label="Cheeky monkey covering eyes" >🙈</span></p>
                 </div>
             )
         }
+
+        // Close modal when container is clicked
+
+        // const containerCloseModal = (e) {
+        //     document.body.onclick(function(e) {
+        //     this.props.toggleModal().stopPropogation();
+        //     });
+        // }
+
         return (
-            <div className="modal shadow" onClick={this.props.toggleModal} >
-                <div className="modal-container shadow">
+            <div className="modal shadow" >
+                <div className="modal-container shadow" >
                     <div className="close-btn-container"><button onClick={this.props.toggleModal} className="button close-button"><FontAwesomeIcon icon="times" className="shadow-fa" /></button></div>
                     <ModelContent />
                 </div>

@@ -23,7 +23,7 @@ class App extends Component {
     const NoMatch = ({ location }) => (
       <div>
         <div class="page404 shadow-static">
-          <h3>Uh oh... something went wrong. <span role="img" aria-label="Monkey Covering Eyes">🙈</span></h3>
+          <h3>Uh oh... something went wrong. <span role="img" aria-label="Cheeky monkey covering eyes">🙈</span></h3>
           <p>Couldn’t find <code>{location.pathname}</code>.</p>
           <p>Here’s the landing page instead.</p>
         </div>

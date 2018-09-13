@@ -31,7 +31,7 @@ export const inspiryReducer = (state = initialState, action) => {
     }
 
     else if (action.type === actions.TOGGLE_MODAL) {
-        if (typeof action.modal == "undefined" ) {
+        if (typeof action.modal === "undefined" | "inactive" ) {
             return Object.assign({}, state, {
                 modalActive: "inactive"
             })

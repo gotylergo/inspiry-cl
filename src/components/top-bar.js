@@ -36,13 +36,13 @@ class TopBar extends Component {
     }
     closeMenuopenModal(modal) {
         this.props.dispatch(toggleMainMenu());
-        this.props.dispatch(toggleModal(modal));
+        this.props.dispatch(toggleModal());
     }
 
     render() {
 
         const OpenModal = () => {
-            if (this.props.modalActive != 'inactive') {
+            if (this.props.modalActive !== 'inactive') {
                 return (<Modal />)
             }
             return " "
