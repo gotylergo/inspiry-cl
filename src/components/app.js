@@ -19,7 +19,6 @@ class App extends Component {
 //   }
 
   render() {
-
     const NoMatch = ({ location }) => (
       <div>
         <div class="page404 shadow-static">

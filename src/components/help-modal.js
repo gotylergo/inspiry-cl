@@ -34,7 +34,7 @@ class HelpModal extends Component {
                     <li>...</li>
                 </ol>
                 <h4>Are you ready?</h4>
-                <Link to="/writer" className="button shadow" role="button">Let's write!</Link>
+                <Link to="/writer" className="button shadow" role="button" onClick={this.props.toggleModal} >Let's write!</Link>
             </div>
         );
     }

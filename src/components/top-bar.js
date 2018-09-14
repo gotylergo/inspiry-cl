@@ -9,35 +9,6 @@ import { toggleModal } from '../actions';
 import './top-bar.css';
 
 class TopBar extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.toggleMainMenu = this.toggleMainMenu.bind(this);
-        // this.openHelpModal = this.openHelpModal.bind(this);
-        // this.openAuthModal = this.openAuthModal.bind(this);
-        // this.toggleModal = this.toggleModal.bind(this);
-    // }
-    closeMenu() {
-        this.props.dispatch(toggleMainMenu());
-    }
-    // Modal() {
-
-    // }
-    // openHelpModal() {
-    //     this.props.dispatch(toggleMainMenu());
-    //     this.props.dispatch(toggleModal());
-    // }
-    // openAuthModal() {
-    //     this.props.dispatch(toggleMainMenu());
-    //     console.log(toggleMainMenu());
-    //     this.props.dispatch(toggleModal());
-    // }
-    closeModal() {
-        this.props.dispatch(toggleModal());
-    }
-    closeMenuopenModal(modal) {
-        this.props.dispatch(toggleMainMenu());
-        this.props.dispatch(toggleModal());
-    }
 
     render() {
 
@@ -56,8 +27,7 @@ class TopBar extends Component {
                 </button>
                 <div className="page-title">{this.props.pageTitle}</div>
             </header>
-            <MainMenu toggleMainMenu={this.props.toggleMainMenu} toggleModal={this.props.toggleModal}
-             />
+            <MainMenu toggleMainMenu={this.props.toggleMainMenu} toggleModal={this.props.toggleModal} closeMenuOpenHelpModal={this.props.closeMenuOpenHelpModal} />
             <OpenModal />
             </div>
         );

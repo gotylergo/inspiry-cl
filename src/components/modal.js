@@ -11,15 +11,20 @@ class Modal extends Component {
     render() {
 
         const ModelContent = () => {
+            const props = {
+                toggleModal: () => {
+                    this.props.toggleModal()
+                }
+            };
             if (this.props.modalActive === "help") {
-                return (<HelpModal />)
+                return (<HelpModal {...props} />)
             } else if (this.props.modalActive === "auth") {
-                return (<AuthModal />)
+                return (<AuthModal {...props} />)
             }
             return (
                 <div className="modal-container" >
-                    <p>Oops! You weren't supposed to see this!</p>
-                    <p>Stop looking! Close me! <span role="img" aria-label="Cheeky monkey covering eyes" >🙈</span></p>
+                    <p>Oops! You weren't supposed to see that!</p>
+                    <p>Stop looking! Close me and try that again! <span role="img" aria-label="Cheeky monkey covering eyes" >🙈</span></p>
                 </div>
             )
         }

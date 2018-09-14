@@ -3,7 +3,7 @@
 }
 
 .auth-modal .auth-menu .button {
-    margin: 1em 0;
+    margin: 1em .25em;
     border-bottom: 1px solid transparent;
     font-size: 1.8em;
     font-family: 'Comfortaa', Verdana, sans-serif;
@@ -44,11 +44,4 @@
     text-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     /* Cancel button styles */
     width: initial;
-}
-
-.auth-modal .auth-menu>.sign-in-button:after {
-    vertical-align: top;
-    font-size: .8em;
-    content: " | ";
-    opacity: 1;
 }
