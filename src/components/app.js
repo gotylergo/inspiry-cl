@@ -4,7 +4,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faBars, faStopwatch, faBook, faTimes, faTrash, faShareSquare } from '@fortawesome/free-solid-svg-icons';
 import Landing from './landing';
 import Writer from './writer';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
 import Dashboard from './dashboard';
 import './app.css';
@@ -44,11 +44,13 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  mainMenuActive: state.mainMenuActive,
-  appTitle: state.appTitle,
-  pageTitle: state.pageTitle,
-  docTitle: state.docTitle
-});
+// const mapStateToProps = state => ({
+//   mainMenuActive: state.mainMenuActive,
+//   appTitle: state.appTitle,
+//   pageTitle: state.pageTitle,
+//   docTitle: state.docTitle
+// });
 
-export default connect(mapStateToProps)(App);
+// export default connect(mapStateToProps)(App);
+
+export default App;
