@@ -19,7 +19,7 @@ a.button:active {
     border-style: solid;
     text-transform: lowercase;
     transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
-    text-decoration: none;    
+    text-decoration: none;
 }
 
 .button:hover,
@@ -97,9 +97,11 @@ a:hover {
     filter: drop-shadow(5px 2px 0.5rem gray);
     transition: all 0.2s cubic-bezier(.25, .8, .25, 1);
 }
+
 .shadow-fa:hover {
     opacity: 1;
 }
+
 .page404 {
     margin: 0;
     padding: 5em 0 2.5em 0;

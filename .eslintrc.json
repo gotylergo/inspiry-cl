@@ -1,3 +1,28 @@
 {
-    "extends": "google"
+    "parser": "babel-eslint",
+    "plugins": [
+        "react"
+    ],
+    "extends": [
+        "./node_modules/eslint-config-google/index.js",
+        "plugin:react/recommended"
+    ],
+    "settings": {
+        "react": {
+            "createClass": "createReactClass", 
+            "pragma": "React",
+            "version": "15.0",
+            "flowVersion": "0.53"
+        },
+        "propWrapperFunctions": [
+            "forbidExtraProps"
+        ]
+    },
+    "rules": {
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "require-jsdoc": "off"
+    }
 }
