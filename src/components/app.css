@@ -93,12 +93,20 @@ a:hover {
 
 .shadow-fa {
     color: #000;
-    opacity: .8;
+    opacity: .7;
     filter: drop-shadow(5px 2px 0.5rem gray);
     transition: all 0.2s cubic-bezier(.25, .8, .25, 1);
 }
 
-.shadow-fa:hover {
+.shadow-fa-light {
+    color: #fff;
+    opacity: .7;
+    filter: drop-shadow(5px 2px 0.5rem gray);
+    transition: all 0.2s cubic-bezier(.25, .8, .25, 1);
+}
+
+.shadow-fa:hover,
+.shadow-fa-light:hover {
     opacity: 1;
 }
 

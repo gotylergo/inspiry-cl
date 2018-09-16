@@ -13,16 +13,19 @@ class Writer extends Component {
   constructor(props) {
     super(props);
     this.intervalHandler = this.intervalHandler.bind(this);
+    this.startWriting = this.startWriting.bind(this);
+    this.saveSentence = this.saveSentence.bind(this);
     this.timerObj = undefined;
     this.state = {
+      writing: false,
       startTime: 60,
       endTime: 0,
-      genre: '',
-      keyword: '',
+      genre: 'awesome',
+      keyword: 'inpsired',
       img: '',
       imgActive: false,
       currentSentence: '',
-      story: 'This is a story.',
+      story: '',
     };
   }
   // Timer
@@ -34,6 +37,19 @@ class Writer extends Component {
   // Saving current sentence to the story (Local State)
 
   // Load JSON
+
+  startWriting() {
+    this.setState({
+      writing: true,
+      genre: Genres.array[Math.floor(Math.random() * (Genres.array.length))],
+      keyword: Keywords.array[Math.floor(Math.random() * (Keywords.array.length))],
+      img: Imgs.array[Math.floor(Math.random() * (Imgs.array.length - 1))],
+    });
+    // this.setState({
+    //   story: 'Write the first sentence of your story in the box above and hit Enter. Don’t forget to include the word of the sentence!',
+    // });
+    this.timer();
+  }
 
   timer() {
     this.timerObj = setInterval(this.intervalHandler, 1000);
@@ -49,21 +65,92 @@ class Writer extends Component {
   }
 
   componentWillMount() {
-    console.log(Genres);
+    // console.log(Genres);
+    // this.setState({
+    //   genre: Genres.array[Math.floor(Math.random() * (Genres.array.length))],
+    //   keyword: Keywords.array[Math.floor(Math.random() * (Keywords.array.length))],
+    //   img: Imgs.array[Math.floor(Math.random() * (Imgs.array.length - 1))],
+    // });
+  }
+
+  setSentence = (currentSentence) => {
     this.setState({
-      genre: Genres.array[Math.floor(Math.random() * (Genres.array.length))],
+      currentSentence
+    })
+  }
+
+  saveSentence = () => {
+    if (this.state.story === "") {
+      this.setState({
+        currentSentence: "",
+        story: `${this.state.currentSentence}.`,
+        keyword: Keywords.array[Math.floor(Math.random() * (Keywords.array.length))],
+        startTime: this.state.startTime + (Math.floor(Math.random() * 6) + 3)
+      });
+    }
+    this.setState({
+      currentSentence: "",
+      story: `${this.state.story} ${this.state.currentSentence}.`,
       keyword: Keywords.array[Math.floor(Math.random() * (Keywords.array.length))],
-      img: Imgs.array[Math.floor(Math.random() * (Imgs.array.length - 1))],
+      startTime: this.state.startTime + (Math.floor(Math.random() * 6) + 3)
     });
+  }
+
+  enterKeySaveSentence = (e) => {
+    if (e.key === "Enter" || e.key === ".") {
+      console.log("event hijacked!");
+      this.saveSentence();
+    }
   }
 
   componentDidMount() {
     this.props.createPageTitle('writer');
-    this.timer();
+    // this.timer();
   }
 
   render() {
     document.title = this.props.docTitle;
+
+    const WriterMain = () => {
+      if (this.state.writing) {
+        return (
+          <div className="writer-container">
+            <div className="story-header text-shadow-static">
+              <div className="timer">
+                {this.state.startTime} <FontAwesomeIcon icon="stopwatch" />
+              </div>
+              <h1 className="text-shadow-static">my <span className="story-genre">{this.state.genre}</span> story</h1>
+              <div className="keyword shadow">{this.state.keyword}</div>
+              <div className="keyword-label text-shadow-static">
+                word of the sentence:</div>
+              <div className="story-input-container">
+                <input type="text" id="story-input"
+                  className="story-input shadow"
+                  placeholder="Write here. Hit Enter or . when done."
+                  onKeyPress={(e) => this.enterKeySaveSentence(e)} 
+                  value={this.state.currentSentence} onChange={e => this.setSentence(e.target.value)}
+                />
+                <button className="enter-button" onClick={(e) => { e.preventDefault; this.saveSentence() }} >
+                  <FontAwesomeIcon icon="chevron-circle-down" className="shadow-fa-light" />
+                </button>
+              </div>
+            </div>
+            <article className="story">
+              {this.state.story}
+              <StoryImg />
+            </article>
+          </div>
+        );
+      }
+      return (
+        <div className="writer-starter">
+          <div>
+            <button className="button btn-light shadow" onClick={() => this.startWriting()}>start your story</button>
+          </div>
+        </div>
+      );
+    };
+
     const StoryImg = () => {
       if (this.state.imgActive) {
         return (
@@ -85,32 +172,12 @@ class Writer extends Component {
       }
       return '';
     };
+
     return (
-      <div className="writer">
+      <div className="writer" >
         <TopBar />
         <main className="writer-main">
-          <div className="writer-container">
-            <div className="story-header text-shadow-static">
-              <div className="timer">
-                {this.state.startTime} <FontAwesomeIcon icon="stopwatch" />
-              </div>
-              <h1 className="text-shadow-static">
-                my <span className="story-genre">{this.state.genre}</span> story
-              </h1>
-              <div className="keyword shadow">{this.state.keyword}</div>
-              <div className="keyword-label text-shadow-static">
-                word of the sentence:
-              </div>
-              <textarea
-                className="story-input shadow"
-                placeholder="Start writing here"
-              ></textarea>
-            </div>
-            <article className="story">
-              {this.state.story}
-              <StoryImg />
-            </article>
-          </div>
+          <WriterMain />
         </main>
         <ul className="writer-footer">
           <li><button className="button btn-light">Save</button></li>
