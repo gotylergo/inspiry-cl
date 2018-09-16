@@ -29,7 +29,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
+    "test": "react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
     "lint-dry": "eslint src/**/*.js",
     "lint-fix": "eslint --fix src/**/*.js",

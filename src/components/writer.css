@@ -1,110 +1,167 @@
 .writer {
-    background: url(), linear-gradient(to right, red , purple);
-    background-repeat: repeat;
-    width: 100%;
-    min-height: 100vh;
-    overflow: auto;
-    color: transparent;
-    background-clip: text;
-    padding: 0;
+  background: url(), linear-gradient(to right, red, purple);
+  background-repeat: repeat;
+  width: 100%;
+  min-height: 100vh;
+  overflow: auto;
+  color: transparent;
+  background-clip: text;
+  padding: 0;
 }
 
 .writer-main {
-    padding: 5em 1em;
-    background: rgba(0, 0, 0, .6);
-    min-height: 100vh;
-    color: #fff;
+  padding: 5em 1em 10em 1em;
+  background: rgba(0, 0, 0, .6);
+  min-height: 100vh;
+  color: #fff;
 }
 
 .writer-container {
-    max-width: 800px;
-    margin-right: auto;
-    margin-left: auto;
+  max-width: 800px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .story-header {
-    padding: 0 0 1em;
+  padding: 0 0 1em;
 }
 
 .story-header h1,
 .timer {
-    margin-bottom: 1em;
-    font-size: 1.75em;
-    font-family: 'Comfortaa', Verdana, sans;
+  margin-bottom: 1em;
+  font-size: 1.75em;
+  font-family: 'Comfortaa', Verdana, sans;
 }
 
 .timer {
-    float: right;
+  float: right;
+  margin-left: .5em;
 }
 
 .timer i {
-    font-size: 2em;
+  font-size: 2em;
 }
 
-.target-word-label {
-    width: 50%;
-    padding: 1px;
-    box-sizing: border-box;
-    text-align: center;
+.story-genre {
+  display: inline-block;
+  word-wrap: none;
+  text-transform: lowercase;
 }
 
-.target-word {
-    width: 50%;
-    float: right;
-    box-sizing: border-box;
-    text-align: center;
-    border: 1px dashed #fff;
+.story-genre:before,
+.story-genre::after {
+  content: "⦂";
+}
+
+.keyword-label {
+  width: 50%;
+  padding: 1px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.keyword {
+  width: 50%;
+  float: right;
+  box-sizing: border-box;
+  text-align: center;
+  border: 1px dashed #fff;
 }
 
 .story-input,
 .story {
-    font-size: 1em;
+  font-size: 1em;
 }
 
 .story-input {
-    display: inline-block;
-    vertical-align: middle;
-    height: 4em;
-    margin-top: 2em;
-    box-sizing: border-box;
-    padding: 1em;
-    width: 100%;
-    background: transparent;
-    color: white;
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  width: 100%;
+  height: 3em;
+  margin-top: 2em;
+  padding: 0 1em;
+  line-height: 3em;
+  border: 0;
+  opacity: .8;
+  color: #000;
+  background: rgba(255,255,255, 1);
 }
+.story-input:focus {
+    opacity: 1;
+    height: 6em;
+    margin-top: 2em;
+    padding: 0 1em;
+    line-height: 3em;
+  }
 
 .story {
-    line-height: 2em;
-    margin: .5em 0 .5em;
-}
-.story picture,
-.story img {
-    float: right;
-    height: 150px;
-    width: 150px;
-    background: #000;
-    margin: 1em 0 1em 1em;
+  line-height: 2em;
+  margin: .5em 0 .5em;
+  max-width: 800px;
 }
 
-.writer-footer {
-    width: 100%;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    margin: 0;
-    font-size: 16px;
-    background: #000;
-    padding-inline-start: 0;
+.story figure {
+  float: none;
+  margin: 1em 0;
+  padding: 1em;
+  text-align: center;
+  background: #fff;
 }
+
+@media only screen and (min-width: 800px) {
+  .story figure {
+    float: right;
+    max-width: 50%;
+    margin: 0 0 1em 1em;
+  }
+}
+
+.story figure img,
+.story figure picture {
+  width: 100%;
+  max-width: 800px;
+  box-sizing: border-box;
+}
+
+@media only screen and (min-width: 800px) {
+  .story figure img,
+  .story figure picture {
+      width: initial;
+    max-width: 100%;
+    max-height: 350px;
+  }
+}
+
+.story figure figcaption {
+  line-height: 1em;
+}
+
+.story figure figcaption a,
+.story figure figcaption a:visited,
+.story figure figcaption a:active {
+    color: #000;
+}
+.writer-footer {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  margin: 0;
+  font-size: 16px;
+  background: #000;
+  padding-inline-start: 0;
+}
+
 .writer-footer li {
-    list-style-type: none;
-    box-sizing: border-box;
+  list-style-type: none;
+  box-sizing: border-box;
 }
 
 .writer-footer .button {
-    width: 50%;
-    float: right;
-    box-sizing: border-box;
-    background: #000;
-    color: #fff;
+  width: 50%;
+  float: right;
+  box-sizing: border-box;
+  background: #000;
+  color: #fff;
 }

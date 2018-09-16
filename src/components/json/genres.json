@@ -1,0 +1,19 @@
+{
+  "array": [
+    "Adventure",
+    "Comedy",
+    "Drama",
+    "Epic",
+    "Fantasy",
+    "Historical fiction",
+    "Nonsense",
+    "Mystery",
+    "Mythology",
+    "Romance",
+    "Satire",
+    "Science Fiction",
+    "Tragedy",
+    "Tragicomedy",
+    "Western"
+  ]
+}

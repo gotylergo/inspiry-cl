@@ -1,12 +1,69 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {PropTypes} from 'prop-types';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { PropTypes } from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import TopBar from './top-bar';
-import {createPageTitle} from '../actions';
+import { createPageTitle } from '../actions';
+import Genres from './json/genres.json';
+import Imgs from './json/images.json';
+import Keywords from './json/keywords.json';
 import './writer.css';
 
 class Writer extends Component {
+  constructor(props) {
+    super(props);
+    this.intervalHandler = this.intervalHandler.bind(this);
+    this.timerObj = undefined;
+    this.state = {
+      startTime: 60,
+      endTime: 0,
+      genre: '',
+      keyword: '',
+      img: '',
+      currentSentence: '',
+      story: 'This is a story.',
+    };
+  }
+  // Timer
+  // Periodically add picture
+  // Periodically
+
+  // Genre
+
+  // Saving current sentence to the story (Local State)
+
+  // Load JSON
+
+  timer() {
+    this.timerObj = setInterval(this.intervalHandler, 1000);
+  }
+
+  intervalHandler() {
+    this.setState({
+      startTime: this.state.startTime - 1,
+    });
+    if (this.state.startTime <= 0) {
+      clearInterval(this.timerObj);
+      this.setState({
+        startTime: 60,
+      });
+    }
+  }
+
+  componentWillMount() {
+    console.log(Genres);
+    this.setState({
+      genre: Genres.array[Math.floor(Math.random() * (Genres.array.length))],
+      keyword: Keywords.array[Math.floor(Math.random() * (Keywords.array.length))],
+      img: Imgs.array[Math.floor(Math.random() * (Imgs.array.length - 1))],
+    });
+  }
+
+  componentDidMount() {
+    this.props.createPageTitle('writer');
+    this.timer();
+  }
+
   render() {
     document.title = this.props.docTitle;
     return (
@@ -15,15 +72,38 @@ class Writer extends Component {
         <main className="writer-main">
           <div className="writer-container">
             <div className="story-header text-shadow-static">
-              <span className="timer">
-                                60 <FontAwesomeIcon icon="stopwatch" />
-              </span>
-              <h1 className="text-shadow-static">my <span>“horror”</span> story</h1>
-              <div className="target-word shadow">salamander</div>
-              <div className="target-word-label text-shadow-static">word of the sentence:</div>
-              <textarea className="story-input shadow" placeholder="Start writing here"></textarea>
+              <div className="timer">
+                {this.state.startTime} <FontAwesomeIcon icon="stopwatch" />
+              </div>
+              <h1 className="text-shadow-static">
+                my <span className="story-genre">{this.state.genre}</span> story
+              </h1>
+              <div className="keyword shadow">{this.state.keyword}</div>
+              <div className="keyword-label text-shadow-static">
+                word of the sentence:
+              </div>
+              <textarea
+                className="story-input shadow"
+                placeholder="Start writing here"
+              ></textarea>
             </div>
-            <p className="story">Curabitur facilisis leo at venenatis fringilla. In ullamcorper sagittis dui, mattis imperdiet metus commodoeget. Nulla nec erat nec placerat vestibulum. Curabitur sed dapibus Pellentesque vestibulummattis semper. Duis ultricies p metus in vestibulum. <img src="" alt="Random" /> Etiam iaculis, lacus in eleifend, antepurus sagittis magna, vitae tincidunt felis orci a eros. Integer sollicitudin ipsum et malesuada fringilla. Sed consequat, mi at euismod lacinia, magna metus pul tortor, quis semper nisi turpis quis lacus. Aeneanorci ipsum, maximus sit amet ornare eget, fermentum eu  Phasellus dui nisi, ornare a fringilla ac, ornarefringilla magna.</p>
+            <article className="story">
+              {this.state.story}
+              <figure className="shadow-static">
+                <img
+                  src={`./img/story/${this.state.img.file}`}
+                  title={this.state.img.title}
+                  alt={this.state.img.description}
+                />
+                <figcaption>
+                  <a
+                    href={this.state.img.from}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >“{this.state.img.title}”</a>
+                </figcaption>
+              </figure>
+            </article>
           </div>
         </main>
         <ul className="writer-footer">
@@ -33,15 +113,11 @@ class Writer extends Component {
       </div >
     );
   }
-
-  componentDidMount() {
-    this.props.createPageTitle('writer');
-  }
 }
 
 Writer.propTypes = {
   docTitle: PropTypes.string,
-  createPageTitle: PropTypes.string,
+  createPageTitle: PropTypes.func,
 };
 
 const mapStateToProps = (state) => ({
@@ -55,6 +131,6 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Writer);

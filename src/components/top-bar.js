@@ -34,12 +34,12 @@ class TopBar extends Component {
 }
 
 TopBar.propTypes = {
-  modalActive: PropTypes.bool,
+  modalActive: PropTypes.string,
   toggleMainMenu: PropTypes.func,
   pageTitle: PropTypes.string,
   toggleModal: PropTypes.func,
   closeMenuOpenHelpModal: PropTypes.func,
-  createPageTitle: PropTypes.string,
+  createPageTitle: PropTypes.func,
 };
 
 const mapStateToProps = (state) => ({
