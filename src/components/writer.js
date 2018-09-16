@@ -20,6 +20,7 @@ class Writer extends Component {
       genre: '',
       keyword: '',
       img: '',
+      imgActive: false,
       currentSentence: '',
       story: 'This is a story.',
     };
@@ -42,11 +43,8 @@ class Writer extends Component {
     this.setState({
       startTime: this.state.startTime - 1,
     });
-    if (this.state.startTime <= 0) {
+    if (this.state.startTime <= this.state.endTime) {
       clearInterval(this.timerObj);
-      this.setState({
-        startTime: 60,
-      });
     }
   }
 
@@ -66,6 +64,27 @@ class Writer extends Component {
 
   render() {
     document.title = this.props.docTitle;
+    const StoryImg = () => {
+      if (this.state.imgActive) {
+        return (
+          <figure className="shadow-static">
+            <img
+              src={`./img/story/${this.state.img.file}`}
+              title={this.state.img.title}
+              alt={this.state.img.description}
+            />
+            <figcaption>
+              <a
+                href={this.state.img.from}
+                target="_blank"
+                rel="noopener noreferrer"
+              >“{this.state.img.title}”</a>
+            </figcaption>
+          </figure>
+        );
+      }
+      return '';
+    };
     return (
       <div className="writer">
         <TopBar />
@@ -89,20 +108,7 @@ class Writer extends Component {
             </div>
             <article className="story">
               {this.state.story}
-              <figure className="shadow-static">
-                <img
-                  src={`./img/story/${this.state.img.file}`}
-                  title={this.state.img.title}
-                  alt={this.state.img.description}
-                />
-                <figcaption>
-                  <a
-                    href={this.state.img.from}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >“{this.state.img.title}”</a>
-                </figcaption>
-              </figure>
+              <StoryImg />
             </article>
           </div>
         </main>
