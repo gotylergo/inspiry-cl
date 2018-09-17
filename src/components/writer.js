@@ -126,12 +126,13 @@ class Writer extends Component {
               <div className="keyword-label text-shadow-static">
                 word of the sentence:</div>
               <div className="story-input-container">
-                <input type="text" id="story-input" name="story-input"
+                <input type="text" id="story-input"
                   className="story-input shadow"
                   placeholder="Write here. Hit Enter or . when done."
-                  onChange={(e) => this.setSentence(e.target.value)}
+                  onKeyPress={(e) => this.enterKeySaveSentence(e)}
+                  value={this.state.currentSentence} onChange={e => this.setSentence(e.target.value)}
                 />
-                <button className="enter-button" onClick={() => { this.saveSentence() }} >
+                <button className="enter-button" onClick={() => this.saveSentence() } >
                   <FontAwesomeIcon icon="chevron-circle-down" className="shadow-fa-light" />
                 </button>
               </div>
