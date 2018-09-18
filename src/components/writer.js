@@ -24,6 +24,7 @@ class Writer extends Component {
       keyword: 'inpsired',
       img: '',
       imgActive: false,
+      imgActiveTime: 30,
       currentSentence: '',
       story: '',
     };
@@ -44,6 +45,7 @@ class Writer extends Component {
       genre: Genres.array[Math.floor(Math.random() * (Genres.array.length))],
       keyword: Keywords.array[Math.floor(Math.random() * (Keywords.array.length))],
       img: Imgs.array[Math.floor(Math.random() * (Imgs.array.length - 1))],
+      imgActiveTime: (Math.floor(Math.random() * 20 + 20)),
     });
     // this.setState({
     //   story: 'Write the first sentence of your story in the box above and hit Enter. Don’t forget to include the word of the sentence!',
@@ -80,6 +82,11 @@ class Writer extends Component {
   }
 
   saveSentence = () => {
+    if (this.state.imgActiveTime >= this.state.startTime) {
+      this.setState({
+        imgActive: true
+      })
+    }
     if (this.state.currentSentence === "") {
       return ""
     };
@@ -91,11 +98,12 @@ class Writer extends Component {
         startTime: this.state.startTime + (Math.floor(Math.random() * 6) + 3)
       });
     }
+    console.log(this.state.imgActiveTime);
     this.setState({
       currentSentence: "",
       story: `${this.state.story} ${this.state.currentSentence}.`,
       keyword: Keywords.array[Math.floor(Math.random() * (Keywords.array.length))],
-      startTime: this.state.startTime + (Math.floor(Math.random() * 6) + 3)
+      startTime: this.state.startTime + (Math.floor(Math.random() * 6) + 3),
     });
   }
 
@@ -132,7 +140,7 @@ class Writer extends Component {
                   onKeyPress={(e) => this.enterKeySaveSentence(e)}
                   value={this.state.currentSentence} onChange={e => this.setSentence(e.target.value)}
                 />
-                <button className="enter-button" onClick={() => this.saveSentence() } >
+                <button className="enter-button" onClick={() => this.saveSentence()} >
                   <FontAwesomeIcon icon="chevron-circle-down" className="shadow-fa-light" />
                 </button>
               </div>
