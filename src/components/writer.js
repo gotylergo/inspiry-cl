@@ -75,10 +75,16 @@ class Writer extends Component {
     // });
   }
 
-  setSentence = (currentSentence) => {
-    this.setState({
-      currentSentence
-    })
+  setSentence = (e) => {
+    e.preventDefault();
+    this.setState({ currentSentence: e.target.value })
+  }
+
+  enterKeySaveSentence = (e) => {
+    if (e.key === "Enter" || e.key === ".") {
+      console.log("submit activated");
+      this.saveSentence();
+    }
   }
 
   saveSentence = () => {
@@ -95,23 +101,15 @@ class Writer extends Component {
         currentSentence: "",
         story: `${this.state.currentSentence}.`,
         keyword: Keywords.array[Math.floor(Math.random() * (Keywords.array.length))],
-        startTime: this.state.startTime + (Math.floor(Math.random() * 6) + 3)
+        startTime: this.state.startTime + Math.floor(Math.random() * 3)
       });
     }
-    console.log(this.state.imgActiveTime);
     this.setState({
       currentSentence: "",
       story: `${this.state.story} ${this.state.currentSentence}.`,
       keyword: Keywords.array[Math.floor(Math.random() * (Keywords.array.length))],
-      startTime: this.state.startTime + (Math.floor(Math.random() * 6) + 3),
+      startTime: this.state.startTime + Math.floor(Math.random() * 3),
     });
-  }
-
-  enterKeySaveSentence = (e) => {
-    if (e.key === "Enter" || e.key === ".") {
-      console.log("submit activated");
-      this.saveSentence();
-    }
   }
 
   componentDidMount() {
@@ -120,46 +118,6 @@ class Writer extends Component {
 
   render() {
     document.title = this.props.docTitle;
-
-    const WriterMain = () => {
-      if (this.state.writing) {
-        return (
-          <div className="writer-container">
-            <div className="story-header text-shadow-static">
-              <div className="timer">
-                {this.state.startTime} <FontAwesomeIcon icon="stopwatch" />
-              </div>
-              <h1 className="text-shadow-static">my <span className="story-genre">{this.state.genre}</span> story</h1>
-              <div className="keyword shadow">{this.state.keyword}</div>
-              <div className="keyword-label text-shadow-static">
-                word of the sentence:</div>
-              <div className="story-input-container">
-                <input type="text" id="story-input"
-                  className="story-input shadow"
-                  placeholder="Write here. Hit Enter or . when done."
-                  onKeyPress={(e) => this.enterKeySaveSentence(e)}
-                  value={this.state.currentSentence} onChange={e => this.setSentence(e.target.value)}
-                />
-                <button className="enter-button" onClick={() => this.saveSentence()} >
-                  <FontAwesomeIcon icon="chevron-circle-down" className="shadow-fa-light" />
-                </button>
-              </div>
-            </div>
-            <article className="story">
-              {this.state.story}
-              <StoryImg />
-            </article>
-          </div>
-        );
-      }
-      return (
-        <div className="writer-starter">
-          <div>
-            <button className="button btn-light shadow" onClick={() => this.startWriting()}>start your story</button>
-          </div>
-        </div>
-      );
-    };
 
     const StoryImg = () => {
       if (this.state.imgActive) {
@@ -183,11 +141,42 @@ class Writer extends Component {
       return '';
     };
 
+    const WriterMain = (this.state.writing) ?
+      <div className="writer-container">
+        <div className="story-header text-shadow-static">
+          <div className="timer">
+            {this.state.startTime} <FontAwesomeIcon icon="stopwatch" />
+          </div>
+          <h1 className="text-shadow-static">my <span className="story-genre">{this.state.genre}</span> story</h1>
+          <div className="keyword shadow">{this.state.keyword}</div>
+          <div className="keyword-label text-shadow-static">
+            word of the sentence:</div>
+          <div className="story-input-container">
+            <input type="text" id="story-input"
+              className="story-input shadow"
+              placeholder="Write here. Hit Enter or . when done." onChange={e => this.setSentence(e)} value={this.state.currentSentence}
+            />
+            <button className="enter-button" onClick={() => this.saveSentence()} >
+              <FontAwesomeIcon icon="chevron-circle-down" className="shadow-fa-light" />
+            </button>
+          </div>
+        </div>
+        <article className="story">
+          {this.state.story}
+          <StoryImg />
+        </article>
+      </div> :
+      <div className="writer-starter">
+        <div>
+          <button className="button btn-light shadow" onClick={() => this.startWriting()}>start your story</button>
+        </div>
+      </div>;
+
     return (
       <div className="writer" >
         <TopBar />
         <main className="writer-main">
-          <WriterMain />
+          {WriterMain}
         </main>
         <ul className="writer-footer">
           <li><button className="button btn-light">Save</button></li>
