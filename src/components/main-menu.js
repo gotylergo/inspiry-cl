@@ -44,7 +44,7 @@ MainMenu.propTypes = {
   mainMenuActive: PropTypes.bool,
   toggleMainMenu: PropTypes.func,
   docTitle: PropTypes.string,
-  createPageTitle: PropTypes.string,
+  createPageTitle: PropTypes.func,
 };
 
 const mapStateToProps = (state) => ({

@@ -23,7 +23,7 @@ class Dashboard extends Component {
 
 Dashboard.propTypes = {
   docTitle: PropTypes.string,
-  createPageTitle: PropTypes.string,
+  createPageTitle: PropTypes.func,
 };
 
 const mapStateToProps = (state) => ({

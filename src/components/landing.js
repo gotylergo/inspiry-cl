@@ -73,7 +73,7 @@ class Landing extends Component {
 
 Landing.propTypes = {
   docTitle: PropTypes.string,
-  createPageTitle: PropTypes.string,
+  createPageTitle: PropTypes.func,
 };
 
 const mapStateToProps = (state) => ({
