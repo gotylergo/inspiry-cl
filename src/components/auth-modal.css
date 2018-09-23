@@ -45,3 +45,8 @@
     /* Cancel button styles */
     width: initial;
 }
+
+.auth-modal .form-status {
+    text-align: center;
+    height: 1em;
+}

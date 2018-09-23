@@ -32,6 +32,9 @@
 .modal label {
     opacity: .8;
 }
+.modal label::after {
+    content: ":"
+}
 
 .modal input,
 .modal .button {

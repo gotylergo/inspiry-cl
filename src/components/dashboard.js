@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import config from '../config';
+import { API_BASE_URL } from '../config';
 import TopBar from './top-bar';
 import MyStories from './my-stories';
 import { PropTypes } from 'prop-types';
@@ -14,8 +14,13 @@ class Dashboard extends Component {
       stories: []
     }
   }
-  loadStories() {
-    fetch(`${config.API_BASE_URL}/stories/my-stories`)
+
+  loadStories(token) {
+    const myToken = sessionStorage.getItem("token");
+    fetch(`${API_BASE_URL}/stories/my-stories`,     {
+      method: 'GET',
+      headers: {'authorization': `Bearer ${myToken}`}
+    })
       .then(res => {
         if (!res.ok) {
           return Promise.reject(res.statusText)
@@ -36,8 +41,6 @@ class Dashboard extends Component {
 
   render() {
     document.title = this.props.docTitle;
-    console.log('dashboard render state', this.state);
-    console.log('dashboard render props', this.props);
     return (
       <div className="dashboard">
         <TopBar />

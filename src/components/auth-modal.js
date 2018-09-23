@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import SignInForm from './sign-in-form';
 import RegisterForm from './register-form';
 import './auth-modal.css';
@@ -9,20 +9,33 @@ class AuthModel extends Component {
     this.state = {
       authForm: 'signin',
     };
+    this.changeForm = this.changeForm.bind(this);
+    this.setStatus = this.setStatus.bind(this);
+
   }
 
-  changeForm(e, form) {
+  changeForm(form) {
     this.setState({
       authForm: form,
     });
   }
 
+  setStatus(e) {
+    this.setState({
+      formError: e
+    })
+  }
+
   render() {
     const AuthForm = () => {
+      let props = {
+        changeForm: form => this.changeForm(form),
+        setStatus: err => this.setStatus(err),
+      }
       if (this.state.authForm === 'signin') {
-        return (<SignInForm />);
+        return (<SignInForm {...props} />);
       } else if (this.state.authForm === 'register') {
-        return (<RegisterForm />);
+        return (<RegisterForm {...props} />);
       }
       return (
         <div className="modal-container" >
@@ -38,9 +51,10 @@ class AuthModel extends Component {
     return (
       <div className="auth-modal">
         <div className="auth-menu">
-          <button className={this.state.authForm === 'signin' ? activeBtnClass : inactiveBtnClass} onClick={(e, form = 'signin') => this.changeForm(e, form)} >Sign In</button> <button className={this.state.authForm === 'register' ? activeBtnClass : inactiveBtnClass} onClick={(e, form = 'register') => this.changeForm(e, form)} >Register</button>
+          <button className={this.state.authForm === 'signin' ? activeBtnClass : inactiveBtnClass} name="signin" onClick={e => this.changeForm(e.target.name)} >Sign In</button> <button className={this.state.authForm === 'register' ? activeBtnClass : inactiveBtnClass} name="register" onClick={e => this.changeForm(e.target.name)} >Register</button>
         </div>
         <AuthForm />
+        <div className="form-status">{this.state.formError}</div>
       </div>
     );
   }
