@@ -6,12 +6,13 @@ import './card.css';
 class Card extends Component {
 
   render() {
+    
     return (
-      <div className="card shadow">
+      <div className="card shadow" id={`${this.props.storyID}`}>
         <StoryTitle storyTitle={this.props.storyTitle} />
         <ul className="card-toolbar">
           <li className="card-delete">
-            <button className="button card-button" aria-label="delete" title="delete"
+            <button className="button card-button" aria-label="delete" title="delete" id={`del-${this.props.storyID}`} onClick={(e) => this.props.deleteCard(e.currentTarget.id)}
             ><FontAwesomeIcon icon="trash" className="shadow-fa" /></button>
           </li>
           <li className="card-share">

@@ -14,9 +14,10 @@ class Dashboard extends Component {
       stories: [],
       loading: true,
     }
+    this.loadStories = this.loadStories.bind(this);
   }
 
-  loadStories(token) {
+  loadStories() {
     const myToken = sessionStorage.getItem("token");
     fetch(`${API_BASE_URL}/stories/my-stories`,     {
       method: 'GET',
@@ -46,7 +47,7 @@ class Dashboard extends Component {
     return (
       <div className="dashboard">
         <TopBar />
-        <MyStories stories={this.state.stories} loading={this.state.loading} />
+        <MyStories stories={this.state.stories} loadStories={this.loadStories} loading={this.state.loading} />
       </div>
     );
   }
