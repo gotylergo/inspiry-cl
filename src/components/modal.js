@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import HelpModal from './help-modal';
 import AuthModal from './auth-modal';
+import ErrorModal from './error-modal';
 import {toggleModal} from '../actions';
 import './modal.css';
 
@@ -18,6 +19,8 @@ class Modal extends Component {
         return (<HelpModal {...props} />);
       } else if (this.props.modalActive === 'auth') {
         return (<AuthModal {...props} />);
+      } else if (this.props.modalActive === 'error') {
+        return (<ErrorModal {...props} />)
       }
       return (
         <div className="modal-container" >
@@ -38,7 +41,7 @@ class Modal extends Component {
     return (
       <div className="modal shadow" >
         <div className="modal-container shadow" >
-          <div className="close-btn-container"><button onClick={this.props.toggleModal} className="button close-button"><FontAwesomeIcon icon="times" className="shadow-fa" /></button></div>
+          <div className="close-btn-container"><button onClick={() => this.props.toggleModal()} className="button close-button"><FontAwesomeIcon icon="times" className="shadow-fa" /></button></div>
           <ModelContent />
         </div>
       </div >
@@ -52,7 +55,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  toggleModal: () => dispatch(toggleModal()),
+  toggleModal: (modal) => dispatch(toggleModal(modal)),
 });
 
 export default connect(

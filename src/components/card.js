@@ -1,13 +1,16 @@
-import React, {Component} from 'react';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {StoryTitle, StoryBody} from './story';
+import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { StoryTitle, StoryBody } from './story';
 import './card.css';
 
 class Card extends Component {
+
   render() {
+    console.log('card props', this.props);
+
     return (
       <div className="card shadow">
-        <StoryTitle />
+        <StoryTitle storyTitle={this.props.storyTitle} />
         <ul className="card-toolbar">
           <li className="card-delete">
             <button className="button card-button" aria-label="delete" title="delete"
@@ -22,7 +25,7 @@ class Card extends Component {
             ><FontAwesomeIcon icon="times" className="shadow-fa" /></button>
           </li>
         </ul>
-        <StoryBody />
+        <StoryBody storyContent={this.props.storyContent} />
         <div className="story-fader"></div>
       </div>
     );
