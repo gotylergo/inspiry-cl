@@ -11,7 +11,8 @@ class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      stories: []
+      stories: [],
+      loading: true,
     }
   }
 
@@ -23,13 +24,14 @@ class Dashboard extends Component {
     })
       .then(res => {
         if (!res.ok) {
-          return Promise.reject(res.statusText)
+          return this.props.toggleModal("auth");
         }
         return res.json();
       })
       .then(stories => {
         this.setState({
           stories,
+          loading: false,
         })
       })
       .catch(err =>
@@ -44,7 +46,7 @@ class Dashboard extends Component {
     return (
       <div className="dashboard">
         <TopBar />
-        <MyStories stories={this.state.stories} />
+        <MyStories stories={this.state.stories} loading={this.state.loading} />
       </div>
     );
   }

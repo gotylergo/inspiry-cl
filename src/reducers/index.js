@@ -2,7 +2,7 @@ import * as actions from '../actions';
 
 const initialState = {
   mainMenuActive: false,
-  modalActive: 'auth',
+  modalActive: 'inactive',
   pageTitle: 'inspiry',
   docTitle: 'inspiry: unblock your brain',
 };

@@ -6,8 +6,6 @@ import './card.css';
 class Card extends Component {
 
   render() {
-    console.log('card props', this.props);
-
     return (
       <div className="card shadow">
         <StoryTitle storyTitle={this.props.storyTitle} />

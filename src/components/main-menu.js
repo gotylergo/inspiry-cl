@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {PropTypes} from 'prop-types';
-import {NavLink} from 'react-router-dom';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {toggleMainMenu} from '../actions';
-import {toggleModal} from '../actions';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { PropTypes } from 'prop-types';
+import { NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { toggleMainMenu } from '../actions';
+import { toggleModal } from '../actions';
 import './main-menu.css';
 
 class MainMenu extends Component {
@@ -14,6 +14,12 @@ class MainMenu extends Component {
     this.props.dispatch(toggleModal(modal));
   }
   render() {
+    const AuthButton = () => {
+      if (this.props.userAuthd) {
+        return (<button className="button sign-out-button nav-button" aria-label="sign out" onClick={(e) => {e.preventDefault(); this.props.signout()}} >sign out</button>)
+      }
+      return (<button className="button sign-in-button nav-button" aria-label="sign in" onClick={(e, modal='auth') => this.openModal(e, modal)} >sign in</button>)
+    }
     return (
       <nav id="main-menu" className={this.props.mainMenuActive ? 'main-menu main-menu-open' : 'main-menu main-menu-closed'} aria-label="Main menu" aria-expanded="false">
         <button className="button menu-button menu-close"><FontAwesomeIcon icon="bars" aria-label="Close main menu" onClick={this.props.toggleMainMenu} /></button>
@@ -28,10 +34,10 @@ class MainMenu extends Component {
             <NavLink to="/writer" className="button new-story-button nav-button" activeClassName="active" aria-label="help" onClick={this.props.toggleMainMenu} >new story</NavLink>
           </li>
           <li>
-            <button className="button help-button nav-button" aria-label="help" onClick={(e, modal='help') => this.openModal(e, modal)} >help</button>
+            <button className="button help-button nav-button" aria-label="help" onClick={(e, modal = 'help') => this.openModal(e, modal)} >help</button>
           </li>
           <li>
-            <button className="button sign-out-button nav-button" aria-label="sign out" onClick={(e, modal='auth') => this.openModal(e, modal)} >sign in</button>
+            <AuthButton />
           </li>
         </ul>
       </nav>
@@ -49,6 +55,7 @@ MainMenu.propTypes = {
 
 const mapStateToProps = (state) => ({
   mainMenuActive: state.mainMenuActive,
+  userAuthd: state.userAuthd
 });
 
 export default connect(mapStateToProps)(MainMenu);

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router';
 import { toggleModal } from '../actions';
 import { API_BASE_URL } from '../config';
 
@@ -20,13 +19,13 @@ class SignInForm extends Component {
     this.setState({ [name]: value });
   }
   // username: this.state.username,
-  // password: this.state.password,
+  // password: this.state.password
 
   handleSubmit(e) {
     e.preventDefault();
     let user = JSON.stringify({
-      "username": "tyler",
-      "password": "bigWorld00"
+  username: this.state.username,
+  password: this.state.password
     });
     console.log(user);
     fetch(`${API_BASE_URL}/auth/login`,
@@ -42,7 +41,6 @@ class SignInForm extends Component {
         window.sessionStorage.setItem('token', res.authToken);
         this.props.setStatus('');
         this.props.toggleModal('inactive');
-        return <Redirect to="/dashboard" />;
       })
       .catch(err => {
         console.log(err);
@@ -67,6 +65,7 @@ class SignInForm extends Component {
 }
 
 const mapStateToProps = (state) => ({
+  userAuthd: state.userAuthd
 });
 
 const mapDispatchToProps = (dispatch) => ({
