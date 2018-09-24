@@ -18,13 +18,14 @@ class Writer extends Component {
     this.timerObj = undefined;
     this.state = {
       writing: false,
-      startTime: 60,
+      storyComplete: false,
+      startTime: 120,
       endTime: 0,
       genre: 'awesome',
       keyword: 'inpsired',
       img: '',
       imgActive: false,
-      imgActiveTime: 30,
+      imgActiveTime: 60,
       currentSentence: '',
       story: '',
     };
@@ -42,10 +43,16 @@ class Writer extends Component {
   startWriting() {
     this.setState({
       writing: true,
+      startTime: 120,
+      endTime: 0,
+      storyComplete: false,
       genre: Genres.array[Math.floor(Math.random() * (Genres.array.length))],
       keyword: Keywords.array[Math.floor(Math.random() * (Keywords.array.length))],
       img: Imgs.array[Math.floor(Math.random() * (Imgs.array.length - 1))],
-      imgActiveTime: (Math.floor(Math.random() * 20 + 20)),
+      imgActive: false,
+      imgActiveTime: (Math.floor(Math.random() * 80 + 40)),
+      currentSentence: '',
+      story: ''
     });
     // this.setState({
     //   story: 'Write the first sentence of your story in the box above and hit Enter. Don’t forget to include the word of the sentence!',
@@ -63,6 +70,9 @@ class Writer extends Component {
     });
     if (this.state.startTime <= this.state.endTime) {
       clearInterval(this.timerObj);
+      this.setState({
+        storyComplete: true,
+      })
     }
   }
 
@@ -80,33 +90,55 @@ class Writer extends Component {
     this.setState({ currentSentence: e.target.value })
   }
 
-  enterKeySaveSentence = (e) => {
-    if (e.key === "Enter" || e.key === ".") {
-      console.log("submit activated");
-      this.saveSentence();
+  keySaveSentence = (e) => {
+    this.setState({ currentSentence: e.currentTarget.value });
+    if ((e.key === 'Enter' || e.key === '.' || e.key === '?' || e.key === '!')) {
+      console.log('submit activated');
+      this.saveSentence(e);
     }
   }
 
-  saveSentence = () => {
+  saveSentence = (e) => {
+    e.preventDefault(e);
+    console.log(e.key);
+    // Display the image at a random time after a sentence is saved
     if (this.state.imgActiveTime >= this.state.startTime) {
       this.setState({
-        imgActive: true
+        imgActive: true,
       })
     }
-    if (this.state.currentSentence === "") {
+    let sent = this.state.currentSentence;
+    let sentNoEndChar = sent.slice(0, -1);
+    let endChar;
+    if (e.key === 'Enter') {
+      endChar = '.';
+    } else {
+      endChar = e.key;
+    }
+    // Don't save an empty sentence
+    if (sent === "") {
       return ""
     };
+    console.log('sent', sent);
+    console.log('endChar', endChar)
+
+    // Set the ending punctuation
+
+    // Add a . and save the sentence if the story is empty
+    // Add some time to the timer as a reward
     if (this.state.story === "") {
       this.setState({
         currentSentence: "",
-        story: `${this.state.currentSentence}.`,
+        story: `${sent}${endChar}`,
         keyword: Keywords.array[Math.floor(Math.random() * (Keywords.array.length))],
-        startTime: this.state.startTime + Math.floor(Math.random() * 3)
+        startTime: this.state.startTime + Math.floor(Math.random(3) * 3)
       });
     }
+    // Add a . and a space when adding consecutive sentences
+    // Add some time to the timer as a reward
     this.setState({
       currentSentence: "",
-      story: `${this.state.story} ${this.state.currentSentence}.`,
+      story: `${this.state.story} ${sent}${endChar}`,
       keyword: Keywords.array[Math.floor(Math.random() * (Keywords.array.length))],
       startTime: this.state.startTime + Math.floor(Math.random() * 3),
     });
@@ -114,6 +146,7 @@ class Writer extends Component {
 
   componentDidMount() {
     this.props.createPageTitle('writer');
+
   }
 
   render() {
@@ -154,9 +187,9 @@ class Writer extends Component {
           <div className="story-input-container">
             <input type="text" id="story-input"
               className="story-input shadow"
-              placeholder="Write here. Hit Enter or . when done." onChange={e => this.setSentence(e)} value={this.state.currentSentence}
+              placeholder="Write here. Hit Enter or . when done." onKeyPress={e => this.keySaveSentence(e)} onChange={e => this.setSentence(e)} value={this.state.currentSentence}
             />
-            <button className="enter-button" onClick={() => this.saveSentence()} >
+            <button className="enter-button" onClick={(e) => this.saveSentence(e)} >
               <FontAwesomeIcon icon="chevron-circle-down" className="shadow-fa-light" />
             </button>
           </div>
