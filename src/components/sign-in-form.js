@@ -9,6 +9,7 @@ class SignInForm extends Component {
     this.state = {
       username: '',
       password: '',
+      userAuthd: false,
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -18,14 +19,12 @@ class SignInForm extends Component {
     let value = e.target.value;
     this.setState({ [name]: value });
   }
-  // username: this.state.username,
-  // password: this.state.password
 
   handleSubmit(e) {
     e.preventDefault();
     let user = JSON.stringify({
-  username: this.state.username,
-  password: this.state.password
+      username: this.state.username,
+      password: this.state.password
     });
     console.log(user);
     fetch(`${API_BASE_URL}/auth/login`,
@@ -38,17 +37,20 @@ class SignInForm extends Component {
       })
       .then(res => res.json())
       .then(res => {
+        if (!res.user) {
+          return Promise.reject('error: ', res);
+        }
         window.sessionStorage.setItem('token', res.authToken);
-        this.props.setStatus('');
-        this.props.toggleModal('inactive');
+        this.props.setStatus('Login successful.');
+        // this.props.toggleModal('authSuccess');
+        return res;
       })
       .catch(err => {
         console.log(err);
-        console.error('Invalid username or password');
-        return this.props.setStatus('Invalid username or password');
+        console.error(err);
+        return this.props.setStatus(err);
       })
   }
-
   render() {
     return (
       <div className="auth-form sign-in-form" >
@@ -65,7 +67,7 @@ class SignInForm extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  userAuthd: state.userAuthd
+  userAuthd: state.userAuthd,
 });
 
 const mapDispatchToProps = (dispatch) => ({

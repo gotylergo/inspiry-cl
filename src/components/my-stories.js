@@ -5,12 +5,6 @@ import Card from './card';
 import './my-stories.css';
 
 class MyStories extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      stories: []
-    }
-  }
 
   deleteCard = (id) => {
     const _id = id.slice(4);

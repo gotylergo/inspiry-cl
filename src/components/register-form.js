@@ -41,18 +41,17 @@ class RegisterForm extends Component {
       })
       .then(res => res.json())
       .then(res => {
-        if (res.status === 201) {
-          console.error(res.message);
-          return this.props.setStatus(`${res.message}`);
+        if (res.username) {
+          this.props.changeForm("signin");
+          this.props.setStatus("Account created.")
+          console.info('Account created', res);
+          return Promise.resolve(res);
         }
-        this.props.changeForm("signin");
-        this.props.setStatus("Account created.")
-        console.info('Account created', res);
-        return res;
+        return Promise.reject(res);
       })
       .catch(err => {
-        console.error(JSON.stringify(err));
-        return this.props.setStatus(JSON.stringify(err));
+        console.error(JSON.stringify(err.message));
+        return this.props.setStatus(JSON.stringify(err.message));
       })
   }
 
