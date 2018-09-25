@@ -21,15 +21,6 @@ class MyStories extends Component {
         console.log(`${_id} deleted!`)
         return this.props.loadStories();
       })
-      .then(id => {
-        // let stories = this.props.stories;
-        // for (let i = 0; i < stories.length; i++) {
-        //   if (stories[i].id === id) {
-        //     stories.splice(i, 1);
-        //   }
-        // }
-
-      })
       .catch(err =>
         this.setState({
           error: err.message
@@ -41,14 +32,15 @@ class MyStories extends Component {
     let Stories;
     if (this.props.loading) {
       Stories = <h3 className="loading-stories text-shadow-static">Loading stories...</h3>
+      console.log(this.props.stories);
     }
-    else if (this.props.stories.length === 0) {
-      Stories = <h3 className="no-stories text-shadow-static">Couldn't find any stories. <Link to="/writer" >Write One?</Link></h3>;
-    } else {
+    else if (this.props.stories.length > 0) {
       Stories =
         this.props.stories.map((story, index) =>
           <Card key={index} storyID={story._id} storyContent={story.content} storyTitle={story.title} storyImg={story.img} genre={story.genre} deleteCard={this.deleteCard} />
         );
+    } else {
+      Stories = <h3 className="no-stories text-shadow-static">Couldn't find any stories. <Link to="/writer" >Write One?</Link></h3>;
     }
 
     return (

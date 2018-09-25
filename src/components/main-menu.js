@@ -15,7 +15,8 @@ class MainMenu extends Component {
   }
   render() {
     const AuthButton = () => {
-      if (this.props.userAuthd) {
+      const myToken = sessionStorage.getItem("token");
+      if (myToken) {
         return (<button className="button sign-out-button nav-button" aria-label="sign out" onClick={(e) => {e.preventDefault(); this.props.signout()}} >sign out</button>)
       }
       return (<button className="button sign-in-button nav-button" aria-label="sign in" onClick={(e, modal='auth') => this.openModal(e, modal)} >sign in</button>)
