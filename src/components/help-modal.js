@@ -12,8 +12,9 @@ class HelpModal extends Component {
         <p>The best way to beat writer’s block is to get out of your head and just start writing. Inspiry turns writing into a game by giving you a topic and forces you to get creative by throwing challenge words at you. Race the clock as you create a story, and inspire yourself while having some fun.</p>
         <ol className="toc">
           <li><a href="#new-story">Start Your Story</a></li>
+          <li><a href="#save-your-story">Save Your Story</a></li>
+          <li><a href="#review-your-anthology">Review Your Anthology</a></li>
           <li><a href="#share-your-work">Share Your Work</a></li>
-          <li><a href="#read-for-inspiration">Read for Inspiration</a></li>
         </ol>
         <a name="new-story"><h4>Start Your Story</h4></a>
         <ol>
@@ -25,15 +26,14 @@ class HelpModal extends Component {
           <li>Challenge: At some point in your story, Inspiry may insert a suprise image challenge. This image is part of your story, so be sure to somehow make it relevant as you write.</li>
           <li>When the timer runs out, your story is complete. Save it to your journal or share it with the world.</li>
         </ol>
-
+        <a name="save-your-story"><h4>Save Your Story</h4></a>
+          <p>If you love your creation, don't lose it! Log in and save it to your dashboard to start your own anthology.</p>
+        <a name="review-your-anthology"><h4>Review Your Anthology</h4></a>
+        <ol>
+          <li>Open up the dashboard to view your saved works. You can read them, share them, or delete them using the buttons on each story card.</li>
+        </ol>
         <a name="share-your-work"><h4>Share Your Work</h4></a>
-        <ol>
-          <li>...</li>
-        </ol>
-        <a name="read-for-inspiration"><h4>Read for Inspiration</h4></a>
-        <ol>
-          <li>...</li>
-        </ol>
+          <p>Writing is more fun with friends! Wrote a beautiful tragedy? Think your nonsense story is hilarious? Use the share button on your dashboard to share a link with your friends.</p>
         <h4>Are you ready?</h4>
         <Link to="/writer" className="button shadow" role="button" onClick={this.props.toggleModal} >Let’s write!</Link>
       </div>
