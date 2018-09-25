@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {PropTypes} from 'prop-types';
-import {Link} from 'react-router-dom';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { PropTypes } from 'prop-types';
+import { Link } from 'react-router-dom';
 import TopBar from './top-bar';
 import LandingStory from './landing-story';
-import {createPageTitle} from '../actions';
+import { createPageTitle } from '../actions';
 
 class Landing extends Component {
   componentDidMount() {
@@ -23,10 +23,7 @@ class Landing extends Component {
           </div>
           <div className="app-demo row">
             <div className="img-placeholder">
-              <picture>
-                <source srcSet="" className="shadow-static" />
-                <img src="" alt="Screenshot / video / gif" className="shadow-static" />
-              </picture>
+              <img src="/img/inspiry-screenshot.jpg" alt="Screenshot of the inspiry writer with a completed story" className="shadow-static" />
             </div>
           </div>
         </header>
@@ -87,6 +84,6 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Landing);

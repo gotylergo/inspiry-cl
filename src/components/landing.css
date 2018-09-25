@@ -77,9 +77,14 @@ header .button {
 .app-demo .img-placeholder,
 .app-demo img {
     margin: 2em auto 0 auto;
-    width: 200px;
-    height: 400px;
-    background: #000;
+    width: 95%;
+}
+
+@media only screen and (min-width: 400px) {
+    .app-demo .img-placeholder,
+    .app-demo img {
+        width: initial;
+    }
 }
 
 .landing h2 {
