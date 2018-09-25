@@ -32,7 +32,6 @@ class MyStories extends Component {
     let Stories;
     if (this.props.loading) {
       Stories = <h3 className="loading-stories text-shadow-static">Loading stories...</h3>
-      console.log(this.props.stories);
     }
     else if (this.props.stories.length > 0) {
       Stories =

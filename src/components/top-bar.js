@@ -32,11 +32,6 @@ class TopBar extends Component {
         }
         return res.json();
       })
-      .then(() => {
-        this.setState({
-          userAuthd: true,
-        })
-      })
       .catch(err =>
         this.setState({
           userAuthd: false,
@@ -45,9 +40,10 @@ class TopBar extends Component {
   }
 
   signout() {
-    window.sessionStorage.setItem('token', '');
+    window.sessionStorage.setItem('token', '')
     this.setState({
       userAuthd: false,
+      modalActive: 'inactive',
     });
   }
 

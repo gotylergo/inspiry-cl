@@ -11,7 +11,7 @@ class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      stories: [],
+      myStories: [],
       loading: true,
     }
     this.loadStories = this.loadStories.bind(this);
@@ -19,6 +19,7 @@ class Dashboard extends Component {
 
   loadStories() {
     const myToken = sessionStorage.getItem("token");
+    if (myToken) {
     fetch(`${API_BASE_URL}/stories/my-stories`,     {
       method: 'GET',
       headers: {'authorization': `Bearer ${myToken}`}
@@ -29,9 +30,9 @@ class Dashboard extends Component {
         }
         return res.json();
       })
-      .then(stories => {
+      .then(myStories => {
         this.setState({
-          stories,
+          myStories,
           loading: false,
         })
       })
@@ -40,14 +41,20 @@ class Dashboard extends Component {
           error: err
         })
       )
+  } else {
+    this.setState({
+      loading: false,
+    })
+    return this.props.toggleModal("auth");
   }
+}
 
   render() {
     document.title = this.props.docTitle;
     return (
       <div className="dashboard">
         <TopBar />
-        <MyStories stories={this.state.stories} loadStories={this.loadStories} loading={this.state.loading} />
+        <MyStories stories={this.state.myStories} loadStories={this.loadStories} loading={this.state.loading} />
       </div>
     );
   }
@@ -66,6 +73,7 @@ const mapStateToProps = (state) => ({
   mainMenuActive: state.mainMenuActive,
   pageTitle: state.pageTitle,
   docTitle: state.docTitle,
+  myStories: state.myStories,
 });
 
 const mapDispatchToProps = (dispatch) => ({

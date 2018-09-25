@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
+import { API_BASE_URL, IMG_DIR } from '../config';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import TopBar from './top-bar';
-import { createPageTitle } from '../actions';
+import { createPageTitle, toggleModal } from '../actions';
 import Genres from './json/genres.json';
 import Imgs from './json/images.json';
 import Keywords from './json/keywords.json';
@@ -131,6 +132,45 @@ class Writer extends Component {
     });
   }
 
+  saveStory = (e) => {
+    e.preventDefault();
+    const myToken = sessionStorage.getItem("token");
+    let storyData = JSON.stringify({
+      content: this.state.story,
+      title: `my ${this.state.genre} story`,
+      img: this.state.img.file,
+      genre: this.state.genre,
+    })
+    console.log(storyData);
+    console.log(myToken);
+    if (myToken.length > 0) {
+      fetch(`${API_BASE_URL}/stories/`,
+        {
+          method: 'POST',
+          body: storyData,
+          headers: { 'Authorization': `Bearer ${myToken}`, 'Content-Type': 'application/json' }
+        })
+        .then(res => {
+          if (!res.ok) {
+            return Promise.reject(res)
+          }
+          return res.json();
+        })
+        .then(() => {
+          this.setState({
+            userAuthd: true,
+          })
+        })
+        .catch(err =>
+          this.setState({
+            userAuthd: false,
+          })
+        )
+    } else {
+      this.props.toggleModal('auth');
+    }
+  }
+
   componentDidMount() {
     this.props.createPageTitle('writer');
 
@@ -161,7 +201,7 @@ class Writer extends Component {
         return (
           <figure className="shadow-static">
             <img
-              src={`./img/story/${this.state.img.file}`}
+              src={`${IMG_DIR}${this.state.img.file}`}
               title={this.state.img.title}
               alt={this.state.img.description}
             />
@@ -177,6 +217,14 @@ class Writer extends Component {
       }
       return '';
     };
+
+    const WriterFooter = (this.state.complete) ?
+      <footer>
+        <ul className="writer-footer">
+          <li><button className="button btn-light" onClick={(e) => this.saveStory(e)} >Save</button></li>
+          <li><button className="button btn-light">Share</button></li>
+        </ul>
+      </footer> : '';
 
     const WriterMain = (this.state.writing) ?
       <div className="writer-container">
@@ -206,13 +254,12 @@ class Writer extends Component {
         <TopBar />
         <main className="writer-main">
           {WriterMain}
+          {WriterFooter}
         </main>
-        <ul className="writer-footer">
-          <li><button className="button btn-light">Save</button></li>
-          <li><button className="button btn-light">Share</button></li>
-        </ul>
       </div >
     );
+
+
   }
 }
 
@@ -229,6 +276,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   createPageTitle: (title) => dispatch(createPageTitle(title)),
+  toggleModal: (modal) => dispatch(toggleModal(modal)),
 });
 
 export default connect(
