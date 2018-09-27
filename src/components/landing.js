@@ -23,7 +23,7 @@ class Landing extends Component {
           </div>
           <div className="app-demo row">
             <div className="img-placeholder">
-              <img src="/img/inspiry-screenshot.jpg" alt="Screenshot of the inspiry writer with a completed story" className="shadow-static" />
+              <img src="/img/inspiry-screenshot.png" alt="Screenshot of the inspiry writer with a completed story" className="shadow-static" />
             </div>
           </div>
         </header>

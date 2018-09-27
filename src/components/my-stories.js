@@ -8,7 +8,6 @@ class MyStories extends Component {
 
   deleteCard = (id) => {
     const _id = id.slice(4);
-    console.log(_id);
     const myToken = sessionStorage.getItem('token');
     fetch(`${API_BASE_URL}/stories/id/${_id}`, {
       method: 'DELETE',

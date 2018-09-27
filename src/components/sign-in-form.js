@@ -26,7 +26,6 @@ class SignInForm extends Component {
       username: this.state.username,
       password: this.state.password
     });
-    console.log(user);
     fetch(`${API_BASE_URL}/auth/login`,
       {
         method: 'POST',

@@ -141,8 +141,6 @@ class Writer extends Component {
       img: this.state.img.file,
       genre: this.state.genre,
     })
-    console.log(storyData);
-    console.log(myToken);
     if (myToken.length > 0) {
       fetch(`${API_BASE_URL}/stories/`,
         {
@@ -239,8 +237,8 @@ class Writer extends Component {
           {StoryAction}
         </div>
         <article className="story">
-          {this.state.story}
           <StoryImg />
+          <div>{this.state.story}</div>
         </article>
       </div> :
       <div className="writer-starter">
