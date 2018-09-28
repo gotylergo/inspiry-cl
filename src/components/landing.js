@@ -22,9 +22,16 @@ class Landing extends Component {
             <Link to="/" className="button btn-light shadow-static" role="button">read for inspiration</Link>
           </div>
           <div className="app-demo row">
-            <div className="img-placeholder">
+            <figure className="img-placeholder">
               <img src="/img/inspiry-screenshot.png" alt="Screenshot of the inspiry writer with a completed story" className="shadow-static" />
-            </div>
+            </figure>
+            <div className="demo-creds">
+            <h3>demo credentials</h3>
+          <ul>
+            <li>username: demouser</li>
+            <li>password: dem0P@ss1</li>
+          </ul>
+          </div>
           </div>
         </header>
         <main>

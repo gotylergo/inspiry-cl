@@ -87,6 +87,28 @@ header .button {
     }
 }
 
+.demo-creds {
+    margin: 2em auto 0 auto; 
+    padding: 1em 0;
+    width: 95%;
+    margin-top: 2em;
+    background: #000;
+}
+
+@media only screen and (min-width: 400px) {
+    .demo-creds {
+        width: 306px;
+    }
+}
+
+.demo-creds ul {
+    padding-inline-start: 0;
+}
+
+.demo-creds li {
+    list-style-type: none;
+}
+
 .landing h2 {
     font-family: 'Courier New', Courier, monospace;
     margin-bottom: 2em;
