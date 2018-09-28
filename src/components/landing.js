@@ -1,14 +1,46 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
+import { API_BASE_URL } from '../config';
 import { Link } from 'react-router-dom';
 import TopBar from './top-bar';
-import LandingStory from './landing-story';
+import LandingStories from './landing-stories';
 import { createPageTitle } from '../actions';
 
 class Landing extends Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        stories: [],
+        loading: true,
+      }
+      this.loadStories = this.loadStories.bind(this);
+    }
+
+  loadStories() {
+    fetch(`${API_BASE_URL}/stories`, {
+      method: 'GET',
+    })
+      .then(res => {
+        return res.json();
+      })
+      .then(stories => {
+        this.setState({
+          stories,
+          loading: false,
+        })
+      })
+      .catch(err =>
+        this.setState({
+          error: err
+        })
+      )
+  }
+
+
   componentDidMount() {
     this.props.createPageTitle('home');
+    this.loadStories();
   }
   render() {
     document.title = this.props.docTitle;
@@ -19,19 +51,19 @@ class Landing extends Component {
           <p className="tagline text-shadow-static-static row">unblock your brain <span className="blinking">|</span></p>
           <h1 className="app-name text-shadow-static-static row">inspiry</h1>
           <div className="row"><Link to="/writer" className="button btn-light shadow-static" role="button" >write a story</Link>
-            <Link to="/" className="button btn-light shadow-static" role="button">read for inspiration</Link>
+          <a href="#stories" className="button btn-light shadow-static" role="button">read for inspiration</a>
           </div>
           <div className="app-demo row">
             <figure className="img-placeholder">
               <img src="/img/inspiry-screenshot.png" alt="Screenshot of the inspiry writer with a completed story" className="shadow-static" />
             </figure>
             <div className="demo-creds">
-            <h3>demo credentials</h3>
-          <ul>
-            <li>username: demouser</li>
-            <li>password: dem0P@ss1</li>
-          </ul>
-          </div>
+              <h3>demo credentials</h3>
+              <ul>
+                <li>username: demouser</li>
+                <li>password: dem0P@ss1</li>
+              </ul>
+            </div>
           </div>
         </header>
         <main>
@@ -49,14 +81,8 @@ class Landing extends Component {
             </div>
           </div>
           <div className="section section-dark shadow-static">
-            <h2 className="row">Stories</h2>
-            <LandingStory />
-            <LandingStory />
-            <LandingStory />
-            <LandingStory />
-            <LandingStory />
-            <LandingStory />
-            <button className="button btn-light shadow-static">read for inspiration</button>
+            <h2 className="row"><a name="stories">Stories</a></h2>
+            <LandingStories stories={this.state.stories} />
           </div>
         </main>
         <footer className="section section-light">

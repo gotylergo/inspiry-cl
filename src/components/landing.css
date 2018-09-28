@@ -1,122 +1,140 @@
 .landing-container {
-    margin: auto auto;
-    max-width: 800px;
+  margin: auto auto;
+  max-width: 800px;
 }
 
 .section {
-    min-height: 100vh;
-    padding: 6em 2em 5em 2em;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    text-align: center;
+  min-height: 100vh;
+  padding: 6em 2em 5em 2em;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .section-light {
-    background: #fff;
-    color: #000;
+  background: #fff;
+  color: #000;
 }
 
 .section-dark {
-    background: #118696;
-    color: #fff;
+  background: #118696;
+  color: #fff;
 }
 
 .section p {
-    max-width: 800px;
-    margin-right: auto;
-    margin-left: auto;
+  max-width: 800px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+h2 > a,
+h2 > a:visited,
+h2 > a:hover,
+h2 > a:active {
+  color: #fff;
+  opacity: 1;
 }
 
 .row {
-    flex-basis: 100%;
+  flex-basis: 100%;
 }
 
 .masthead {
-    padding: 11em 0 5em 0;
-    background: #118696;
-    color: #fff;
+  padding: 11em 0 5em 0;
+  background: #118696;
+  color: #fff;
 }
 
 .tagline {
-    padding: 0;
-    font-size: 1em;
-    font-family: 'Courier New', Courier, monospace;
-    padding-left: 1em;
+  padding: 0;
+  font-size: 1em;
+  font-family: 'Courier New', Courier, monospace;
+  padding-left: 1em;
 }
 
 .blinking {
-    animation: 1s blink step-end infinite;
+  animation: 1s blink step-end infinite;
 }
 
 @keyframes "blink" {
-    from,
-    to {
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
+  from,
+  to {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 .app-name {
-    margin: -.75em 0 .75em 0;
-    font-size: 3em;
-    font-family: 'Pacifico', cursive;
+  margin: -.75em 0 .75em 0;
+  font-size: 3em;
+  font-family: 'Pacifico', cursive;
 }
 
 header .button {
-    margin: 1em;
+  margin: 1em;
 }
 
 .app-demo {
-    text-align: center;
+  text-align: center;
 }
+
 .app-demo .img-placeholder,
 .app-demo img {
-    margin: 2em auto 0 auto;
-    width: 95%;
+  margin: 2em auto 0 auto;
+  width: 95%;
 }
 
 @media only screen and (min-width: 400px) {
-    .app-demo .img-placeholder,
-    .app-demo img {
-        width: initial;
-    }
+  .app-demo .img-placeholder,
+  .app-demo img {
+    width: initial;
+  }
 }
 
 .demo-creds {
-    margin: 2em auto 0 auto; 
-    padding: 1em 0;
-    width: 95%;
-    margin-top: 2em;
-    background: #000;
+  margin: 2em auto 0 auto;
+  padding: 1em 0;
+  width: 95%;
+  margin-top: 2em;
+  background: #000;
 }
 
 @media only screen and (min-width: 400px) {
-    .demo-creds {
-        width: 306px;
-    }
+  .demo-creds {
+    width: 306px;
+  }
 }
 
 .demo-creds ul {
-    padding-inline-start: 0;
+  padding-inline-start: 0;
 }
 
 .demo-creds li {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 .landing h2 {
-    font-family: 'Courier New', Courier, monospace;
-    margin-bottom: 2em;
+  font-family: 'Courier New', Courier, monospace;
+  margin-bottom: 1em;
 }
+
+.story-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: stretch;
+  align-content: center;
+}
+
 .landing footer {
-    min-height: auto;
+  min-height: auto;
 }
 
 .landing footer button {
-    font-weight: bold;
+  font-weight: bold;
 }
