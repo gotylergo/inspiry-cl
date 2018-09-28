@@ -1,5 +1,5 @@
 .writer {
-  background: url(), linear-gradient(to right, red, purple);
+  background: url(), linear-gradient(to right, teal, purple);
   background-repeat: repeat;
   width: 100%;
   min-height: 80vh;

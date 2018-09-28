@@ -21,6 +21,7 @@ class TopBar extends Component {
 
   checkCredentials() {
     const myToken = sessionStorage.getItem("token");
+    if (myToken) {
     fetch(`${API_BASE_URL}/stories/my-stories`,
       {
         method: 'GET',
@@ -30,7 +31,9 @@ class TopBar extends Component {
         if (!res.ok) {
           return Promise.reject()
         }
-        return res.json();
+        return this.setState({
+          stories: res,
+        });
       })
       .catch(err =>
         this.setState({
@@ -38,12 +41,12 @@ class TopBar extends Component {
         })
       )
   }
+}
 
   signout() {
-    window.sessionStorage.setItem('token', '')
-    this.setState({
+    window.sessionStorage.setItem('token', '');
+    return this.setState({
       userAuthd: false,
-      modalActive: 'inactive',
     });
   }
 

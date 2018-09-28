@@ -1,8 +1,8 @@
 .dashboard {
-    padding: 5em 0 0;
-    background: url(./bg-ash-paneling-seamless.jpg);
-    background-repeat: repeat;
-    width: 100%;
-    min-height: 100vh;
-    overflow: auto;
+  padding: 5em 0 0;
+  background: rgb(184, 184, 184) url(./bg-ash-paneling-seamless.jpg);
+  background-repeat: repeat;
+  width: 100%;
+  min-height: 100vh;
+  overflow: auto;
 }

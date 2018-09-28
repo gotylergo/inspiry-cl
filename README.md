@@ -7,8 +7,8 @@ The frontend client to the inspiry app (backend: [inspiry-svr](https://github.co
 - Username: demouser
 - Password: dem0P@ss1
 
-<img src="http://i66.tinypic.com/5wijno.png" alt="Writer Screenshot" width="48%">
-<img src="http://i68.tinypic.com/2n6t2y8.png" alt="My Stories Screenshot" width="48%">
+<img src="http://i64.tinypic.com/hs8is7.png" alt="Writer Screenshot" width="48%">
+<img src="http://i68.tinypic.com/5d4h0n.png" alt="My Stories Screenshot" width="48%">
 
 ## Technologies
  - [React.js](https://reactjs.org) - React is a JavaScript library for building user interfaces.
