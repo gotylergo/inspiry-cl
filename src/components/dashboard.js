@@ -38,7 +38,7 @@ class Dashboard extends Component {
       })
       .catch(err =>
         this.setState({
-          error: err
+          error: JSON.stringify(err),
         })
       )
   } else {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
+import { Link } from 'react-router-dom';
 import { API_BASE_URL, IMG_DIR } from '../config';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import TopBar from './top-bar';
@@ -20,6 +21,7 @@ class Writer extends Component {
     this.state = {
       writing: false,
       complete: false,
+      saved: false,
       startTime: 120,
       endTime: 0,
       genre: 'awesome',
@@ -36,7 +38,7 @@ class Writer extends Component {
     this.setState({
       writing: true,
       complete: false,
-      startTime: 120,
+      startTime: 5,
       endTime: 0,
       genre: Genres.array[Math.floor(Math.random() * (Genres.array.length))],
       keyword: Keywords.array[Math.floor(Math.random() * (Keywords.array.length))],
@@ -156,14 +158,15 @@ class Writer extends Component {
         })
         .then(() => {
           this.setState({
-            userAuthd: true,
+            saved: true,
           })
         })
-        .catch(err =>
+        .catch(err => {
+          console.error(err);
           this.setState({
-            userAuthd: false,
+            error: JSON.stringify(err),
           })
-        )
+        })
     } else {
       this.props.toggleModal('auth');
     }
@@ -186,13 +189,18 @@ class Writer extends Component {
         <button className="enter-button" onClick={(e) => this.saveSentence(e)} >
           <FontAwesomeIcon icon="chevron-circle-down" className="shadow-fa-light" />
         </button>
-      </div> :
-      <div className="story-action-container">
-        <div>
-          <h3>What a story!</h3>
-          <p>Use the bottom toolbar to share or save it!</p>
-        </div>
-      </div>;
+      </div> : (!this.state.saved) ?
+        <div className="story-action-container">
+          <div>
+            <h3>What a story!</h3>
+            <p>Use the bottom toolbar to share or save it!</p>
+          </div>
+        </div> : <div className="story-action-container">
+          <div>
+            <h3>Story saved!</h3>
+            <p>Head to your <Link to="/dashboard">dashboard</Link> to view it.</p>
+          </div>
+        </div>;
 
     const StoryImg = () => {
       if (this.state.imgActive) {
@@ -256,8 +264,6 @@ class Writer extends Component {
         </main>
       </div >
     );
-
-
   }
 }
 

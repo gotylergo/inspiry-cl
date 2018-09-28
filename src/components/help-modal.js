@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {PropTypes} from 'prop-types';
 import {Link} from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './modal.css';
 import './help-modal.css';
 
@@ -18,13 +19,13 @@ class HelpModal extends Component {
         </ol>
         <a name="new-story"><h4>Start Your Story</h4></a>
         <ol>
-          <li>Click the + icon in the toolbar.</li>
-          <li>Inspiry generates a genre for your story.</li>
-          <li>When you’re ready, click start.</li>
+        <li>Click the new story button in the <FontAwesomeIcon icon="bars" /> menu.</li>
+        <li>Click Start.</li>
+        <li>Inspiry generates a genre for your story.</li>
           <li>Start your first sentence. Be sure to include “Word of the sentence.”</li>
-          <li>Once you end your sentence, hit the Enter key to add it to your story, which will display below as you write.</li>
-          <li>Challenge: At some point in your story, Inspiry may insert a suprise image challenge. This image is part of your story, so be sure to somehow make it relevant as you write.</li>
-          <li>When the timer runs out, your story is complete. Save it to your journal or share it with the world.</li>
+          <li>When you finish your sentence (by typing ".", "?", "!", hitting Enter, or clicking the button) it will be added to you story below.</li>
+          <li>Challenge: At some point in your story, inspiry may insert a suprise image challenge. This image is part of your story, so be sure to somehow make it relevant as you write. Get creative!</li>
+          <li>When the timer runs out, your story is complete. Save it to your dashboard or share it with the world.</li>
         </ol>
         <a name="save-your-story"><h4>Save Your Story</h4></a>
           <p>If you love your creation, don't lose it! Log in and save it to your dashboard to start your own anthology.</p>

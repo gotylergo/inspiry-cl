@@ -45,6 +45,7 @@ class TopBar extends Component {
 
   signout() {
     window.sessionStorage.setItem('token', '');
+    this.props.toggleMainMenu('inactive');
     return this.setState({
       userAuthd: false,
     });

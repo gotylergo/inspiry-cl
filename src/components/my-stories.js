@@ -22,7 +22,7 @@ class MyStories extends Component {
       })
       .catch(err =>
         this.setState({
-          error: err.message
+          error: JSON.stringify(err.message),
         })
       )
   }

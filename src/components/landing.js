@@ -32,7 +32,7 @@ class Landing extends Component {
       })
       .catch(err =>
         this.setState({
-          error: err
+          error: JSON.stringify(err),
         })
       )
   }

@@ -47,7 +47,7 @@ class SignInForm extends Component {
       .catch(err => {
         console.log(err);
         console.error(err);
-        return this.props.setStatus(err);
+        return this.props.setStatus(JSON.stringify(err));
       })
   }
   render() {
