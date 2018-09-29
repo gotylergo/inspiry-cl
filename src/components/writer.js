@@ -39,7 +39,7 @@ class Writer extends Component {
     this.setState({
       writing: true,
       complete: false,
-      startTime: 5,
+      startTime: 120,
       endTime: 0,
       genre: Genres.array[Math.floor(Math.random() * (Genres.array.length))],
       keyword: Keywords.array[Math.floor(Math.random() * (Keywords.array.length))],
@@ -120,7 +120,7 @@ class Writer extends Component {
         currentSentence: '',
         story: `${sent}${endChar}`,
         keyword: Keywords.array[Math.floor(Math.random() * (Keywords.array.length))],
-        startTime: this.state.startTime + Math.floor(Math.random(5) * 3),
+        startTime: this.state.startTime + Math.floor(Math.random() * 4 + 3),
       });
     }
     // Add a . and a space when adding consecutive sentences
@@ -129,7 +129,7 @@ class Writer extends Component {
       currentSentence: '',
       story: `${this.state.story} ${sent}${endChar}`,
       keyword: Keywords.array[Math.floor(Math.random() * (Keywords.array.length))],
-      startTime: this.state.startTime + Math.floor(Math.random(3) * 3),
+      startTime: this.state.startTime + Math.floor(Math.random() * 3 + 1),
     });
   }
 
