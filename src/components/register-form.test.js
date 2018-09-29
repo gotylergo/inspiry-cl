@@ -3,6 +3,6 @@ import RegisterForm from './register-form';
 
 describe('<RegisterForm />', () => {
   it('renders without crashing', () => {
-      <RegisterForm />
-  })
-})
+    <RegisterForm />;
+  });
+});

@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { StoryTitle, StoryBody } from './story';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {StoryTitle, StoryBody} from './story';
 import './card.css';
 
 class Card extends Component {
-
   render() {
-    
     return (
       <div className="card shadow" id={`${this.props.storyID}`}>
         <StoryTitle storyTitle={this.props.storyTitle} />
@@ -30,5 +29,14 @@ class Card extends Component {
     );
   }
 }
+
+Card.propTypes = {
+  docTitle: PropTypes.string,
+  createPageTitle: PropTypes.func,
+  storyID: PropTypes.string,
+  storyTitle: PropTypes.string,
+  deleteCard: PropTypes.func,
+  storyContent: PropTypes.string,
+};
 
 export default Card;

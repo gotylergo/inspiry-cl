@@ -20,7 +20,7 @@ class Modal extends Component {
       } else if (this.props.modalActive === 'auth') {
         return (<AuthModal {...props} />);
       } else if (this.props.modalActive === 'error') {
-        return (<ErrorModal {...props} />)
+        return (<ErrorModal {...props} />);
       }
       return (
         <div className="modal-container" >
@@ -29,14 +29,6 @@ class Modal extends Component {
         </div>
       );
     };
-
-    // Close modal when container is clicked
-
-    // const containerCloseModal = (e) {
-    //     document.body.onclick(function(e) {
-    //     this.props.toggleModal().stopPropogation();
-    //     });
-    // }
 
     return (
       <div className="modal shadow" >

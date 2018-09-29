@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import { REACT_APP_API_BASE_URL } from '../config';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import {API_BASE_URL} from '../config';
 
 class RegisterForm extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class RegisterForm extends Component {
   handleChange(e) {
     let name = e.target.name;
     let value = e.target.value;
-    this.setState({ [name]: value });
+    this.setState({[name]: value});
   }
 
   handleSubmit(e) {
@@ -29,36 +30,36 @@ class RegisterForm extends Component {
       name: this.state.name,
       username: this.state.username,
       password: this.state.password,
-    }
-    fetch(`${REACT_APP_API_BASE_URL}/users/`,
-      {
-        method: 'POST',
-        body: JSON.stringify(user),
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        }
-      })
-      .then(res => res.json())
-      .then(res => {
-        if (res.username) {
-          this.props.changeForm("signin");
-          this.props.setStatus("Account created.")
-          console.info('Account created', res);
-          return Promise.resolve(res);
-        }
-        return Promise.reject(res);
-      })
-      .catch(err => {
-        console.error(err.message);
-        return this.props.setStatus(JSON.stringify(err.message));
-      })
+    };
+    fetch(`${API_BASE_URL}/users/`,
+        {
+          method: 'POST',
+          body: JSON.stringify(user),
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          },
+        })
+        .then((res) => res.json())
+        .then((res) => {
+          if (res.username) {
+            this.props.changeForm('signin');
+            this.props.setStatus('Account created.');
+            console.info('Account created', res);
+            return Promise.resolve(res);
+          }
+          return Promise.reject(res);
+        })
+        .catch((err) => {
+          console.error(err.message);
+          return this.props.setStatus(JSON.stringify(err.message));
+        });
   }
 
   render() {
     return (
       <div className="auth-form register-form">
-        <form onSubmit={e => this.handleSubmit(e)} >
+        <form onSubmit={(e) => this.handleSubmit(e)} >
           <label htmlFor="name">name</label>
           <input type="text" name="name" required value={this.state.name} onChange={this.handleChange} />
           <label htmlFor="username">username</label>
@@ -73,5 +74,10 @@ class RegisterForm extends Component {
     );
   }
 }
+
+RegisterForm.propTypes = {
+  setStatus: PropTypes.func,
+  changeForm: PropTypes.func,
+};
 
 export default RegisterForm;

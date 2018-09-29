@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { PropTypes } from 'prop-types';
-import { Link } from 'react-router-dom';
-import { REACT_APP_API_BASE_URL, IMG_DIR } from '../config';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
+import {API_BASE_URL, IMG_DIR} from '../config';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import TopBar from './top-bar';
-import { createPageTitle, toggleModal } from '../actions';
+import {createPageTitle, toggleModal} from '../actions';
 import Genres from './json/genres.json';
 import Imgs from './json/images.json';
 import Keywords from './json/keywords.json';
@@ -17,6 +17,7 @@ class Writer extends Component {
     this.intervalHandler = this.intervalHandler.bind(this);
     this.startWriting = this.startWriting.bind(this);
     this.saveSentence = this.saveSentence.bind(this);
+    this.setSetnence = this.setSentence.bind(this);
     this.timerObj = undefined;
     this.state = {
       writing: false,
@@ -46,7 +47,7 @@ class Writer extends Component {
       imgActive: false,
       imgActiveTime: (Math.floor(Math.random() * 45 + 45)),
       currentSentence: '',
-      story: ''
+      story: '',
     });
 
     this.timer();
@@ -65,18 +66,18 @@ class Writer extends Component {
       clearInterval(this.timerObj);
       this.setState({
         complete: true,
-      })
+      });
     }
   }
 
   setSentence = (e) => {
     e.preventDefault();
-    this.setState({ currentSentence: e.target.value })
+    this.setState({currentSentence: e.target.value});
   }
 
   // Watch for ending punctuation or Enter and saveSentence
   keySaveSentence = (e) => {
-    this.setState({ currentSentence: e.currentTarget.value });
+    this.setState({currentSentence: e.currentTarget.value});
     if ((e.key === 'Enter' || e.key === '.' || e.key === '?' || e.key === '!')) {
       this.saveSentence(e);
     }
@@ -88,7 +89,7 @@ class Writer extends Component {
     if (this.state.imgActiveTime >= this.state.startTime) {
       this.setState({
         imgActive: true,
-      })
+      });
     }
 
     // Set the ending punctuation
@@ -97,37 +98,35 @@ class Writer extends Component {
     let endChar;
     if (e.key === 'Enter') {
       endChar = '.';
-    }
+    } else if (e.key === undefined) {
     // Fix Chrome mobile keypress behavior
-    else if (e.key === undefined) {
       if (sentLastChar === '!' || sentLastChar === '?' || sentLastChar === '.') {
         endChar = '';
       } else {
         endChar = '.';
       }
-    }
-    else {
+    } else {
       endChar = e.key;
     }
     // Don't save an empty sentence
-    if (sent === "") {
-      return ""
+    if (sent === '') {
+      return '';
     };
 
     // Add a . and save the sentence if this is the first sentence
     // Add some time to the timer as a reward
-    if (this.state.story === "") {
+    if (this.state.story === '') {
       this.setState({
-        currentSentence: "",
+        currentSentence: '',
         story: `${sent}${endChar}`,
         keyword: Keywords.array[Math.floor(Math.random() * (Keywords.array.length))],
-        startTime: this.state.startTime + Math.floor(Math.random(5) * 3)
+        startTime: this.state.startTime + Math.floor(Math.random(5) * 3),
       });
     }
     // Add a . and a space when adding consecutive sentences
     // Add some time to the timer as a reward
     this.setState({
-      currentSentence: "",
+      currentSentence: '',
       story: `${this.state.story} ${sent}${endChar}`,
       keyword: Keywords.array[Math.floor(Math.random() * (Keywords.array.length))],
       startTime: this.state.startTime + Math.floor(Math.random(3) * 3),
@@ -136,37 +135,37 @@ class Writer extends Component {
 
   saveStory = (e) => {
     e.preventDefault();
-    const myToken = sessionStorage.getItem("token");
+    const myToken = sessionStorage.getItem('token');
     let storyData = JSON.stringify({
       content: this.state.story,
       title: `my ${this.state.genre} story`,
       img: this.state.img.file,
       genre: this.state.genre,
-    })
+    });
     if (myToken.length > 0) {
-      fetch(`${REACT_APP_API_BASE_URL}/stories/`,
-        {
-          method: 'POST',
-          body: storyData,
-          headers: { 'Authorization': `Bearer ${myToken}`, 'Content-Type': 'application/json' }
-        })
-        .then(res => {
-          if (!res.ok) {
-            return Promise.reject(res)
-          }
-          return res.json();
-        })
-        .then(() => {
-          this.setState({
-            saved: true,
+      fetch(`${API_BASE_URL}/stories/`,
+          {
+            method: 'POST',
+            body: storyData,
+            headers: {'Authorization': `Bearer ${myToken}`, 'Content-Type': 'application/json'},
           })
-        })
-        .catch(err => {
-          console.error(err);
-          this.setState({
-            error: JSON.stringify(err),
+          .then((res) => {
+            if (!res.ok) {
+              return Promise.reject(res);
+            }
+            return res.json();
           })
-        })
+          .then(() => {
+            this.setState({
+              saved: true,
+            });
+          })
+          .catch((err) => {
+            console.error(err);
+            this.setState({
+              error: JSON.stringify(err),
+            });
+          });
     } else {
       this.props.toggleModal('auth');
     }
@@ -174,7 +173,6 @@ class Writer extends Component {
 
   componentDidMount() {
     this.props.createPageTitle('writer');
-
   }
 
   render() {
@@ -184,7 +182,7 @@ class Writer extends Component {
       <div className="story-action-container">
         <input type="text" id="story-input"
           className="story-input shadow"
-          placeholder="Write here. Hit Enter or . when done." onKeyPress={e => this.keySaveSentence(e)} onChange={e => this.setSentence(e)} value={this.state.currentSentence}
+          placeholder="Write here. Hit Enter or . when done." onKeyPress={(e) => this.keySaveSentence(e)} onChange={(e) => this.setSentence(e)} value={this.state.currentSentence}
         />
         <button className="enter-button" onClick={(e) => this.saveSentence(e)} >
           <FontAwesomeIcon icon="chevron-circle-down" className="shadow-fa-light" />
@@ -270,6 +268,7 @@ class Writer extends Component {
 Writer.propTypes = {
   docTitle: PropTypes.string,
   createPageTitle: PropTypes.func,
+  toggleModal: PropTypes.func,
 };
 
 const mapStateToProps = (state) => ({
@@ -284,6 +283,6 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(Writer);

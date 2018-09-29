@@ -23,6 +23,7 @@
             "error",
             "single"
         ],
-        "require-jsdoc": "off"
+        "require-jsdoc": "off",
+        "max-len": 0
     }
 }

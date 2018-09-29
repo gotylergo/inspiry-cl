@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { REACT_APP_API_BASE_URL } from '../config';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import {API_BASE_URL} from '../config';
 import TopBar from './top-bar';
 import MyStories from './my-stories';
-import { PropTypes } from 'prop-types';
-import { connect } from 'react-redux';
-import { createPageTitle, toggleModal } from '../actions';
+import {connect} from 'react-redux';
+import {createPageTitle, toggleModal} from '../actions';
 import './dashboard.css';
 
 class Dashboard extends Component {
@@ -13,41 +13,41 @@ class Dashboard extends Component {
     this.state = {
       myStories: [],
       loading: true,
-    }
+    };
     this.loadStories = this.loadStories.bind(this);
   }
 
   loadStories() {
-    const myToken = sessionStorage.getItem("token");
+    const myToken = sessionStorage.getItem('token');
     if (myToken) {
-    fetch(`${REACT_APP_API_BASE_URL}/stories/my-stories`,     {
-      method: 'GET',
-      headers: {'authorization': `Bearer ${myToken}`}
-    })
-      .then(res => {
-        if (!res.ok) {
-          return this.props.toggleModal("auth");
-        }
-        return res.json();
+      fetch(`${API_BASE_URL}/stories/my-stories`, {
+        method: 'GET',
+        headers: {'authorization': `Bearer ${myToken}`},
       })
-      .then(myStories => {
-        this.setState({
-          myStories,
-          loading: false,
-        })
-      })
-      .catch(err =>
-        this.setState({
-          error: JSON.stringify(err),
-        })
-      )
-  } else {
-    this.setState({
-      loading: false,
-    })
-    return this.props.toggleModal("auth");
+          .then((res) => {
+            if (!res.ok) {
+              return this.props.toggleModal('auth');
+            }
+            return res.json();
+          })
+          .then((myStories) => {
+            this.setState({
+              myStories,
+              loading: false,
+            });
+          })
+          .catch((err) =>
+            this.setState({
+              error: JSON.stringify(err),
+            })
+          );
+    } else {
+      this.setState({
+        loading: false,
+      });
+      return this.props.toggleModal('auth');
+    }
   }
-}
 
   render() {
     document.title = this.props.docTitle;
@@ -67,6 +67,7 @@ class Dashboard extends Component {
 Dashboard.propTypes = {
   docTitle: PropTypes.string,
   createPageTitle: PropTypes.func,
+  toggleModal: PropTypes.func,
 };
 
 const mapStateToProps = (state) => ({

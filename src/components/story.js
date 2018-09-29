@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import './story.css';
 
 export class StoryTitle extends Component {
@@ -30,5 +31,13 @@ class Story extends Component {
       );
     }
 }
+
+StoryTitle.propTypes = {
+  storyTitle: PropTypes.string,
+};
+
+StoryBody.propTypes = {
+  storyContent: PropTypes.string,
+};
 
 export default Story;

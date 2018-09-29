@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {PropTypes} from 'prop-types';
+import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import './modal.css';
 import './help-modal.css';
 
@@ -19,22 +19,22 @@ class HelpModal extends Component {
         </ol>
         <a name="new-story"><h4>Start Your Story</h4></a>
         <ol>
-        <li>Click the new story button in the <FontAwesomeIcon icon="bars" /> menu.</li>
-        <li>Click Start.</li>
-        <li>Inspiry generates a genre for your story.</li>
+          <li>Click the new story button in the <FontAwesomeIcon icon="bars" /> menu.</li>
+          <li>Click Start.</li>
+          <li>Inspiry generates a genre for your story.</li>
           <li>Start your first sentence. Be sure to include “Word of the sentence.”</li>
-          <li>When you finish your sentence (by typing ".", "?", "!", hitting Enter, or clicking the button) it will be added to you story below.</li>
+          <li>When you finish your sentence (by typing “.”, “?”, “!”, hitting Enter, or clicking the button) it will be added to you story below.</li>
           <li>Challenge: At some point in your story, inspiry may insert a suprise image challenge. This image is part of your story, so be sure to somehow make it relevant as you write. Get creative!</li>
           <li>When the timer runs out, your story is complete. Save it to your dashboard or share it with the world.</li>
         </ol>
         <a name="save-your-story"><h4>Save Your Story</h4></a>
-          <p>If you love your creation, don't lose it! Log in and save it to your dashboard to start your own anthology.</p>
+        <p>If you love your creation, don‘t lose it! Log in and save it to your dashboard to start your own anthology.</p>
         <a name="review-your-anthology"><h4>Review Your Anthology</h4></a>
         <ol>
           <li>Open up the dashboard to view your saved works. You can read them, share them, or delete them using the buttons on each story card.</li>
         </ol>
         <a name="share-your-work"><h4>Share Your Work</h4></a>
-          <p>Writing is more fun with friends! Wrote a beautiful tragedy? Think your nonsense story is hilarious? Use the share button on your dashboard to share a link with your friends.</p>
+        <p>Writing is more fun with friends! Wrote a beautiful tragedy? Think your nonsense story is hilarious? Use the share button on your dashboard to share a link with your friends.</p>
         <h4>Are you ready?</h4>
         <Link to="/writer" className="button shadow" role="button" onClick={this.props.toggleModal} >Let’s write!</Link>
       </div>

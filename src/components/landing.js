@@ -1,40 +1,40 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { PropTypes } from 'prop-types';
-import { REACT_APP_API_BASE_URL } from '../config';
-import { Link } from 'react-router-dom';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
+import {API_BASE_URL} from '../config';
+import {Link} from 'react-router-dom';
 import TopBar from './top-bar';
 import LandingStories from './landing-stories';
-import { createPageTitle } from '../actions';
+import {createPageTitle} from '../actions';
 
 class Landing extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        stories: [],
-        loading: true,
-      }
-      this.loadStories = this.loadStories.bind(this);
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      stories: [],
+      loading: true,
+    };
+    this.loadStories = this.loadStories.bind(this);
+  }
 
   loadStories() {
-    fetch(`${REACT_APP_API_BASE_URL}/stories`, {
+    fetch(`${API_BASE_URL}/stories`, {
       method: 'GET',
     })
-      .then(res => {
-        return res.json();
-      })
-      .then(stories => {
-        this.setState({
-          stories,
-          loading: false,
+        .then((res) => {
+          return res.json();
         })
-      })
-      .catch(err =>
-        this.setState({
-          error: JSON.stringify(err),
+        .then((stories) => {
+          this.setState({
+            stories,
+            loading: false,
+          });
         })
-      )
+        .catch((err) =>
+          this.setState({
+            error: JSON.stringify(err),
+          })
+        );
   }
 
 
@@ -51,7 +51,7 @@ class Landing extends Component {
           <p className="tagline text-shadow-static-static row">unblock your brain <span className="blinking">|</span></p>
           <h1 className="app-name text-shadow-static-static row">inspiry</h1>
           <div className="row"><Link to="/writer" className="button btn-light shadow-static" role="button" >write a story</Link>
-          <a href="#stories" className="button btn-light shadow-static" role="button">read for inspiration</a>
+            <a href="#stories" className="button btn-light shadow-static" role="button">read for inspiration</a>
           </div>
           <div className="app-demo row">
             <figure className="img-placeholder">
@@ -117,6 +117,6 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(Landing);
