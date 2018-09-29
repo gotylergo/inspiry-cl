@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {toggleModal} from '../actions';
-import {API_BASE_URL} from '../config';
+import {REACT_APP_API_BASE_URL} from '../config';
 
 class SignInForm extends Component {
   constructor(props) {
@@ -13,6 +13,7 @@ class SignInForm extends Component {
       userAuthd: false,
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(e) {
@@ -27,7 +28,7 @@ class SignInForm extends Component {
       username: this.state.username,
       password: this.state.password,
     });
-    fetch(`${API_BASE_URL}/auth/login`,
+    fetch(`${REACT_APP_API_BASE_URL}/api/auth/login`,
         {
           method: 'POST',
           body: user,
@@ -35,20 +36,26 @@ class SignInForm extends Component {
             'Content-Type': 'application/json',
           },
         })
-        .then((res) => res.json())
+        .then((res) => {
+          if(res.status === 200) {
+            return res.json();
+          } else {
+            Promise.reject(res);
+          }
+        })
         .then((res) => {
           if (!res.user) {
             return Promise.reject('error: ', res);
           }
           window.sessionStorage.setItem('token', res.authToken);
           this.props.setStatus('Login successful.');
-          // this.props.toggleModal('authSuccess');
-          return res;
+          return this.setState({
+            userAuthd: true,
+          });
         })
         .catch((err) => {
           console.log(err);
-          console.error(err);
-          return this.props.setStatus(JSON.stringify(err));
+          return console.error(JSON.stringify(err));
         });
   }
   render() {
@@ -68,6 +75,7 @@ class SignInForm extends Component {
 
 SignInForm.propTypes = {
   setStatus: PropTypes.func,
+  toggleModal: PropTypes.func,
 };
 
 const mapStateToProps = (state) => ({

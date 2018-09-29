@@ -6,6 +6,7 @@ import App from './components/app';
 import Store from './store';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
+require('dotenv').config();
 
 WebFont.load({
   google: {

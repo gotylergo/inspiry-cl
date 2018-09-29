@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {API_BASE_URL} from '../config';
+import {REACT_APP_API_BASE_URL} from '../config';
 
 class RegisterForm extends Component {
   constructor(props) {
@@ -31,7 +31,7 @@ class RegisterForm extends Component {
       username: this.state.username,
       password: this.state.password,
     };
-    fetch(`${API_BASE_URL}/users/`,
+    fetch(`${REACT_APP_API_BASE_URL}/users/`,
         {
           method: 'POST',
           body: JSON.stringify(user),

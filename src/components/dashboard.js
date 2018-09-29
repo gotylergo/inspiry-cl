@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {API_BASE_URL} from '../config';
+import {REACT_APP_API_BASE_URL} from '../config';
 import TopBar from './top-bar';
 import MyStories from './my-stories';
 import {connect} from 'react-redux';
@@ -20,7 +20,7 @@ class Dashboard extends Component {
   loadStories() {
     const myToken = sessionStorage.getItem('token');
     if (myToken) {
-      fetch(`${API_BASE_URL}/stories/my-stories`, {
+      fetch(`${REACT_APP_API_BASE_URL}/stories/my-stories`, {
         method: 'GET',
         headers: {'authorization': `Bearer ${myToken}`},
       })

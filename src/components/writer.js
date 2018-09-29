@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
-import {API_BASE_URL, IMG_DIR} from '../config';
+import {REACT_APP_API_BASE_URL, IMG_DIR} from '../config';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import TopBar from './top-bar';
 import {createPageTitle, toggleModal} from '../actions';
@@ -143,7 +143,7 @@ class Writer extends Component {
       genre: this.state.genre,
     });
     if (myToken.length > 0) {
-      fetch(`${API_BASE_URL}/stories/`,
+      fetch(`${REACT_APP_API_BASE_URL}/stories/`,
           {
             method: 'POST',
             body: storyData,

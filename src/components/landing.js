@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {API_BASE_URL} from '../config';
+import {REACT_APP_API_BASE_URL} from '../config';
 import {Link} from 'react-router-dom';
 import TopBar from './top-bar';
 import LandingStories from './landing-stories';
@@ -18,7 +18,7 @@ class Landing extends Component {
   }
 
   loadStories() {
-    fetch(`${API_BASE_URL}/stories`, {
+    fetch(`${REACT_APP_API_BASE_URL}/stories`, {
       method: 'GET',
     })
         .then((res) => {

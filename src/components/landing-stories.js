@@ -35,7 +35,7 @@ class LandingStories extends Component {
 
 LandingStories.propTypes = {
   loading: PropTypes.bool,
-  stories: PropTypes.string,
+  stories: PropTypes.array,
 };
 
 export default LandingStories;

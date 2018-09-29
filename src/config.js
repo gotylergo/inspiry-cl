@@ -1,2 +1,2 @@
-export const API_BASE_URL = 'https://inspiry-svr.herokuapp.com/api';
+export const REACT_APP_API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 export const IMG_DIR = './img/story/';
