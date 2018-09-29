@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { toggleModal } from '../actions';
-import { API_BASE_URL } from '../config';
+import { REACT_APP_API_BASE_URL } from '../config';
 
 class SignInForm extends Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class SignInForm extends Component {
       username: this.state.username,
       password: this.state.password
     });
-    fetch(`${API_BASE_URL}/auth/login`,
+    fetch(`${REACT_APP_API_BASE_URL}/auth/login`,
       {
         method: 'POST',
         body: user,

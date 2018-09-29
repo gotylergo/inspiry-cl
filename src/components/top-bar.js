@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {API_BASE_URL} from '../config';
+import {REACT_APP_API_BASE_URL} from '../config';
 import MainMenu from './main-menu';
 import Modal from './modal';
 import { toggleMainMenu } from '../actions';
@@ -22,7 +22,7 @@ class TopBar extends Component {
   checkCredentials() {
     const myToken = sessionStorage.getItem("token");
     if (myToken) {
-    fetch(`${API_BASE_URL}/stories/my-stories`,
+    fetch(`${REACT_APP_API_BASE_URL}/stories/my-stories`,
       {
         method: 'GET',
         headers: { 'authorization': `Bearer ${myToken}` }

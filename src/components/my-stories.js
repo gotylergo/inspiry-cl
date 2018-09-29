@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { API_BASE_URL } from '../config';
+import { REACT_APP_API_BASE_URL } from '../config';
 import Card from './card';
 import './my-stories.css';
 
@@ -9,7 +9,7 @@ class MyStories extends Component {
   deleteCard = (id) => {
     const _id = id.slice(4);
     const myToken = sessionStorage.getItem('token');
-    fetch(`${API_BASE_URL}/stories/id/${_id}`, {
+    fetch(`${REACT_APP_API_BASE_URL}/stories/id/${_id}`, {
       method: 'DELETE',
       headers: { 'authorization': `Bearer ${myToken}` }
     })

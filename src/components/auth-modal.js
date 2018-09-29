@@ -30,7 +30,7 @@ class AuthModel extends Component {
     const AuthForm = () => {
       let props = {
         changeForm: form => this.changeForm(form),
-        setStatus: err => this.setStatus(JSON.stringify(err)),
+        setStatus: err => this.setStatus(err),
       }
       if (this.state.authForm === 'signin') {
         return (<SignInForm {...props} />);
