@@ -54,9 +54,8 @@ class Landing extends Component {
             <a href="#stories" className="button btn-light shadow-static" role="button">read for inspiration</a>
           </div>
           <div className="app-demo row">
-            <figure className="img-placeholder">
-              <img src="/img/inspiry-screenshot.png" alt="Screenshot of the inspiry writer with a completed story" className="shadow-static" />
-            </figure>
+            <p>Inspiry is a fun way to end writers block by free writing.</p>
+            <p>Kill some time, get out of your head, and share your creations with friends and the world.</p>
             <div className="demo-creds">
               <h3>demo credentials</h3>
               <ul>
@@ -64,6 +63,9 @@ class Landing extends Component {
                 <li>password: dem0P@ss1</li>
               </ul>
             </div>
+            <figure className="img-placeholder">
+              <img src="/img/inspiry-screenshot.png" alt="Screenshot of the inspiry writer with a completed story" className="shadow-static" />
+            </figure>
           </div>
         </header>
         <main>
@@ -83,6 +85,8 @@ class Landing extends Component {
           <div className="section section-dark shadow-static">
             <h2 className="row"><a name="stories">Stories</a></h2>
             <LandingStories stories={this.state.stories} />
+            <div className="row"><Link to="/writer" className="button btn-light shadow-static" role="button" >start writing</Link>
+            </div>
           </div>
         </main>
         <footer className="section section-light">

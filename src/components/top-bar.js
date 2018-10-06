@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {REACT_APP_API_BASE_URL} from '../config';
 import MainMenu from './main-menu';
@@ -69,7 +70,7 @@ class TopBar extends Component {
           <button className="button menu-button" aria-label="Open main menu" onClick={this.props.toggleMainMenu} >
             <FontAwesomeIcon icon="bars" />
           </button>
-          <div className="page-title">{this.props.pageTitle}</div>
+          <div className="page-title" title="home" alt="home"><Link to="/"><FontAwesomeIcon icon="home" /></Link>{this.props.pageTitle}</div>
         </header>
         <MainMenu toggleMainMenu={this.props.toggleMainMenu} toggleModal={this.props.toggleModal} closeMenuOpenHelpModal={this.props.closeMenuOpenHelpModal} userAuthd={this.state.userAuthd} signout={this.signout}/>
         <OpenModal />
