@@ -5,8 +5,13 @@ import {StoryTitle, StoryBody} from './story';
 import './card.css';
 
 class Card extends Component {
+  // openCard(e) {
+  //   e.nativeEvent.stopImmediatePropagation();
+  //   e.target.classList.add('card-open');
+  // }
   render() {
     return (
+      // <div className="card shadow" id={`${this.props.storyID}`} onClick={(e) => this.openCard(e)}>
       <div className="card shadow" id={`${this.props.storyID}`}>
         <StoryTitle storyTitle={this.props.storyTitle} />
         <ul className="card-toolbar">
@@ -23,9 +28,9 @@ class Card extends Component {
             ><FontAwesomeIcon icon="times" className="shadow-fa" /></button>
           </li>
         </ul>
-        <StoryBody storyContent={this.props.storyContent} />
-        <div className="story-fader"></div>
-      </div>
+        <StoryBody storyContent={this.props.storyContent} storyImage={this.props.storyImage} />
+        {/* <div className="story-fader"></div> */}
+      </div >
     );
   }
 }
@@ -37,6 +42,7 @@ Card.propTypes = {
   storyTitle: PropTypes.string,
   deleteCard: PropTypes.func,
   storyContent: PropTypes.string,
+  storyImage: PropTypes.string,
 };
 
 export default Card;
