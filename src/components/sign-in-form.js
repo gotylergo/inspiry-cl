@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
 import {toggleModal} from '../actions';
 import {REACT_APP_API_BASE_URL} from '../config';
 
@@ -10,7 +11,7 @@ class SignInForm extends Component {
     this.state = {
       username: '',
       password: '',
-      userAuthd: false,
+      userAuthed: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -28,7 +29,7 @@ class SignInForm extends Component {
       username: this.state.username,
       password: this.state.password,
     });
-    fetch(`${REACT_APP_API_BASE_URL}/api/auth/login`,
+    fetch(`${REACT_APP_API_BASE_URL}/auth/login`,
         {
           method: 'POST',
           body: user,
@@ -39,23 +40,18 @@ class SignInForm extends Component {
         .then((res) => {
           if(res.status === 200) {
             return res.json();
-          } else {
-            Promise.reject(res);
+          } else if (res.status === 401) {
+            return Promise.reject(res);
           }
         })
         .then((res) => {
-          if (!res.user) {
-            return Promise.reject('error: ', res);
-          }
           window.sessionStorage.setItem('token', res.authToken);
           this.props.setStatus('Login successful.');
-          return this.setState({
-            userAuthd: true,
-          });
+          this.props.toggleModal('inactive'); 
+          return this.props.location.pathname === '/dashboard'? window.location.reload(): '';
         })
         .catch((err) => {
-          console.log(err);
-          return console.error(JSON.stringify(err));
+           err.message? this.props.setStatus(JSON.stringify(err.message)) : this.props.setStatus('Incorrect username / password');
         });
   }
   render() {
@@ -79,11 +75,11 @@ SignInForm.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  userAuthd: state.userAuthd,
+  userAuthed: state.userAuthed,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  toggleModal: (modal) => dispatch(toggleModal(modal)),
+  toggleModal: () => dispatch(toggleModal()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignInForm);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignInForm));

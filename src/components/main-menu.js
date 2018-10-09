@@ -59,7 +59,7 @@ MainMenu.propTypes = {
 
 const mapStateToProps = (state) => ({
   mainMenuActive: state.mainMenuActive,
-  userAuthd: state.userAuthd,
+  userAuthed: state.userAuthed,
 });
 
 export default connect(mapStateToProps)(MainMenu);

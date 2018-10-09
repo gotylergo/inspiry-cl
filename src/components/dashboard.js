@@ -75,6 +75,7 @@ const mapStateToProps = (state) => ({
   pageTitle: state.pageTitle,
   docTitle: state.docTitle,
   myStories: state.myStories,
+  userAuthed: state.userAuthed,
 });
 
 const mapDispatchToProps = (dispatch) => ({

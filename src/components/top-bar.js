@@ -15,7 +15,7 @@ class TopBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userAuthd: false,
+      userAuthed: false,
     };
     this.signout = this.signout.bind(this);
   }
@@ -38,7 +38,7 @@ class TopBar extends Component {
           })
           .catch((err) =>
             this.setState({
-              userAuthd: false,
+              userAuthed: false,
             })
           );
     }
@@ -47,9 +47,10 @@ class TopBar extends Component {
   signout() {
     window.sessionStorage.setItem('token', '');
     this.props.toggleMainMenu('inactive');
-    return this.setState({
-      userAuthd: false,
+    this.setState({
+      userAuthed: false,
     });
+    return window.location.reload();
   }
 
   componentDidMount() {
@@ -72,7 +73,7 @@ class TopBar extends Component {
           </button>
           <div className="page-title" title="home" alt="home"><Link to="/"><FontAwesomeIcon icon="home" /></Link>{this.props.pageTitle}</div>
         </header>
-        <MainMenu toggleMainMenu={this.props.toggleMainMenu} toggleModal={this.props.toggleModal} closeMenuOpenHelpModal={this.props.closeMenuOpenHelpModal} userAuthd={this.state.userAuthd} signout={this.signout}/>
+        <MainMenu toggleMainMenu={this.props.toggleMainMenu} toggleModal={this.props.toggleModal} closeMenuOpenHelpModal={this.props.closeMenuOpenHelpModal} userAuthed={this.state.userAuthed} signout={this.signout}/>
         <OpenModal />
       </div>
     );
@@ -91,7 +92,7 @@ TopBar.propTypes = {
 const mapStateToProps = (state) => ({
   pageTitle: state.pageTitle,
   modalActive: state.modalActive,
-  userAuthd: state.userAuthd,
+  userAuthed: state.userAuthed,
 });
 
 const mapDispatchToProps = (dispatch) => ({
