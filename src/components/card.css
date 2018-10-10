@@ -4,6 +4,7 @@
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
+  align-content: flex-start;
   flex: 1 1 100%;
   margin: 2.5%;
   padding: 5% 5%;
@@ -12,7 +13,7 @@
   background: rgba(254, 251, 247, .8);
 }
 
-@media only screen and (min-width: 850px) {
+@media only screen and (min-width: 1000px) {
   .card {
     flex: 1 1 35%;
     padding: 5%;
@@ -125,6 +126,7 @@
 
 .card .story-body {
   display: block;
+  width: 100%;
 }
 
 .card .story-body p {
@@ -139,7 +141,7 @@
 
 .card .story-image {
   float: right;
-  margin: 0;
+  margin: 1em 0;
   padding: 0;
   width: 100%;
   text-align: center;

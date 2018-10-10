@@ -5,6 +5,7 @@ const initialState = {
   modalActive: 'inactive',
   pageTitle: 'inspiry',
   docTitle: 'inspiry: unblock your brain',
+  shareID: '',
 };
 
 export const inspiryReducer = (state = initialState, action) => {
@@ -33,6 +34,7 @@ export const inspiryReducer = (state = initialState, action) => {
     }
     return Object.assign({}, state, {
       modalActive: action.modal,
+      shareID: action.shareID,
     });
   }
 

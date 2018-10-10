@@ -54,7 +54,7 @@ class Dashboard extends Component {
     return (
       <div className="dashboard">
         <TopBar />
-        <MyStories stories={this.state.myStories} loadStories={this.loadStories} loading={this.state.loading} />
+        <MyStories stories={this.state.myStories} loadStories={this.loadStories} loading={this.state.loading} toggleModal={this.props.toggleModal} />
       </div>
     );
   }
@@ -80,7 +80,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   createPageTitle: (title) => dispatch(createPageTitle(title)),
-  toggleModal: (modal) => dispatch(toggleModal(modal)),
+  toggleModal: (modal, shareID) => dispatch(toggleModal(modal, shareID)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

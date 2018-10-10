@@ -6,12 +6,6 @@ import Card from './card';
 import './my-stories.css';
 
 class MyStories extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      storyURL: 'https://google.com',
-    };
-  }
   deleteCard = (id) => {
     const _id = id.slice(4);
     const myToken = sessionStorage.getItem('token');
@@ -40,7 +34,7 @@ class MyStories extends Component {
     } else if (this.props.stories.length > 0) {
       Stories =
         this.props.stories.map((story, index) =>
-          <Card key={index} storyID={story._id} storyContent={story.content} storyTitle={story.title} storyImage={story.img} genre={story.genre} deleteCard={this.deleteCard} />
+          <Card key={index} storyID={story._id} storyContent={story.content} storyTitle={story.title} storyImage={story.img} genre={story.genre} deleteCard={this.deleteCard} toggleModal={this.props.toggleModal} />
         );
     } else {
       Stories = <h3 className="no-stories text-shadow-static">Couldn‘t find any stories. <Link to="/writer" >Write One?</Link></h3>;
@@ -58,6 +52,7 @@ MyStories.propTypes = {
   docTitle: PropTypes.string,
   createPageTitle: PropTypes.func,
   loadStories: PropTypes.func,
+  toggleModal: PropTypes.func,
   loading: PropTypes.bool,
   stories: PropTypes.array,
   storyURL: PropTypes.string,

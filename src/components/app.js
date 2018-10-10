@@ -18,8 +18,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Landing from './landing';
 import Writer from './writer';
-
 import Dashboard from './dashboard';
+import SharedStory from './shared-story';
 import './app.css';
 import './landing.css';
 
@@ -56,6 +56,7 @@ export class App extends Component {
           <Route exact path="/writer" component={Writer} />
           <Redirect exact from="/home" to="/dashboard" />
           <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/id/:storyID" render={(props) => (<SharedStory {...props} />)} />
           <Route component={NoMatch} />
         </Switch>
       </Router>

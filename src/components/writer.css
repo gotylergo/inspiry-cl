@@ -219,8 +219,8 @@
 }
 
 .writer-footer .button {
-  width: 50%;
-  float: right;
+  width: 100%;
+  display: block;
   box-sizing: border-box;
   background: #000;
   color: #fff;

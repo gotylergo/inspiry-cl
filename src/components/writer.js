@@ -39,7 +39,7 @@ class Writer extends Component {
     this.setState({
       writing: true,
       complete: false,
-      startTime: 120,
+      startTime: 1,
       endTime: 0,
       genre: Genres.array[Math.floor(Math.random() * (Genres.array.length))],
       keyword: Keywords.array[Math.floor(Math.random() * (Keywords.array.length))],
@@ -226,7 +226,6 @@ class Writer extends Component {
       <footer>
         <ul className="writer-footer">
           <li><button className="button btn-light" onClick={(e) => this.saveStory(e)} >Save</button></li>
-          <li><button className="button btn-light">Share</button></li>
         </ul>
       </footer> : '';
 

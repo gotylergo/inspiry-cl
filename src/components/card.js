@@ -20,7 +20,7 @@ class Card extends Component {
             ><FontAwesomeIcon icon="trash" className="shadow-fa" /></button>
           </li>
           <li className="card-share">
-            <button className="button card-button" aria-label="share" title="share"
+            <button className="button card-button" aria-label="share" title="share" id={`del-${this.props.storyID}`} onClick={(e) => this.props.toggleModal('share', this.props.storyID)}
             ><FontAwesomeIcon icon="share-square" className="shadow-fa" /></button>
           </li>
           <li className="card-close">
@@ -41,6 +41,7 @@ Card.propTypes = {
   storyID: PropTypes.string,
   storyTitle: PropTypes.string,
   deleteCard: PropTypes.func,
+  toggleModal: PropTypes.func,
   storyContent: PropTypes.string,
   storyImage: PropTypes.string,
 };

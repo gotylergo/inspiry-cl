@@ -10,7 +10,8 @@ export const createPageTitle = (pageTitle) => ({
 });
 
 export const TOGGLE_MODAL = 'TOGGLE_MODAL';
-export const toggleModal = (modal) => ({
+export const toggleModal = (modal, shareID) => ({
   type: TOGGLE_MODAL,
   modal,
+  shareID,
 });
