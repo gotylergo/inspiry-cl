@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import { REACT_APP_API_BASE_URL } from '../config';
-import { Link } from 'react-router-dom';
+import {REACT_APP_API_BASE_URL} from '../config';
+import {Link} from 'react-router-dom';
 import TopBar from './top-bar';
 import LandingStories from './landing-stories';
-import { createPageTitle } from '../actions';
+import {createPageTitle} from '../actions';
 
 class Landing extends Component {
   constructor(props) {
@@ -21,27 +21,27 @@ class Landing extends Component {
     fetch(`${REACT_APP_API_BASE_URL}/stories`, {
       method: 'GET',
     })
-      .then((res) => {
-        return res.json();
-      })
-      .then((stories) => {
-        this.setState({
-          stories,
-          loading: false,
-        });
-      })
-      .catch((err) =>
-        this.setState({
-          error: JSON.stringify(err),
+        .then((res) => {
+          return res.json();
         })
-      );
+        .then((stories) => {
+          this.setState({
+            stories,
+            loading: false,
+          });
+        })
+        .catch((err) =>
+          this.setState({
+            error: JSON.stringify(err),
+          })
+        );
   }
-
 
   componentDidMount() {
     this.props.createPageTitle('home');
     this.loadStories();
   }
+
   render() {
     document.title = this.props.docTitle;
     return (
@@ -129,6 +129,6 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(Landing);

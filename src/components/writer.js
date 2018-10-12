@@ -39,7 +39,7 @@ class Writer extends Component {
     this.setState({
       writing: true,
       complete: false,
-      startTime: 1,
+      startTime: 120,
       endTime: 0,
       genre: Genres.array[Math.floor(Math.random() * (Genres.array.length))],
       keyword: Keywords.array[Math.floor(Math.random() * (Keywords.array.length))],
@@ -205,7 +205,7 @@ class Writer extends Component {
         return (
           <figure className="shadow-static">
             <img
-              src={`${IMG_DIR}${this.state.img.file}`}
+              src={`${IMG_DIR}/${this.state.img.file}`}
               title={this.state.img.title}
               alt={this.state.img.description}
             />
