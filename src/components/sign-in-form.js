@@ -72,8 +72,8 @@ class SignInForm extends Component {
 SignInForm.propTypes = {
   setStatus: PropTypes.func,
   toggleModal: PropTypes.func,
-  location: React.PropTypes.shape({
-    pathname: React.PropTypes.string.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
   }),
 };
 
