@@ -2,27 +2,3 @@
   display: flex;
   flex-flow: row wrap;
 }
-
-.loading-stories,
-.no-stories {
-  text-align: center;
-  width: 100%;
-}
-
-.loading-stories {
-  background: linear-gradient(to right, #118696 20%, #000 50%, #118696 80%);
-  background-position: 0 0;
-  color: #118696;
-  background-clip: text;
-  background-size: 10em;
-  text-fill-color: transparent;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shine 2s linear infinite;
-}
-
-@keyframes shine {
-  100% {
-    background-position: -10em 0;
-  }
-}

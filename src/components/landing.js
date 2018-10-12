@@ -44,6 +44,15 @@ class Landing extends Component {
 
   render() {
     document.title = this.props.docTitle;
+    let Stories;
+    if (this.state.loading) {
+      Stories = <h3 className="loading-stories text-shadow-static">Loading stories...</h3>;
+    } else if (this.state.stories.length > 0) {
+      Stories =
+      <LandingStories stories={this.state.stories} />
+    } else {
+      Stories = <h3 className="no-stories text-shadow-static">Couldn‘t find any stories. <Link to="/writer" >Write One?</Link></h3>;
+    }
     return (
       <div className="landing">
         <TopBar />
@@ -91,7 +100,7 @@ class Landing extends Component {
             </div>
             <div className="section section-dark shadow-static">
               <h2 className="row"><a name="stories">Stories</a></h2>
-              <LandingStories stories={this.state.stories} />
+              {Stories}
               <div className="row"><Link to="/writer" className="button btn-light shadow-static" role="button" >start writing</Link>
               </div>
             </div>
