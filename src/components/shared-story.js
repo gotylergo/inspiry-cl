@@ -71,6 +71,11 @@ SharedStory.propTypes = {
   loading: PropTypes.bool,
   stories: PropTypes.array,
   storyURL: PropTypes.string,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      storyID: PropTypes.node,
+    }).isRequired,
+  }).isRequired,
 };
 
 const mapStateToProps = (state) => ({

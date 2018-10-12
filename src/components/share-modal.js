@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { REACT_APP_CLIENT_BASE_URL } from '../config';
-import { PropTypes } from 'prop-types';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {REACT_APP_CLIENT_BASE_URL} from '../config';
+import {PropTypes} from 'prop-types';
 
 class ShareModal extends Component {
   constructor(props) {

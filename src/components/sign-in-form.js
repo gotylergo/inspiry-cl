@@ -38,7 +38,7 @@ class SignInForm extends Component {
           },
         })
         .then((res) => {
-          if(res.status === 200) {
+          if (res.status === 200) {
             return res.json();
           } else if (res.status === 401) {
             return Promise.reject(res);
@@ -47,7 +47,7 @@ class SignInForm extends Component {
         .then((res) => {
           window.sessionStorage.setItem('token', res.authToken);
           this.props.setStatus('Login successful.');
-          this.props.toggleModal('inactive'); 
+          this.props.toggleModal('inactive');
           return this.props.location.pathname === '/dashboard'? window.location.reload(): '';
         })
         .catch((err) => {
@@ -72,6 +72,9 @@ class SignInForm extends Component {
 SignInForm.propTypes = {
   setStatus: PropTypes.func,
   toggleModal: PropTypes.func,
+  location: React.PropTypes.shape({
+    pathname: React.PropTypes.string.isRequired,
+  }),
 };
 
 const mapStateToProps = (state) => ({

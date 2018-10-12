@@ -6,6 +6,6 @@ describe('<Landing />', () => {
   it('renders without crashing', () => {
     <MemoryRouter>
       <Writer />
-    </MemoryRouter>
-  })
-})
+    </MemoryRouter>;
+  });
+});

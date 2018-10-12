@@ -50,7 +50,7 @@ class AuthModel extends Component {
     return (
       <div className="auth-modal">
         <div className="auth-menu">
-          <button 
+          <button
             className={this.state.authForm === 'signin' ? activeBtnClass : inactiveBtnClass} name="signin" onClick={(e) => this.changeForm(e.target.name)} >Sign In</button> <button className={this.state.authForm === 'register' ? activeBtnClass : inactiveBtnClass} name="register" onClick={(e) => this.changeForm(e.target.name)} >Register</button>
         </div>
         <AuthForm />

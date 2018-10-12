@@ -24,6 +24,7 @@
             "single"
         ],
         "require-jsdoc": "off",
-        "max-len": 0
+        "max-len": 0,
+        "no-invalid-this": "off"
     }
 }
