@@ -2,22 +2,6 @@ import {inspiryReducer} from './index';
 import {toggleMainMenu, createPageTitle, toggleModal} from '../actions';
 
 describe('Inspiry reducer', () => {
-  it('Should set the initial state when nothing is passed in', () => {
-    const defaultState = {
-      mainMenuActive: false,
-      modalActive: 'inactive',
-      pageTitle: 'inspiry',
-      docTitle: 'inspiry: unblock your brain',
-      shareID: '',
-    };
-    const state = inspiryReducer({});
-    expect(state.mainMenuActive).toEqual(defaultState.mainMenuActive);
-    expect(state.modalActive).toEqual(defaultState.modalActive);
-    expect(state.pageTitle).toEqual(defaultState.pageTitle);
-    expect(state.docTitle).toEqual(defaultState.docTitle);
-    expect(state.shareID).toEqual(defaultState.shareID);
-  });
-
   describe('toggleMainMenu', () => {
     it('Should toggle the main menu', () => {
       let state = {
