@@ -1,4 +1,5 @@
 .landing-story {
+  margin: 1em auto 0 auto;
   padding: 2.5%;
 }
 
@@ -12,7 +13,7 @@
     }
   }
 
-@media only screen and (min-width: 700px) {
+@media only screen and (min-width: 800px) {
   .landing-story {
     display: inline-block;
     width: 40%;
@@ -26,9 +27,13 @@
   }
 }
 
+.landing-story .story-img {
+  margin-bottom: 1.5em;
+}
+
 .landing-story h3,
 .landing-story h4 {
-  height: 1.8em;
+  height: 1em;
   line-height: 1em;
   margin-top: .1em;
   margin-bottom: .5em;
@@ -47,19 +52,21 @@
 }
 
 .landing-story h4::before {
-  height: 1.9em;
-  line-height: 1.9em;
-  width: 1.9em;
+  height: 1em;
+  line-height: 1em;
+  width: 1em;
   text-align: center;
   margin-right: .35em;
   display: inline-block;
   font-size: .55em;
   color: transparent;
   vertical-align: middle;
-  text-shadow: 0 0 0 #fff;
-  border: 1px solid #fff;
+  text-shadow: 0 0 0 #118696;
   border-radius: 50% 50%;
-  content: '👤';
+  padding: .2em;
+  content: '\1F464';
+  font-size: .8em;
+  background-color: #fff;
 }
 
 .landing-story img {
@@ -67,7 +74,7 @@
   height: 100px;
   width: 100px;
   border-radius: 50% 50%;
-  background: #000;
+  background: #fff;
 }
 
 .landing-story p {

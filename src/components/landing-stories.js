@@ -13,7 +13,7 @@ class LandingStories extends Component {
       Stories =
         this.props.stories.map((story, index) =>
           <div className="landing-story" key={index}>
-            <div>
+            <div className="story-img">
               <img src={`${IMG_DIR}/${story.img}`} alt={story.img} />
             </div>
             <h4>{story.user}</h4>
