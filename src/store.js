@@ -1,8 +1,12 @@
 import {applyMiddleware, createStore} from 'redux';
-import Logger from 'redux-logger';
 import {inspiryReducer} from './reducers';
 
 const initialState = window.INITIAL_STATE;
-const middleware = applyMiddleware(Logger);
+let middleware = [];
 
-export default createStore(inspiryReducer, initialState, middleware);
+if (process.env.NODE_ENV !== 'production') {
+  const Logger = require('redux-logger');
+  middleware = [...Logger];
+}
+
+export default createStore(inspiryReducer, initialState, applyMiddleware(...middleware));
