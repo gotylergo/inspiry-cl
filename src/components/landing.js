@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import { REACT_APP_API_BASE_URL } from '../config';
-import { Link } from 'react-router-dom';
+import {REACT_APP_API_BASE_URL} from '../config';
+import {Link} from 'react-router-dom';
 import TopBar from './top-bar';
 import LandingStories from './landing-stories';
-import { createPageTitle } from '../actions';
+import {createPageTitle} from '../actions';
 
 class Landing extends Component {
   constructor(props) {
@@ -21,20 +21,20 @@ class Landing extends Component {
     fetch(`${REACT_APP_API_BASE_URL}/stories`, {
       method: 'GET',
     })
-      .then((res) => {
-        return res.json();
-      })
-      .then((stories) => {
-        this.setState({
-          stories,
-          loading: false,
-        });
-      })
-      .catch((err) =>
-        this.setState({
-          error: JSON.stringify(err),
+        .then((res) => {
+          return res.json();
         })
-      );
+        .then((stories) => {
+          this.setState({
+            stories,
+            loading: false,
+          });
+        })
+        .catch((err) =>
+          this.setState({
+            error: JSON.stringify(err),
+          })
+        );
   }
 
   componentDidMount() {
@@ -49,7 +49,7 @@ class Landing extends Component {
       Stories = <h3 className="loading-stories text-shadow-static">Loading stories...</h3>;
     } else if (this.state.stories.length > 0) {
       Stories =
-        <LandingStories stories={this.state.stories} />
+        <LandingStories stories={this.state.stories} />;
     } else {
       Stories = <h3 className="no-stories text-shadow-static">Couldn‘t find any stories. <Link to="/writer" >Write One?</Link></h3>;
     }
@@ -70,14 +70,16 @@ class Landing extends Component {
                 <h3>Not ready for commitment?</h3>
                 <p>Use these demo credentials to try out inspiry, no strings attached.</p>
                 <table>
-                  <tr>
-                    <td className="row-label">username:</td>
-                    <td>demouser</td>
-                  </tr>
-                  <tr>
-                    <td className="row-label">password:</td>
-                    <td>dem0P@ss1</td>
-                  </tr>
+                  <tbody>
+                    <tr>
+                      <td className="row-label">username:</td>
+                      <td>demouser</td>
+                    </tr>
+                    <tr>
+                      <td className="row-label">password:</td>
+                      <td>dem0P@ss1</td>
+                    </tr>
+                  </tbody>
                 </table>
               </div>
               <figure className="img-placeholder">
@@ -145,6 +147,6 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(Landing);

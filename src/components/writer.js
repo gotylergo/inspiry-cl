@@ -39,7 +39,7 @@ class Writer extends Component {
     this.setState({
       writing: true,
       complete: false,
-      startTime: 120,
+      startTime: 5,
       endTime: 0,
       genre: Genres.array[Math.floor(Math.random() * (Genres.array.length))],
       keyword: Keywords.array[Math.floor(Math.random() * (Keywords.array.length))],
@@ -142,7 +142,7 @@ class Writer extends Component {
       img: this.state.img.file,
       genre: this.state.genre,
     });
-    if (myToken.length > 0) {
+    if (myToken) {
       fetch(`${REACT_APP_API_BASE_URL}/stories/`,
           {
             method: 'POST',
@@ -159,6 +159,9 @@ class Writer extends Component {
             this.setState({
               saved: true,
             });
+          })
+          .then(() => {
+            this.props.history.replace('/dashboard');
           })
           .catch((err) => {
             console.error(err);
