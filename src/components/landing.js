@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import {REACT_APP_API_BASE_URL} from '../config';
-import {Link} from 'react-router-dom';
+import { REACT_APP_API_BASE_URL } from '../config';
+import { Link } from 'react-router-dom';
 import TopBar from './top-bar';
 import LandingStories from './landing-stories';
-import {createPageTitle} from '../actions';
+import { createPageTitle } from '../actions';
 
 class Landing extends Component {
   constructor(props) {
@@ -21,20 +21,20 @@ class Landing extends Component {
     fetch(`${REACT_APP_API_BASE_URL}/stories`, {
       method: 'GET',
     })
-        .then((res) => {
-          return res.json();
+      .then((res) => {
+        return res.json();
+      })
+      .then((stories) => {
+        this.setState({
+          stories,
+          loading: false,
+        });
+      })
+      .catch((err) =>
+        this.setState({
+          error: JSON.stringify(err),
         })
-        .then((stories) => {
-          this.setState({
-            stories,
-            loading: false,
-          });
-        })
-        .catch((err) =>
-          this.setState({
-            error: JSON.stringify(err),
-          })
-        );
+      );
   }
 
   componentDidMount() {
@@ -49,7 +49,7 @@ class Landing extends Component {
       Stories = <h3 className="loading-stories text-shadow-static">Loading stories...</h3>;
     } else if (this.state.stories.length > 0) {
       Stories =
-      <LandingStories stories={this.state.stories} />
+        <LandingStories stories={this.state.stories} />
     } else {
       Stories = <h3 className="no-stories text-shadow-static">Couldn‘t find any stories. <Link to="/writer" >Write One?</Link></h3>;
     }
@@ -66,12 +66,19 @@ class Landing extends Component {
             <div className="app-demo row">
               <p>Inspiry is a fun way to end writers block by free writing.</p>
               <p>Kill some time, get out of your head, and share your creations with friends and the world.</p>
-              <div className="demo-creds">
-                <h3>demo credentials</h3>
-                <ul>
-                  <li>username: demouser</li>
-                  <li>password: dem0P@ss1</li>
-                </ul>
+              <div className="demo-creds shadow-static">
+                <h3>Not ready for commitment?</h3>
+                <p>Use these demo credentials to try out inspiry, no strings attached.</p>
+                <table>
+                  <tr>
+                    <td className="row-label">username:</td>
+                    <td>demouser</td>
+                  </tr>
+                  <tr>
+                    <td className="row-label">password:</td>
+                    <td>dem0P@ss1</td>
+                  </tr>
+                </table>
               </div>
               <figure className="img-placeholder">
                 <img src="/img/inspiry-screenshot.png" alt="Screenshot of the inspiry writer with a completed story" className="shadow-static" />
@@ -86,7 +93,7 @@ class Landing extends Component {
                 <ol>
                   <li><div>Inspiry gives you a genre.</div></li>
                   <li><div>When it’s time to start writing, inspiry gives you a word that you have to include</div></li>
-                  <li><div>When you least expect it, a random appears for you to incorporate into your tale.</div></li>
+                  <li><div>When you least expect it, a random image appears for you to incorporate into your tale.</div></li>
                 </ol>
                 <div className="app-description-text">
                   <p>Use that creative noggin of yours to organize the chaos into a coherent of a story (and if you get a good laugh out of it, that’s an added bonus!).</p>
@@ -138,6 +145,6 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Landing);

@@ -78,9 +78,9 @@ h2>a:active {
   text-align: center;
 }
 
-.app-demo p {
+.app-demo > p {
   max-width: 400px;
-  margin: 2em auto 0 auto;
+  margin: 1.5em auto 0 auto;
   padding: 0 3em;
 }
 
@@ -108,7 +108,8 @@ h2>a:active {
   padding: 1em 0;
   width: 95%;
   margin-top: 2em;
-  background: #000;
+  border: 2px solid #fff;
+  /* background: #000; */
 }
 
 @media only screen and (min-width: 400px) {
@@ -117,12 +118,16 @@ h2>a:active {
   }
 }
 
-.demo-creds ul {
-  padding-inline-start: 0;
+.demo-creds p {
+  padding: 0 1em;
 }
 
-.demo-creds li {
-  list-style-type: none;
+.demo-creds table {
+  margin: 1em auto;
+}
+
+.demo-creds table .row-label {
+  font-weight: bold;
 }
 
 .landing h2 {
