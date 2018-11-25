@@ -1,98 +1,119 @@
 .main-menu {
-    position: fixed;
-    top: 0;
-    z-index: 999;
-    height: 100%;
-    width: 75%;
-    min-width: 250px;
-    max-width: 350px;
-    line-height: 3em;
-    margin: 0;
-    padding: 0 1em;
-    display: inline-block;
-    overflow-y: scoll;
-    overflow-x: visible;
-    transition: left 0.3s ease, box-shadow 0.3s ease;
-    background: #000;
-    font-size: 1.75em;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  height: 100%;
+  width: 75%;
+  min-width: 250px;
+  max-width: 350px;
+  line-height: 3em;
+  margin: 0;
+  padding: 0 1em;
+  display: inline-block;
+  overflow-y: scoll;
+  overflow-x: visible;
+  transition: left 0.3s ease, box-shadow 0.3s ease;
+  background: #000;
+  font-size: 1.75em;
 }
 
 .main-menu-open {
-    left: 0;
-    visibility: visible;
+  left: 0;
+  visibility: visible;
 }
 
 .main-menu-closed {
-    left: -200%;
-    visibility: hidden;
+  left: -200%;
+  visibility: hidden;
 }
 
 #main-menu .menu-button {
-    text-align: right;
-    opacity: .8;
+  text-align: right;
+  opacity: .8;
 }
 
 #main-menu .menu-button:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
 #main-menu ul {
-    list-style: none;
-    text-align: left;
-    margin: 0;
-    padding: 2.5em 0 0;
-    min-height: 100%;
-    width: 200px;
-    background: #000;
+  list-style: none;
+  text-align: left;
+  margin: 0;
+  padding: 2.5em 0 0;
+  min-height: 100%;
+  width: 200px;
+  background: #000;
 }
 
 #main-menu .menu-button,
 #main-menu .nav-button,
 #main-menu a.active {
-    opacity: .8;
-    color: #fff;
-    text-decoration: none;
-    /* Override default button styling */
-    width: inherit;
-    padding: inherit;
-    font-size: inherit;
-    font-family: inherit;
-    background: inherit;
-    border-width: inherit;
-    border-style: inherit;
-    text-transform: inherit;
+  opacity: .8;
+  color: #fff;
+  text-decoration: none;
+  /* Override default button styling */
+  width: inherit;
+  padding: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  background: inherit;
+  border-width: inherit;
+  border-style: inherit;
+  text-transform: inherit;
 }
 
 #main-menu .nav-button:hover,
 #main-menu a.active {
-    padding-left: .5em;
-    opacity: 1;
+  padding-left: .5em;
+  opacity: 1;
 }
 
 #main-menu a.active {
-    border-left: solid .1em #fff;
-    opacity: 1;
+  border-left: solid .1em #fff;
+  opacity: 1;
 }
 
 #main-menu .menu-close {
-    position: absolute;
-    right: 1em;
-    top: 1em;
+  position: absolute;
+  right: 1em;
+  top: 1em;
 }
 
 #main-menu:target,
 #main-menu[aria-expanded="true"] {
-    left: 0;
-    outline: none;
+  left: 0;
+  outline: none;
 }
 
 #main-menu:target .menu-close,
 #main-menu[aria-expanded="true"] .menu-close {
-    z-index: 1001;
+  z-index: 1001;
 }
 
 #main-menu:target ul,
 #main-menu[aria-expanded="true"] ul {
-    position: relative;
-    z-index: 1000;
+  position: relative;
+  z-index: 1000;
+}
+
+@media only screen and (min-width: 700px) {
+  #main-menu .menu-button {
+    display: none;
+  }
+  .main-menu-desktop {
+    position: fixed;
+    top: 2em;
+    left: 0;
+    width: 200px;
+    visibility: visible;
+  }
+  .main-menu-desktop,
+  #main-menu.main-menu-desktop ul  {
+      width: 150px;
+      min-width: 150px;
+  }
+  main {
+      margin-left: 200px;
+  }
 }

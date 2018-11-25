@@ -56,7 +56,7 @@ class Landing extends Component {
     return (
       <div className="landing">
         <TopBar />
-        <div className="landing-container">
+        <main className="landing-container">
           <header className="masthead section section-dark shadow-static">
             <p className="tagline text-shadow-static-static row">unblock your brain <span className="blinking">|</span></p>
             <h1 className="app-name text-shadow-static-static row">inspiry</h1>
@@ -87,7 +87,7 @@ class Landing extends Component {
               </figure>
             </div>
           </header>
-          <main>
+          <div>
             <div className="section">
               <h2 className="row">Have some fun and kick writers block to the curb</h2>
               <div className="row app-description">
@@ -113,7 +113,7 @@ class Landing extends Component {
               <div className="row"><Link to="/writer" className="button btn-light shadow-static" role="button" >start writing</Link>
               </div>
             </div>
-          </main>
+          </div>
           <footer className="section section-light">
             <div className="row">
               <p>Hi, I’m Tyler, and I’m a web developer.</p>
@@ -125,7 +125,7 @@ class Landing extends Component {
               } >GitHub</a>
             </div>
           </footer>
-        </div>
+        </main>
       </div >
     );
   }

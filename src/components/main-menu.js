@@ -24,7 +24,7 @@ class MainMenu extends Component {
       return (<button className="button sign-in-button nav-button" aria-label="sign in" onClick={(e, modal='auth') => this.openModal(e, modal)} >sign in</button>);
     };
     return (
-      <nav id="main-menu" className={this.props.mainMenuActive ? 'main-menu main-menu-open' : 'main-menu main-menu-closed'} aria-label="Main menu" aria-expanded="false">
+      <nav id="main-menu" className={this.props.mainMenuActive ? 'main-menu main-menu-open main-menu-desktop' : 'main-menu main-menu-closed main-menu-desktop'} aria-label="Main menu" aria-expanded="false">
         <button className="button menu-button menu-close"><FontAwesomeIcon icon="bars" aria-label="Close main menu" onClick={this.props.toggleMainMenu} /></button>
         <ul>
           <li>

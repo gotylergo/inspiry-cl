@@ -52,10 +52,10 @@ class Dashboard extends Component {
   render() {
     document.title = this.props.docTitle;
     return (
-      <div className="dashboard">
+      <main className="dashboard">
         <TopBar />
         <MyStories stories={this.state.myStories} loadStories={this.loadStories} loading={this.state.loading} toggleModal={this.props.toggleModal} />
-      </div>
+      </main>
     );
   }
   componentDidMount() {
