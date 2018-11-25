@@ -51,10 +51,10 @@ class SharedStory extends Component {
     }
 
     return (
-      <div className="card-container shared-story">
+      <main className="card-container shared-story">
         <TopBar />
         {Story}
-      </div>
+      </main>
     );
   }
   componentDidMount() {
