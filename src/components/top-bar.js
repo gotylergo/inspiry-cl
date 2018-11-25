@@ -68,7 +68,7 @@ class TopBar extends Component {
       }
       return ' ';
     };
-    const HelpButton = this.props.pageTitle === 'my stories' ? <div className="help-button"><button onClick={(e) => this.openHelpModal(e)}><FontAwesomeIcon icon="question-circle" /></button></div> : '';
+    const HelpButton = this.props.pageTitle === 'my stories' ? <div className="dash-help-button"><button onClick={(e) => this.openHelpModal(e)}><FontAwesomeIcon icon="question-circle" /></button></div> : '';
 
     return (
       <div className="top-bar-container" >

@@ -22,17 +22,21 @@
     font-family: 'Comfortaa', Verdana, cursive;
 }
 
-.help-button {
+.dash-help-button {
     float: right;
     padding: 0 1em;
     color: #fff;
 }
 
-.help-button button {
+.dash-help-button button {
     background: none;
     border: none;
     color: #fff;
     font-size: 1em;
+    cursor: pointer;
+}
+.dash-help-button button:hover {
+    color: rgba(255,255,255,.8);
 }
 
 .top-bar .menu-button {
