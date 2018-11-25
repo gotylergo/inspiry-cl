@@ -1,6 +1,10 @@
 .landing-story {
   margin: 1em auto 0 auto;
-  padding: 2.5%;
+  border-radius: 3px;
+  border: 2px solid #fff;
+}
+.landing-story > * {
+  padding: .5em;
 }
 
 @media only screen and (min-width: 450px) {
@@ -27,16 +31,12 @@
   }
 }
 
-.landing-story .story-img {
-  margin-bottom: 1.5em;
-}
-
 .landing-story h3,
 .landing-story h4 {
   height: 1em;
   line-height: 1em;
-  margin-top: .1em;
-  margin-bottom: .5em;
+  margin-top: 0;
+  margin-bottom: 0;
   font-size: 1.17em;
   font-family: Roboto, sans-serif;
 }
@@ -63,7 +63,7 @@
   vertical-align: middle;
   text-shadow: 0 0 0 #118696;
   border-radius: 50% 50%;
-  padding: .2em;
+  padding: .3em .6em .3em .3em;
   content: '\1F464';
   font-size: .8em;
   background-color: #fff;
@@ -79,4 +79,5 @@
 
 .landing-story p {
   text-align: justify;
+  margin: 0;
 }
