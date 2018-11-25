@@ -56,6 +56,10 @@ class TopBar extends Component {
   componentDidMount() {
     this.checkCredentials();
   }
+  openHelpModal(e) {
+    e.preventDefault();
+    this.props.toggleModal('help');
+  }
 
   render() {
     const OpenModal = () => {
@@ -64,6 +68,7 @@ class TopBar extends Component {
       }
       return ' ';
     };
+    const HelpButton = this.props.pageTitle === 'my stories' ? <div className="help-button"><button onClick={(e) => this.openHelpModal(e)}><FontAwesomeIcon icon="question-circle" /></button></div> : '';
 
     return (
       <div className="top-bar-container" >
@@ -72,6 +77,7 @@ class TopBar extends Component {
             <FontAwesomeIcon icon="bars" />
           </button>
           <div className="page-title" title="home" alt="home"><Link to="/"><FontAwesomeIcon icon="home" /></Link>{this.props.pageTitle}</div>
+          {HelpButton}
         </header>
         <MainMenu toggleMainMenu={this.props.toggleMainMenu} toggleModal={this.props.toggleModal} closeMenuOpenHelpModal={this.props.closeMenuOpenHelpModal} userAuthed={this.state.userAuthed} signout={this.signout}/>
         <OpenModal />
@@ -97,7 +103,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   toggleMainMenu: () => dispatch(toggleMainMenu()),
-  toggleModal: () => dispatch(toggleModal()),
+  toggleModal: (modal) => dispatch(toggleModal(modal)),
 });
 
 export default connect(

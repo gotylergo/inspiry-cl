@@ -15,6 +15,7 @@ import {
   faShareSquare,
   faChevronCircleDown,
   faHome,
+  faQuestionCircle,
 } from '@fortawesome/free-solid-svg-icons';
 import Landing from './landing';
 import Writer from './writer';
@@ -32,6 +33,7 @@ library.add(
     faShareSquare,
     faChevronCircleDown,
     faHome,
+    faQuestionCircle
 );
 
 export class App extends Component {

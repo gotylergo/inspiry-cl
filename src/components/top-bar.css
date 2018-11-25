@@ -22,6 +22,19 @@
     font-family: 'Comfortaa', Verdana, cursive;
 }
 
+.help-button {
+    float: right;
+    padding: 0 1em;
+    color: #fff;
+}
+
+.help-button button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1em;
+}
+
 .top-bar .menu-button {
     padding: 0 .5em;
     opacity: 1;
