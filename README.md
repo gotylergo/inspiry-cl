@@ -7,7 +7,7 @@ The frontend client to the inspiry app (backend: [inspiry-svr](https://github.co
 - Username: demouser
 - Password: dem0P@ss1
 
-![Writer Screenshot](http://i64.tinypic.com/hs8is7.png) ![My Stories Screenshot](http://i68.tinypic.com/5d4h0n.png)
+![Inspiry Screenshot](https://tylerjustyn.dev/img/inspiry.png)
 
 ## Technologies
  - [React.js](https://reactjs.org) - React is a JavaScript library for building user interfaces.
@@ -16,4 +16,4 @@ The frontend client to the inspiry app (backend: [inspiry-svr](https://github.co
  - [Enzyme](https://github.com/airbnb/enzyme) - JavaScript Testing utility for React that makes it easier to assert, manipulate, and traverse your React Components' output.
 
 ## Who are you?
-I'm Tyler! Find me on Github: https://github.com/gotylergo
+I'm Tyler! Check out my portfolio: https://tylerjustyn.dev
