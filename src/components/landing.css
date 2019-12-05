@@ -187,10 +187,8 @@ h2>a:active {
 
 .story-container {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: stretch;
-  align-content: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .landing footer {

@@ -1,38 +1,28 @@
 .landing-story {
-  margin: 1em auto 0 auto;
+  margin-top: 1em;
+  margin-bottom: 1em;
   border: 2px solid #fff;
-}
-.landing-story > * {
-  padding: .5em;
+  background: #fff;
+  color: #000;
+  padding: 1.5em;
+  box-sizing: border-box;
+  flex: 0 1 calc(100% - 1em);
 }
 
-@media only screen and (min-width: 450px) {
-    .landing-story {
-      display: block;
-      margin-right: auto;
-      margin-left: auto;
-      width: 70%;
-      padding: 0;
-    }
-  }
-
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 60em) {
   .landing-story {
-    display: inline-block;
-    width: 40%;
+    flex: 0 1 calc(48% - 1em);
   }
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 80em) {
   .landing-story {
-    display: inline-block;
-    width: 28%;
+    flex: 0 1 calc(30% - 1em);
   }
 }
 
 .landing-story h3,
 .landing-story h4 {
-  height: 1em;
   line-height: 1em;
   margin-top: 0;
   margin-bottom: 0;
@@ -41,13 +31,8 @@
 }
 
 .landing-story h3 {
-  text-align: left;
+  font-size: 1.5em;
   text-transform: lowercase;
-}
-
-.landing-story h4 {
-  float: right;
-  margin-left: .5em;
 }
 
 .landing-story h4::before {
@@ -61,7 +46,6 @@
   color: transparent;
   vertical-align: middle;
   text-shadow: 0 0 0 #118696;
-  border-radius: 50% 50%;
   padding: .3em .6em .3em .3em;
   content: '\1F464';
   font-size: .8em;
@@ -70,13 +54,11 @@
 
 .landing-story img {
   display: inline-block;
-  height: 100px;
-  width: 100px;
-  border-radius: 50% 50%;
+  max-height: 300px;
+  max-width: 100%;
   background: #fff;
 }
 
 .landing-story p {
-  text-align: justify;
-  margin: 0;
+  text-align: left;
 }

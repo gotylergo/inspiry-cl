@@ -16,9 +16,9 @@ class LandingStories extends Component {
             <div className="story-img">
               <img src={`${IMG_DIR}/${story.img}`} alt={story.img} />
             </div>
-            <h4>{story.user}</h4>
             <h3>{story.title}</h3>
             <p>{story.content}</p>
+            <h4>{story.user}</h4>
           </div>
         );
     } else {
