@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import HelpModal from './help-modal';
@@ -52,6 +53,11 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   toggleModal: (modal) => dispatch(toggleModal(modal)),
 });
+
+Modal.propTypes = {
+  toggleModal: PropTypes.func,
+  modalActive: PropTypes.string,
+};
 
 export default connect(
     mapStateToProps,

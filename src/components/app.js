@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import {
   BrowserRouter as
   Router,
+  Routes,
   Route,
-  Redirect,
-  Switch,
+  Navigate,
 } from 'react-router-dom';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {
@@ -53,17 +53,29 @@ export class App extends Component {
 
     return (
       <Router>
-        <Switch>
-          <Route exact path="/" component={Landing} />
-          <Route exact path="/writer" component={Writer} />
-          <Redirect exact from="/home" to="/dashboard" />
-          <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/id/:storyID" render={(props) => (<SharedStory {...props} />)} />
-          <Route component={NoMatch} />
-        </Switch>
+        <Routes>
+          <Route path="/" element={<Landing/>} />
+          <Route path="/writer" element={<Writer/>} />
+          <Navigate from="/home" to="/dashboard" />
+          <Route path="/dashboard" element={<Dashboard/>} />
+          <Route path="/id/:storyID" render={(props) => (<SharedStory {...props} />)} />
+          <Route element={<NoMatch/>} />
+        </Routes>
       </Router>
     );
   }
 }
+
+App.propTypes = {
+  location: React.PropTypes.shape({
+    pathname: React.PropTypes.string.isRequired,
+  }),
+};
+
+App.defaultProps = {
+  location: {
+    pathname: '',
+  },
+};
 
 export default App;

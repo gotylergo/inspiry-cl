@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import {REACT_APP_API_BASE_URL, IMG_DIR} from '../config';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import TopBar from './top-bar';
@@ -34,6 +34,8 @@ class Writer extends Component {
       story: '',
     };
   }
+
+  navigate = useNavigate();
 
   startWriting() {
     this.setState({
@@ -93,8 +95,8 @@ class Writer extends Component {
     }
 
     // Set the ending punctuation
-    let sent = this.state.currentSentence;
-    let sentLastChar = sent.slice(-1);
+    const sent = this.state.currentSentence;
+    const sentLastChar = sent.slice(-1);
     let endChar;
     if (e.key === 'Enter') {
       endChar = '.';
@@ -136,7 +138,7 @@ class Writer extends Component {
   saveStory = (e) => {
     e.preventDefault();
     const myToken = sessionStorage.getItem('token');
-    let storyData = JSON.stringify({
+    const storyData = JSON.stringify({
       content: this.state.story,
       title: `my ${this.state.genre} story`,
       img: this.state.img.file,
@@ -161,7 +163,7 @@ class Writer extends Component {
             });
           })
           .then(() => {
-            this.props.history.replace('/dashboard');
+            navigate('/dashboard');
           })
           .catch((err) => {
             console.error(err);

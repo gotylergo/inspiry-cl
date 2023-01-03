@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {withRouter} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import {toggleModal} from '../actions';
 import {REACT_APP_API_BASE_URL} from '../config';
 
@@ -18,14 +18,14 @@ class SignInForm extends Component {
   }
 
   handleChange(e) {
-    let name = e.target.name;
-    let value = e.target.value;
+    const name = e.target.name;
+    const value = e.target.value;
     this.setState({[name]: value});
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    let user = JSON.stringify({
+    const user = JSON.stringify({
       username: this.state.username,
       password: this.state.password,
     });
@@ -85,4 +85,4 @@ const mapDispatchToProps = (dispatch) => ({
   toggleModal: () => dispatch(toggleModal()),
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignInForm));
+export default useNavigate(connect(mapStateToProps, mapDispatchToProps)(SignInForm));

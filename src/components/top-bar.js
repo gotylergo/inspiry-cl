@@ -30,7 +30,7 @@ class TopBar extends Component {
           })
           .then((res) => {
             if (!res.ok) {
-              return Promise.reject();
+              return Promise.reject(new Error('error'));
             }
             return this.setState({
               stories: res,

@@ -27,7 +27,7 @@ class AuthModel extends Component {
 
   render() {
     const AuthForm = () => {
-      let props = {
+      const props = {
         changeForm: (form) => this.changeForm(form),
         setStatus: (err) => this.setStatus(err),
       };

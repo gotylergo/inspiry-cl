@@ -16,8 +16,8 @@ class RegisterForm extends Component {
   }
 
   handleChange(e) {
-    let name = e.target.name;
-    let value = e.target.value;
+    const name = e.target.name;
+    const value = e.target.value;
     this.setState({[name]: value});
   }
 
@@ -26,7 +26,7 @@ class RegisterForm extends Component {
     if (this.state.password !== this.state.passwordConfirm) {
       return this.props.setStatus('Passwords do not match.');
     }
-    let user = {
+    const user = {
       name: this.state.name,
       username: this.state.username,
       password: this.state.password,
